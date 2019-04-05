@@ -4,5 +4,10 @@
  - still coding... now, **YOLO V1 loss**, **Resnet backbone** finished. 
  - now I'm writing the fuckin **data loader**
 
+ ### TODO
+  - `data loader`
+  - `NMS/soft-NMS/softer-NMS`
+  - `train voc 2007`
+
 
 
