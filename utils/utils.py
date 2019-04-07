@@ -137,7 +137,7 @@ def decoder(pred, grid_num=7, B=2, device='cpu', thresh=0.3, gt=False):
     
     nms_thresh = 1.0
     if not gt:
-        nms_thresh=0.35
+        nms_thresh=0.15
     keep = nms(boxes,probs, nms_thresh)
     return boxes[keep],cls_indexs[keep],probs[keep]
     

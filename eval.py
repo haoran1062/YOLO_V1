@@ -29,7 +29,7 @@ if __name__ == "__main__":
     S = 14
     clsN = 20
     file_path = '2007_val.txt'
-    file_path = '2007_train.txt'
+    # file_path = '2007_train.txt'
 
     mean = torch.tensor([0.485, 0.456, 0.406], dtype=torch.float32)
     std = torch.tensor([0.229, 0.224, 0.225], dtype=torch.float32)
@@ -41,7 +41,7 @@ if __name__ == "__main__":
     ])
 
     test_dataset = yoloDataset(list_file=file_path, train=False,transform = transform, device=device, little_train=True, S=14)
-    test_loader = DataLoader(test_dataset,batch_size=batch_size,shuffle=False)#,num_workers=None)
+    test_loader = DataLoader(test_dataset,batch_size=batch_size,shuffle=True)#,num_workers=None)
 
     # YOLONet = MyResNet(BottleBlock)
     YOLONet = MyResNet()
