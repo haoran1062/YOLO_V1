@@ -200,6 +200,7 @@ class MyResNet(nn.Module):
         x = self.C5(x)
 
         x = self.C6(x)
+        x = F.sigmoid(x)
         x = x.permute(0, 2, 3, 1)
 
         # x = self.GlobalAveragePooling(x)
@@ -210,29 +211,29 @@ class MyResNet(nn.Module):
 
 
 
-if __name__ == "__main__":
-    tf = transforms.Compose([
-        transforms.RandomResizedCrop(224),
-        transforms.RandomHorizontalFlip(),
-        transforms.ToTensor(),
-        transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
-    ])
-    device = 'cuda:0'
+# if __name__ == "__main__":
+#     tf = transforms.Compose([
+#         transforms.RandomResizedCrop(224),
+#         transforms.RandomHorizontalFlip(),
+#         transforms.ToTensor(),
+#         transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
+#     ])
+#     device = 'cuda:0'
 
-    in_img = np.zeros((448, 448, 3), np.uint8)
-    t_img = transforms.ToTensor()(in_img)
-    t_img = transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])(t_img)
-    t_img.unsqueeze_(0)
-    t_img = t_img.to(device)
-    # t_img = tf(in_img)
-    # t_img
+#     in_img = np.zeros((448, 448, 3), np.uint8)
+#     t_img = transforms.ToTensor()(in_img)
+#     t_img = transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])(t_img)
+#     t_img.unsqueeze_(0)
+#     t_img = t_img.to(device)
+#     # t_img = tf(in_img)
+#     # t_img
     
-    print(t_img.shape, t_img.device)
-    model = MyResNet(BottleBlock, BackBoneStyle=50, S=14, B=2, C=20)
-    # model = MyResNet(BasicBlock, BackBoneStyle=18)
-    model.to(device)
-    # model.forward(t_img)
-    # print(model)
-    summary(model, (3, 448, 448))
-    t = model.forward(t_img)
-    print(t.shape)
+#     print(t_img.shape, t_img.device)
+#     model = MyResNet(BottleBlock, BackBoneStyle=50, S=14, B=2, C=20)
+#     # model = MyResNet(BasicBlock, BackBoneStyle=18)
+#     model.to(device)
+#     # model.forward(t_img)
+#     # print(model)
+#     summary(model, (3, 448, 448))
+#     t = model.forward(t_img)
+#     print(t.shape)

@@ -48,6 +48,7 @@ class YOLOLossV1(nn.Module):
         no_obj_contain_pred = no_obj_pred[no_obj_mask]
         no_obj_contain_target = no_obj_target[no_obj_mask]
         no_obj_loss = F.mse_loss(no_obj_contain_pred, no_obj_contain_target, size_average=False)
+        
 
 
         # contain object loss
@@ -86,7 +87,7 @@ class YOLOLossV1(nn.Module):
         # cls loss
         cls_loss = F.mse_loss(cls_pred, cls_target, size_average=False)
 
-        total_loss = self.lambda_coord * location_loss + contain_loss + not_contain_loss + self.lambda_noobj * no_obj_loss + cls_loss
+        total_loss = self.lambda_coord * location_loss +  contain_loss + self.lambda_noobj * not_contain_loss + cls_loss #  + self.lambda_noobj * no_obj_loss
         total_loss /= self.batch_size
 
         return total_loss
@@ -99,11 +100,9 @@ if __name__ == "__main__":
     clsN = 20
     device = 'cuda:0'
     device = 'cpu'
-    pred_tensor, target_tensor = make_eval_tensor(batch_size, S, B, clsN, device)
-    # pred_tensor = pred_tensor.to(device)
-    # target_tensor = target_tensor.to(device)
-    # print(pred_tensor.device)
-    loss_layer = YOLOLossV1(batch_size, S, B, clsN, _device=device)
-    loss_layer.to(device)
-    total_loss = loss_layer.forward(pred_tensor, target_tensor)
-    print(total_loss, total_loss.device)
+    # pred_tensor, target_tensor = make_eval_tensor(batch_size, S, B, clsN, device)
+
+    # loss_layer = YOLOLossV1(batch_size, S, B, clsN, _device=device)
+    # loss_layer.to(device)
+    # total_loss = loss_layer.forward(pred_tensor, target_tensor)
+    # print(total_loss, total_loss.device)
