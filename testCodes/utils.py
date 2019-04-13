@@ -89,7 +89,7 @@ def make_eval_tensor(batch_size, S, B, C, device='cpu'):
     target_tensor = torch.from_numpy(tnl)
     return pred_tensor.to(device), target_tensor.to(device)
 
-def decoder(pred, grid_num=7, B=2, device='cpu', thresh=0.3, nms_th=0.5, gt=False):
+def decoder(pred, grid_num=7, B=2, device='cpu', thresh=0.3, gt=False):
     '''
     pred (tensor) 1x7x7x30
     return (tensor) box[[x1,y1,x2,y2]] label[...]
@@ -137,7 +137,7 @@ def decoder(pred, grid_num=7, B=2, device='cpu', thresh=0.3, nms_th=0.5, gt=Fals
     
     nms_thresh = 1.0
     if not gt:
-        nms_thresh=nms_th
+        nms_thresh=1.0
     keep = nms(boxes,probs, nms_thresh)
     return boxes[keep],cls_indexs[keep],probs[keep]
     
@@ -178,22 +178,13 @@ def nms(bboxes,scores,threshold=0.25):
         order = order[ids+1]
     return torch.LongTensor(keep)
 
-VOC_CLASSES = (    # always index 0
-    'aeroplane', 'bicycle', 'bird', 'boat',
-    'bottle', 'bus', 'car', 'cat', 'chair',
-    'cow', 'diningtable', 'dog', 'horse',
-    'motorbike', 'person', 'pottedplant',
-'sheep', 'sofa', 'train', 'tvmonitor')
-
-def draw_debug_rect(img, bboxes, clss, confs, color=(0, 255, 0), show_time=10000):
+def draw_debug_rect(img, bboxes, color=(0, 255, 0)):
     
-    
-
     if isinstance(img, torch.Tensor):
         img = img.mul(255).byte()
         img = img.cpu().numpy()
         # img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-    # print(img.shape)
+    print(img.shape)
     if isinstance(bboxes, torch.Tensor):
         bboxes = bboxes.tolist()
     def bbox_un_norm(img, bboxes):
@@ -208,13 +199,10 @@ def draw_debug_rect(img, bboxes, clss, confs, color=(0, 255, 0), show_time=10000
     if bboxes[0][0] < 1:
         bboxes = bbox_un_norm(img, bboxes)
     # print(bboxes)
-    for i, box in enumerate(bboxes):
-        color = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
-        cv2.rectangle(img, (box[0], box[1]), (box[2], box[3]), color=color,thickness=2)
-        cls_i = int(clss[i].item())
-        cv2.putText(img, '%s %.2f'%(VOC_CLASSES[cls_i], confs[i]), (box[0], box[1] + 10), cv2.FONT_HERSHEY_SIMPLEX, 0.4, color, 1, 10)
+    for box in bboxes:
+        cv2.rectangle(img, (box[0], box[1]), (box[2], box[3]), color=color,thickness=1)
     cv2.imshow('debug draw bboxes', img)
-    cv2.waitKey(show_time)
+    cv2.waitKey(10000)
     
 def cv_resize(img, resize=448):
     return cv2.resize(img, (resize, resize))

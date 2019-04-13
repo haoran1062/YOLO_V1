@@ -4,7 +4,7 @@ import torch
 
 import torch.nn as nn
 import torch.nn.functional as F
-from utils.utils import *
+from utils import *
 
 class YOLOLossV1(nn.Module):
     def __init__(self, _batch_size, _S, _B, _clsN, _l_coord=5., _l_noobj=0.5, _device='cuda:0'):
@@ -25,9 +25,6 @@ class YOLOLossV1(nn.Module):
         # get coord or no Object mask from ground truth input:
         gt_coord_mask = target_tensor[:, :, :, 0] > 0                # [batch_size, S, S, 0]
         gt_no_obj_mask = target_tensor[:, :, :, 0] == 0              # [batch_size, S, S, 0]
-        gt_coord_mask = gt_coord_mask.unsqueeze(-1).expand_as(target_tensor)
-        gt_no_obj_mask = gt_no_obj_mask.unsqueeze(-1).expand_as(target_tensor)
-
 
         # flatten pred tensor
         coord_pred = pred_tensor[gt_coord_mask].view(-1, self.B*5+self.C)    # flatten to [-1,  B*(c, x, y, w, h) + C ]
@@ -50,13 +47,8 @@ class YOLOLossV1(nn.Module):
         no_obj_mask[:, :self.B] = 1
         no_obj_contain_pred = no_obj_pred[no_obj_mask]
         no_obj_contain_target = no_obj_target[no_obj_mask]
-        no_obj_loss = F.mse_loss(no_obj_contain_pred, no_obj_contain_target, reduction='sum')
+        no_obj_loss = F.mse_loss(no_obj_contain_pred, no_obj_contain_target, size_average=False)
         
-        # print('no obj contain pred: ')
-        # print(no_obj_contain_pred)
-        # print('\n\n\n')
-        # print('no obj contain target: ')
-        # print(no_obj_contain_target)        
         # print(bboxes_target.size())
         
 
@@ -85,27 +77,25 @@ class YOLOLossV1(nn.Module):
             coord_active_mask[i + max_index] = 1
 
         coord_not_active_mask -= coord_active_mask
-        # print(coord_active_mask)
+        print(coord_active_mask)
         # print(coord_not_active_mask)
         # exit()
 
         # hit object loss
-        contain_loss = F.mse_loss(confidence_pred[coord_active_mask], bbox_target_IoUs[coord_active_mask], reduction='sum')
-        location_loss = F.mse_loss( torch.cat([ bboxes_pred[coord_active_mask][:, :2], torch.sqrt(bboxes_pred[coord_active_mask][:, 2:]) ]  ) , torch.cat([bboxes_target[coord_active_mask][:, :2], torch.sqrt(bboxes_target[coord_active_mask][:, 2:])] ), reduction='sum' )
+        contain_loss = F.mse_loss(confidence_pred[coord_active_mask], bbox_target_IoUs[coord_active_mask], size_average=False)
+        location_loss = F.mse_loss( torch.cat([ bboxes_pred[coord_active_mask][:, :2], torch.sqrt(bboxes_pred[coord_active_mask][:, 2:]) ]  ) , torch.cat([bboxes_target[coord_active_mask][:, :2], torch.sqrt(bboxes_target[coord_active_mask][:, 2:])] ), size_average=False )
         
         # not hit object loss
         bbox_target_IoUs[coord_not_active_mask] = 0
-        not_contain_loss = F.mse_loss(confidence_pred[coord_not_active_mask], bbox_target_IoUs[coord_not_active_mask], reduction='sum')
+        not_contain_loss = F.mse_loss(confidence_pred[coord_not_active_mask], bbox_target_IoUs[coord_not_active_mask], size_average=False)
 
         # cls loss
-        cls_loss = F.mse_loss(cls_pred, cls_target, reduction='sum')
+        cls_loss = F.mse_loss(cls_pred, cls_target, size_average=False)
 
-        total_loss = self.lambda_coord * location_loss + contain_loss + self.lambda_noobj *(not_contain_loss + no_obj_loss)  + cls_loss #  + self.lambda_noobj * no_obj_loss + no_obj_loss
-        # print('location loss : %.5f'% location_loss, 'contain loss : %.5f'% contain_loss, 'not contain loss: %.5f'% not_contain_loss  , 'no obj loss : %.5f'% no_obj_loss, 'cls loss : %.5f'% cls_loss)
-        print('location loss : %.5f'% (location_loss / self.batch_size), 'contain loss : %.5f'% (contain_loss / self.batch_size), 'not contain loss: %.5f'% (not_contain_loss / self.batch_size)  , 'no obj loss : %.5f'%( no_obj_loss / self.batch_size), 'cls loss : %.5f'%(cls_loss / self.batch_size) )
-
+        total_loss = self.lambda_coord * location_loss +  contain_loss + self.lambda_noobj *(not_contain_loss + no_obj_loss)  + cls_loss #  + self.lambda_noobj * no_obj_loss + no_obj_loss
+        print('location loss : %.5f'% location_loss, 'contain loss : %.5f'% contain_loss, 'not contain loss: %.5f'% not_contain_loss  , 'no obj loss : %.5f'% no_obj_loss, 'cls loss : %.5f'% cls_loss)
         total_loss /= self.batch_size
-        # print('total loss : %.5f'%total_loss)
+        print('total loss : %.5f'%total_loss)
 
         return total_loss
 

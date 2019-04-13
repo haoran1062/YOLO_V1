@@ -200,6 +200,7 @@ class ResNet(nn.Module):
 
 def resnet18(pretrained=False, **kwargs):
     """Constructs a ResNet-18 model.
+
     Args:
         pretrained (bool): If True, returns a model pre-trained on ImageNet
     """
@@ -211,6 +212,7 @@ def resnet18(pretrained=False, **kwargs):
 
 def resnet34(pretrained=False, **kwargs):
     """Constructs a ResNet-34 model.
+
     Args:
         pretrained (bool): If True, returns a model pre-trained on ImageNet
     """
@@ -220,8 +222,9 @@ def resnet34(pretrained=False, **kwargs):
     return model
 
 
-def MyResNet(pretrained=False, **kwargs):
+def resnet50(pretrained=False, **kwargs):
     """Constructs a ResNet-50 model.
+
     Args:
         pretrained (bool): If True, returns a model pre-trained on ImageNet
     """
@@ -233,6 +236,7 @@ def MyResNet(pretrained=False, **kwargs):
 
 def resnet101(pretrained=False, **kwargs):
     """Constructs a ResNet-101 model.
+
     Args:
         pretrained (bool): If True, returns a model pre-trained on ImageNet
     """
@@ -244,6 +248,7 @@ def resnet101(pretrained=False, **kwargs):
 
 def resnet152(pretrained=False, **kwargs):
     """Constructs a ResNet-152 model.
+
     Args:
         pretrained (bool): If True, returns a model pre-trained on ImageNet
     """
@@ -251,3 +256,23 @@ def resnet152(pretrained=False, **kwargs):
     if pretrained:
         model.load_state_dict(model_zoo.load_url(model_urls['resnet152']))
     return model
+
+from torchsummary import summary
+from torchvision import transforms, utils
+import numpy as np 
+
+if __name__ == "__main__":
+    res_50_net = resnet50()
+    res_50_net = res_50_net.to('cuda:0')
+    device = 'cuda:0'
+    # print(res_50_net)
+    summary(res_50_net, (3, 448, 448))
+
+    in_img = np.zeros((448, 448, 3), np.uint8)
+    t_img = transforms.ToTensor()(in_img)
+    t_img = transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])(t_img)
+    t_img.unsqueeze_(0)
+    t_img = t_img.to(device)
+    
+    t = res_50_net.forward(t_img)
+    print(t.shape)

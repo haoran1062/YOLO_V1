@@ -7,10 +7,10 @@ import torchvision.transforms as transforms
 from torch.utils.data import DataLoader
 import imgaug as ia
 from imgaug import augmenters as iaa
-ia.seed(random.randint(1, 10000))
+ia.seed(1)
 class yoloDataset(data.Dataset):
     image_size = 448
-    def __init__(self,list_file,train,transform, device, little_train=False, with_file_path=False, S=7, test_mode=False):
+    def __init__(self,list_file,train,transform, device, little_train=False, S=7):
         print('data init')
         
         self.train = train
@@ -22,11 +22,9 @@ class yoloDataset(data.Dataset):
         self.B = 2
         self.C = 20
         self.device = device
-        self._test = test_mode
-        self.with_file_path = with_file_path
 
-        self.augmentation = iaa.Sometimes(0.125,
-            iaa.SomeOf((1, 3), [
+        self.augmentation = iaa.Sometimes(0.5,
+            iaa.SomeOf((1, 6), [
                 iaa.Dropout([0.05, 0.2]),      # drop 5% or 20% of all pixels
                 iaa.Sharpen((0.1, 1.0)),       # sharpen the image
                 iaa.GaussianBlur(sigma=(2., 3.5)),
@@ -58,12 +56,12 @@ class yoloDataset(data.Dataset):
             ], random_order=True)
         )
 
-        # torch.manual_seed(23)
+        torch.manual_seed(23)
         with open(list_file) as f:
             lines  = f.readlines()
         
         if little_train:
-            lines = lines[:64*8]
+            lines = lines[:64]
 
         for line in lines:
             splited = line.strip().split()
@@ -88,8 +86,8 @@ class yoloDataset(data.Dataset):
     def __getitem__(self,idx):
         
         fname = self.fnames[idx]
-        if self._test:
-            print(fname)
+        # fname = '/data/datasets/VOCdevkit/VOC2007/JPEGImages/000067.jpg'
+        # print(fname)
         img = cv2.imread(fname)
         boxes, labels = self.get_boxes_labels(fname)
 
@@ -105,8 +103,6 @@ class yoloDataset(data.Dataset):
         img = self.transform(img)
         # print(fname)
         # print(type(img))
-        if self.with_file_path:
-            return img, target, fname
         return img, target
         # return img.to(self.device), target.to(self.device)
 
@@ -140,29 +136,30 @@ class yoloDataset(data.Dataset):
         return target
 
 
-# if __name__ == "__main__":
+if __name__ == "__main__":
 
-#     from utils import decoder, draw_debug_rect, cv_resize
+    from utils import decoder, draw_debug_rect, cv_resize
 
-#     transform = transforms.Compose([
-#         transforms.Lambda(cv_resize),
-#         transforms.ToTensor(),
-#         transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225]),
-#     ])
-#     train_dataset = yoloDataset(list_file='2007_val.txt',train=True,transform = transform, device='cuda:0')
-#     train_loader = DataLoader(train_dataset,batch_size=1,shuffle=False,num_workers=0)
-#     train_iter = iter(train_loader)
-#     for i in range(2):
-#         img, target = next(train_iter)
-#     print(img.shape, target.shape)
-#     boxes, clss, confs = decoder(target)
-#     print(boxes, clss, confs)
+    transform = transforms.Compose([
+        transforms.Lambda(cv_resize),
+        transforms.ToTensor(),
+        transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225]),
+    ])
+    device = 'cpu'
+    train_dataset = yoloDataset(list_file='2007_val.txt',train=False, transform = transform, device=device, little_train=True, S=14)
+    train_loader = DataLoader(train_dataset,batch_size=1,shuffle=False,num_workers=0)
+    train_iter = iter(train_loader)
+    for i in range(1):
+        img, target = next(train_iter)
+    print(img.shape, target.shape)
+    boxes, clss, confs = decoder(target)
+    print(boxes, clss, confs)
 
-#     mean = torch.tensor([0.485, 0.456, 0.406], dtype=torch.float32)
-#     std = torch.tensor([0.229, 0.224, 0.225], dtype=torch.float32)
-#     un_normal_trans = transforms.Normalize((-mean / std).tolist(), (1.0 / std).tolist())
-#     img = un_normal_trans(img.squeeze(0))
-#     draw_debug_rect(img.permute(1, 2 ,0), boxes)
-    # for i in range(7):
-    #     for j in range(7):
-    #         print(target[:, i:i+1, j:j+1, :])
+    mean = torch.tensor([0.485, 0.456, 0.406], dtype=torch.float32)
+    std = torch.tensor([0.229, 0.224, 0.225], dtype=torch.float32)
+    un_normal_trans = transforms.Normalize((-mean / std).tolist(), (1.0 / std).tolist())
+    img = un_normal_trans(img.squeeze(0))
+    draw_debug_rect(img.permute(1, 2 ,0), boxes)
+    for i in range(14):
+        for j in range(14):
+            print(target[:, i:i+1, j:j+1, :])
