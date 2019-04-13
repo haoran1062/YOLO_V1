@@ -58,9 +58,10 @@ if __name__ == "__main__":
     model_name = 'best.pth'
     model_name = 'resnet_adam_7.pth'
     model_name = 'resnet_sgd_7.pth'
+    model_name = 'densenet_adamax_yolo.pth'
     gpu_ids = [0]
-    YOLONet = resnet50()
-    # YOLONet = densenet121()
+    # YOLONet = resnet50()
+    YOLONet = densenet121()
     YOLONet = nn.DataParallel(YOLONet.to(device), device_ids=gpu_ids)
 
     YOLONet.load_state_dict(torch.load(model_name))
@@ -79,10 +80,10 @@ if __name__ == "__main__":
             
             images = images.to(device)
             target = target.to(device)
-            print(images.shape, target.shape)
+            # print(images.shape, target.shape)
             
             pred = YOLONet(images)
-            print(pred.shape)
+            # print(pred.shape)
             # pred = convert_input_tensor_dim(pred)
             # for i in range(7):
             #     for j in range(7):
