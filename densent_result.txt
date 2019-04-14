@@ -1,50 +1,50 @@
-densent : thresh 0.1, nms 0.5
+densent : thresh 0.1, nms 0.5 epoch 50
         train.txt:
 2494it [01:14, 34.16it/s]
 ---start evaluate---
----class aeroplane ap 0.773995807842009---
----class bicycle ap 0.6623408711240484---
----class bird ap 0.8084679681328064---
----class boat ap 0.5859652070477668---
----class bottle ap 0.33874927780879943---
----class bus ap 0.7621159231609194---
----class car ap 0.7472907527551009---
----class cat ap 0.9180038448161734---
----class chair ap 0.5167077138920453---
----class cow ap 0.8360680645967709---
----class diningtable ap 0.6153752013122699---
----class dog ap 0.927158416701211---
----class horse ap 0.8750607368299197---
----class motorbike ap 0.7230814166317913---
----class person ap 0.6269927818158512---
----class pottedplant ap 0.45437723412663034---
----class sheep ap 0.6141834711097361---
----class sofa ap 0.7710394458546226---
----class train ap 0.9036157300631806---
----class tvmonitor ap 0.6937219557868695---
----map 0.7077155910704261---
+---class aeroplane ap 0.911184022409345---
+---class bicycle ap 0.7893188849410354---
+---class bird ap 0.9246358396636514---
+---class boat ap 0.8744334434684214---
+---class bottle ap 0.7084383444250607---
+---class bus ap 0.9472926241306948---
+---class car ap 0.8990847125792114---
+---class cat ap 0.9703414864705189---
+---class chair ap 0.8495254813228967---
+---class cow ap 0.8892839922854388---
+---class diningtable ap 0.8659893291534314---
+---class dog ap 0.9642983386355604---
+---class horse ap 0.9305565508773895---
+---class motorbike ap 0.8376377248542736---
+---class person ap 0.8201701586346972---
+---class pottedplant ap 0.8174082409204223---
+---class sheep ap 0.839246698472989---
+---class sofa ap 0.8694074129329008---
+---class train ap 1.0---
+---class tvmonitor ap 0.8901844372809004---
+---map 0.8799218861729419---
 
         test.txt
 4909it [02:26, 33.49it/s]
 ---start evaluate---
----class aeroplane ap 0.46516108874918627---
----class bicycle ap 0.5208006257882188---
----class bird ap 0.4624314505188594---
----class boat ap 0.21915278812899103---
----class bottle ap 0.08342809868120726---
----class bus ap 0.5255490681286487---
----class car ap 0.5438475448444988---
----class cat ap 0.724244880443591---
----class chair ap 0.19985389781259502---
----class cow ap 0.3982810960130502---
----class diningtable ap 0.23787444132913518---
----class dog ap 0.6584080331089687---
----class horse ap 0.5848743551339373---
----class motorbike ap 0.4205091799249678---
----class person ap 0.4119898190984617---
----class pottedplant ap 0.12656492767576902---
----class sheep ap 0.376601179575759---
----class sofa ap 0.43433451200767126---
----class train ap 0.6102392272502248---
----class tvmonitor ap 0.3411968190249455---
----map 0.4172671516619343---
+---class aeroplane ap 0.5513126893069221---
+---class bicycle ap 0.4829162485087622---
+---class bird ap 0.4266397942421496---
+---class boat ap 0.27383910158532965---
+---class bottle ap 0.17819495014077125---
+---class bus ap 0.5316750761265489---
+---class car ap 0.5952991709893201---
+---class cat ap 0.6150582443085234---
+---class chair ap 0.22872436530925344---
+---class cow ap 0.4754569721705964---
+---class diningtable ap 0.319768872835344---
+---class dog ap 0.5600188985318286---
+---class horse ap 0.6642345953984716---
+---class motorbike ap 0.4919864609563626---
+---class person ap 0.4694007006366764---
+---class pottedplant ap 0.15208182709545168---
+---class sheep ap 0.41689314417652396---
+---class sofa ap 0.3813325804660116---
+---class train ap 0.5757299987625568---
+---class tvmonitor ap 0.4162543267332274---
+---map 0.4403409009140316---

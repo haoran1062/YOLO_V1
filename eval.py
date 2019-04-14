@@ -59,6 +59,7 @@ if __name__ == "__main__":
     model_name = 'resnet_adam_7.pth'
     model_name = 'resnet_sgd_7.pth'
     model_name = 'densenet_adamax_yolo.pth'
+    model_name = 'densenet_sgd_S7_yolo.pth'
     gpu_ids = [0]
     # YOLONet = resnet50()
     YOLONet = densenet121()
