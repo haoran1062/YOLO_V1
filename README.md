@@ -6,7 +6,7 @@
  - ##### performance
    - train with voc+ datasets (2007train 2007val 2012train 2012val)
    - test on **voc2007 test** 
-     - backbone `densenet121`, train epoch `23`, **mAP**: `0.417`
+     - backbone `densenet121`, train epoch `68`, **mAP**: `0.478`
      - backbone `resnet50`, train epoch `100+`, **mAP**: `0.447`
 
  ### TODO
