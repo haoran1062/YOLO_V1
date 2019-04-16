@@ -27,12 +27,12 @@ gpu_ids = [0]
 device = 'cuda:0'
 learning_rate = 0.001
 num_epochs = 200
-batch_size = 16
+batch_size = 12
 B = 2
 S = 7
 clsN = 20
 lbd_coord = 5. 
-lbd_no_obj = 1.
+lbd_no_obj = .1
 
 # S = 14
 backbone_type_list = ['densenet', 'resnet']

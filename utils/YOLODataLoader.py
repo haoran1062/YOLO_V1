@@ -10,7 +10,7 @@ from imgaug import augmenters as iaa
 ia.seed(random.randint(1, 10000))
 class yoloDataset(data.Dataset):
     image_size = 448
-    def __init__(self,list_file,train,transform, device, little_train=False, with_file_path=False, S=7, test_mode=False):
+    def __init__(self,list_file,train,transform, device, little_train=False, with_file_path=False, S=7, B = 2, C = 20, test_mode=False):
         print('data init')
         
         self.train = train
@@ -20,8 +20,8 @@ class yoloDataset(data.Dataset):
         self.labels = []
         self.resize = 448
         self.S = S
-        self.B = 2
-        self.C = 20
+        self.B = B
+        self.C = C
         self.device = device
         self._test = test_mode
         self.with_file_path = with_file_path
@@ -50,8 +50,8 @@ class yoloDataset(data.Dataset):
                         iaa.Multiply((0.5, 1.5)),
                         iaa.MultiplyElementwise((0.5, 1.5)),
                         iaa.ReplaceElementwise(0.05, [0, 255]),
-                        iaa.WithColorspace(to_colorspace="HSV", from_colorspace="RGB",
-                                        children=iaa.WithChannels(2, iaa.Add((-10, 50)))),
+                        # iaa.WithColorspace(to_colorspace="HSV", from_colorspace="RGB",
+                        #                 children=iaa.WithChannels(2, iaa.Add((-10, 50)))),
                         iaa.OneOf([
                             iaa.WithColorspace(to_colorspace="HSV", from_colorspace="RGB",
                                             children=iaa.WithChannels(1, iaa.Add((-10, 50)))),
@@ -62,17 +62,17 @@ class yoloDataset(data.Dataset):
                     ], random_order=True)
                 ),
 
-                # iaa.Fliplr(.5),
-                # iaa.Flipud(.5),
+                iaa.Fliplr(.5),
+                iaa.Flipud(.5),
                 # augment changing bboxes 
-                # self.augsometimes(
-                    # iaa.Affine(
-                    #     translate_px={"x": 40, "y": 60},
-                    #     scale={"x": (0.8, 1.2), "y": (0.8, 1.2)},
-                        # translate_percent={"x": (-0.1, 0.1), "y": (-0.1, 0.1)},
-                        # rotate=(-5, 5),
-                    # )
-                # )
+                self.augsometimes(
+                    iaa.Affine(
+                        # translate_px={"x": 40, "y": 60},
+                        scale={"x": (0.8, 1.2), "y": (0.8, 1.2)},
+                        translate_percent={"x": (-0.1, 0.1), "y": (-0.1, 0.1)},
+                        rotate=(-5, 5),
+                    )
+                )
             ],
             random_order=True
         )
@@ -163,20 +163,20 @@ class yoloDataset(data.Dataset):
         if self.train:
             # TODO
             # add data augument
-            print('before: ')
-            print(boxes)
+            # print('before: ')
+            # print(boxes)
             boxes = self.convert2augbbox(cv2.resize(img, (self.resize, self.resize)), self.convertXYWH2XYXY(boxes))
             seq_det = self.augmentation.to_deterministic()
             img = seq_det.augment_images([img])[0]
             boxes = seq_det.augment_bounding_boxes([boxes])[0].remove_out_of_image().clip_out_of_image()
             
-            img = boxes.draw_on_image(cv2.resize(img, (self.resize, self.resize)), thickness=2, color=[0, 0, 255])
+            # img = boxes.draw_on_image(cv2.resize(img, (self.resize, self.resize)), thickness=2, color=[0, 0, 255])
             
             boxes = self.convertAugbbox2XYWH(boxes)
             boxes = torch.Tensor(boxes)
             labels = labels[:boxes.size()[0]]
-            print('after: ')
-            print(boxes)
+            # print('after: ')
+            # print(boxes)
 
             
 
@@ -206,11 +206,17 @@ class yoloDataset(data.Dataset):
         cell_size = 1./self.S
         # wh = boxes[:,2:]-boxes[:,:2]
         # cxcy = (boxes[:,2:]+boxes[:,:2])/2
-        wh = boxes[:, 2:]
-        cxcy = boxes[:, :2]
+        if boxes.size()[0] == 0:
+            return target
+        try:
+            wh = boxes[:, 2:]
+            cxcy = boxes[:, :2]
+        except:
+            print(boxes)
         for i in range(cxcy.size()[0]):
             cxcy_sample = cxcy[i]
             ij = (cxcy_sample/cell_size).ceil()-1 #
+            target[int(ij[1]),int(ij[0]), :] = 0
             target[int(ij[1]),int(ij[0]),:self.B] = 1
             target[int(ij[1]),int(ij[0]),self.B*5 + int(labels[i])] = 1
             xy = ij*cell_size 
@@ -232,14 +238,16 @@ if __name__ == "__main__":
         transforms.ToTensor(),
         transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225]),
     ])
-    train_dataset = yoloDataset(list_file='2007_val.txt',train=True,transform = transform, device='cuda:0')
+    S = 7
+    train_dataset = yoloDataset(list_file='2007_val.txt',train=True,transform = transform, test_mode=True, S=S, device='cuda:0')
     train_loader = DataLoader(train_dataset,batch_size=1,shuffle=False,num_workers=0)
     train_iter = iter(train_loader)
     for i in range(200):
         img, target = next(train_iter)
-        print(img.shape, target.shape)
-        boxes, clss, confs = decoder(target, gt=True)
-        print(boxes, clss, confs)
+        # print(img.shape, target.shape)
+        boxes, clss, confs = decoder(target, grid_num=S, gt=True)
+        # print(boxes, clss, confs)
+        print('~'*50 + '\n\n\n')
 
         mean = torch.tensor([0.485, 0.456, 0.406], dtype=torch.float32)
         std = torch.tensor([0.229, 0.224, 0.225], dtype=torch.float32)
