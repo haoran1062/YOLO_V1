@@ -7,12 +7,10 @@
    - train with voc+ datasets (2007train 2007val 2012train 2012val)
    - test on **voc2007 test** 
      - backbone `densenet121`, train epoch `68`, **mAP**: `0.478`
-     - backbone `resnet50`, train epoch `100+`, **mAP**: `0.447`
+     - backbone `resnet50`, train epoch `114`, **mAP**: `0.531` (`44` improve to `53` by add bbox affine augments)
 
  ### TODO
   - `find reason of low performance`
-  - `soft-NMS/softer-NMS`
-  - `train voc 2007`
 
 
 

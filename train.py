@@ -27,7 +27,7 @@ gpu_ids = [0]
 device = 'cuda:0'
 learning_rate = 0.001
 num_epochs = 200
-batch_size = 12
+batch_size = 18
 B = 2
 S = 7
 clsN = 20
@@ -49,6 +49,7 @@ if backbone_type == backbone_type_list[1]:
             print('yes')
             dd[k] = new_state_dict[k]
     backbone_net.load_state_dict(dd)
+    batch_size = 16
 if backbone_type == backbone_type_list[0]:
     backbone_net = densenet121()
     resnet = models.densenet121(pretrained=True)
@@ -131,7 +132,7 @@ for epoch in range(num_epochs):
         #     learning_rate = 0.01
         # if epoch == 20:
         #     learning_rate = 0.001
-        if epoch == 65:
+        if epoch == 90:
             learning_rate=0.0001
         if epoch == 180:
             learning_rate=0.00001

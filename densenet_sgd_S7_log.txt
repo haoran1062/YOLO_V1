@@ -1,9 +1,1 @@
-0	train loss: tensor(5.0917, device='cuda:0')	now mAP: 0.04590
-1	train loss: tensor(3.5181, device='cuda:0')	now mAP: 0.10726
-2	train loss: tensor(3.1510, device='cuda:0')	now mAP: 0.15359
-3	train loss: tensor(2.8909, device='cuda:0')	now mAP: 0.21126
-4	train loss: tensor(2.7313, device='cuda:0')	now mAP: 0.24616
-5	train loss: tensor(2.6076, device='cuda:0')	now mAP: 0.26791
-6	train loss: tensor(2.5186, device='cuda:0')	now mAP: 0.29247
-7	train loss: tensor(2.4341, device='cuda:0')	now mAP: 0.29668
-8	train loss: tensor(2.3777, device='cuda:0')	now mAP: 0.28996
+0	train loss: tensor(4.6123, device='cuda:0')	now mAP: 0.08604
