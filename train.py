@@ -116,12 +116,15 @@ data_len = int(len(test_dataset) / batch_size)
 logger.info('the dataset has %d images' % (len(train_dataset)))
 logger.info('the batch_size is %d' % (batch_size))
 
+little_val_num = 500
 gt_test_map = prep_test_data(test_data_name, little_test=None)
+gt_little_test_map = prep_test_data(test_data_name, little_test=little_val_num)
 
 num_iter = 0
 best_mAP = 0.0
 train_len = len(train_dataset)
 train_iter = 0
+last_little_mAP = 0.0
 
 my_vis = Visual(base_save_path[:-1])
 
@@ -163,18 +166,26 @@ for epoch in range(num_epochs):
         
     epoch_end_time = time.clock()
     epoch_cost_time = epoch_end_time - epoch_start_time
-    my_vis.plot('train loss', total_loss / (i+1))
+    now_epoch_train_loss = total_loss / (i+1)
+    my_vis.plot('train loss', now_epoch_train_loss)
     logger.info('Epoch {} / {} finished, cost time {:.2f} min. expect {} min finish train.'.format(epoch, num_epochs, epoch_cost_time / 60, (epoch_cost_time / 60) * (num_epochs - epoch + 1)))
 
     #validation
-    test_mAP = 0.0
     backbone_net_p.eval()
+    little_mAP = 0.0
+    test_mAP = 0.0
 
-    now_mAP = run_test_mAP(backbone_net_p, deepcopy(gt_test_map), test_dataset, data_len, logger=logger)
-    my_vis.plot('mAP', now_mAP)
+    now_little_mAP = run_test_mAP(backbone_net_p, deepcopy(gt_little_test_map), test_dataset, data_len, logger=logger, little_test=little_val_num)
     
-    if now_mAP > best_mAP:
-        best_mAP = now_mAP
+    if now_little_mAP > last_little_mAP:
+        test_mAP = run_test_mAP(backbone_net_p, deepcopy(gt_test_map), test_dataset, data_len, logger=logger)
+        
+    my_vis.plot('little mAP', now_little_mAP)
+    my_vis.plot('mAP', test_mAP)
+    last_little_mAP = now_little_mAP
+    
+    if test_mAP > best_mAP:
+        best_mAP = test_mAP
         logger.info('get best test mAP %.5f' % best_mAP)
         torch.save(backbone_net_p.state_dict(),'%s/%s_%s_S%d_best.pth'%(base_save_path, backbone_type, opt_name, S))
    

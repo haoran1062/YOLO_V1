@@ -386,12 +386,15 @@ def prep_test_data(file_path, little_test=None):
     bar.close()
     return target
 
-def run_test_mAP(YOLONet, target, test_datasets, data_len, S=7, device='cuda:0', reversed=False, logger=None):
+def run_test_mAP(YOLONet, target, test_datasets, data_len, S=7, device='cuda:0', reversed=False, logger=None, little_test=None):
     preds = defaultdict(list)
     # bar = tqdm(total=data_len)
+
     with torch.no_grad():
         for i, (images, now_target, fname) in tqdm(enumerate(test_datasets)):
-            
+            if little_test:
+                if i >= little_test:
+                    break
             images = images.to(device)
             now_target = now_target.to(device)
             
@@ -411,7 +414,7 @@ def run_test_mAP(YOLONet, target, test_datasets, data_len, S=7, device='cuda:0',
         logger.info('---start evaluate---')
     else:
         print('---start evaluate---')
-        
+
     return voc_eval(preds,target,VOC_CLASSES=VOC_CLASSES, threshold=0.5, use_07_metric=False, logger=logger)
 
 # def run_test_mAP(YOLONet, target, test_loader, data_len, S=7, device='cuda:0', logger=None):

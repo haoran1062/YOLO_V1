@@ -1,577 +1,317 @@
-2019-04-22 14:18:01,285 - train - INFO - the dataset has 16551 images
-2019-04-22 14:18:01,285 - train - INFO - the batch_size is 16
-2019-04-22 14:18:01,512 - train - INFO - 
+2019-04-22 17:17:59,568 - train - INFO - the dataset has 16551 images
+2019-04-22 17:17:59,568 - train - INFO - the batch_size is 16
+2019-04-22 17:17:59,886 - train - INFO - 
 
 Starting epoch 1 / 200
-2019-04-22 14:18:01,512 - train - INFO - Learning Rate for this epoch: 0.0
-2019-04-22 14:18:10,714 - train - INFO - Epoch [1/200], Iter [5/1035] Loss: 13.4168, average_loss: 20.3945, now learning rate: 0.000005
-2019-04-22 14:18:13,706 - train - INFO - Epoch [1/200], Iter [10/1035] Loss: 25.5175, average_loss: 23.2338, now learning rate: 0.000010
-2019-04-22 14:18:16,935 - train - INFO - Epoch [1/200], Iter [15/1035] Loss: 13.9023, average_loss: 22.1065, now learning rate: 0.000015
-2019-04-22 14:18:20,093 - train - INFO - Epoch [1/200], Iter [20/1035] Loss: 16.4639, average_loss: 22.0459, now learning rate: 0.000020
-2019-04-22 14:18:23,222 - train - INFO - Epoch [1/200], Iter [25/1035] Loss: 17.8095, average_loss: 21.7560, now learning rate: 0.000025
-2019-04-22 14:18:27,335 - train - INFO - Epoch [1/200], Iter [30/1035] Loss: 21.5222, average_loss: 21.9841, now learning rate: 0.000030
-2019-04-22 14:18:30,847 - train - INFO - Epoch [1/200], Iter [35/1035] Loss: 14.9070, average_loss: 21.3692, now learning rate: 0.000035
-2019-04-22 14:18:33,720 - train - INFO - Epoch [1/200], Iter [40/1035] Loss: 16.4236, average_loss: 20.9606, now learning rate: 0.000040
-2019-04-22 14:18:36,552 - train - INFO - Epoch [1/200], Iter [45/1035] Loss: 11.1326, average_loss: 20.3624, now learning rate: 0.000045
-2019-04-22 14:18:39,522 - train - INFO - Epoch [1/200], Iter [50/1035] Loss: 20.8619, average_loss: 19.9177, now learning rate: 0.000050
-2019-04-22 14:18:42,502 - train - INFO - Epoch [1/200], Iter [55/1035] Loss: 13.2436, average_loss: 19.4576, now learning rate: 0.000055
-2019-04-22 14:18:45,427 - train - INFO - Epoch [1/200], Iter [60/1035] Loss: 13.9732, average_loss: 19.0242, now learning rate: 0.000060
-2019-04-22 14:18:48,348 - train - INFO - Epoch [1/200], Iter [65/1035] Loss: 8.1948, average_loss: 18.5015, now learning rate: 0.000065
-2019-04-22 14:18:51,330 - train - INFO - Epoch [1/200], Iter [70/1035] Loss: 13.8019, average_loss: 18.1506, now learning rate: 0.000070
-2019-04-22 14:18:54,401 - train - INFO - Epoch [1/200], Iter [75/1035] Loss: 10.6181, average_loss: 17.7794, now learning rate: 0.000075
-2019-04-22 14:48:12,089 - train - INFO - the dataset has 16551 images
-2019-04-22 14:48:12,089 - train - INFO - the batch_size is 16
-2019-04-22 14:48:14,471 - train - INFO - 
-
-Starting epoch 1 / 200
-2019-04-22 14:48:14,471 - train - INFO - Learning Rate for this epoch: 0.0
-2019-04-22 14:48:20,397 - train - INFO - Epoch [1/200], Iter [5/1035] Loss: 25.9389, average_loss: 25.6072, now learning rate: 0.000005
-2019-04-22 14:48:23,949 - train - INFO - Epoch [1/200], Iter [10/1035] Loss: 21.7605, average_loss: 24.1410, now learning rate: 0.000010
-2019-04-22 14:48:26,911 - train - INFO - Epoch [1/200], Iter [15/1035] Loss: 22.5237, average_loss: 24.8111, now learning rate: 0.000015
-2019-04-22 14:48:30,020 - train - INFO - Epoch [1/200], Iter [20/1035] Loss: 22.9929, average_loss: 24.1957, now learning rate: 0.000020
-2019-04-22 14:48:33,542 - train - INFO - Epoch [1/200], Iter [25/1035] Loss: 14.8655, average_loss: 23.3536, now learning rate: 0.000025
-2019-04-22 14:48:36,626 - train - INFO - Epoch [1/200], Iter [30/1035] Loss: 14.5076, average_loss: 22.5885, now learning rate: 0.000030
-2019-04-22 14:48:39,721 - train - INFO - Epoch [1/200], Iter [35/1035] Loss: 15.6411, average_loss: 21.6252, now learning rate: 0.000035
-2019-04-22 14:48:42,655 - train - INFO - Epoch [1/200], Iter [40/1035] Loss: 17.2739, average_loss: 21.1344, now learning rate: 0.000040
-2019-04-22 14:48:45,763 - train - INFO - Epoch [1/200], Iter [45/1035] Loss: 13.7260, average_loss: 20.5053, now learning rate: 0.000045
-2019-04-22 14:48:48,633 - train - INFO - Epoch [1/200], Iter [50/1035] Loss: 13.6454, average_loss: 19.8878, now learning rate: 0.000050
-2019-04-22 14:48:51,536 - train - INFO - Epoch [1/200], Iter [55/1035] Loss: 19.3385, average_loss: 19.3332, now learning rate: 0.000055
-2019-04-22 14:48:54,506 - train - INFO - Epoch [1/200], Iter [60/1035] Loss: 15.5545, average_loss: 18.8163, now learning rate: 0.000060
-2019-04-22 14:48:57,856 - train - INFO - Epoch [1/200], Iter [65/1035] Loss: 7.8922, average_loss: 18.2303, now learning rate: 0.000065
-2019-04-22 14:49:00,952 - train - INFO - Epoch [1/200], Iter [70/1035] Loss: 11.7457, average_loss: 17.7304, now learning rate: 0.000070
-2019-04-22 14:49:04,100 - train - INFO - Epoch [1/200], Iter [75/1035] Loss: 10.2461, average_loss: 17.2882, now learning rate: 0.000075
-2019-04-22 14:49:08,084 - train - INFO - Epoch [1/200], Iter [80/1035] Loss: 12.5442, average_loss: 16.9185, now learning rate: 0.000080
-2019-04-22 14:49:11,192 - train - INFO - Epoch [1/200], Iter [85/1035] Loss: 9.7721, average_loss: 16.6038, now learning rate: 0.000085
-2019-04-22 14:49:14,241 - train - INFO - Epoch [1/200], Iter [90/1035] Loss: 16.6521, average_loss: 16.3810, now learning rate: 0.000090
-2019-04-22 14:49:17,509 - train - INFO - Epoch [1/200], Iter [95/1035] Loss: 8.7571, average_loss: 16.0374, now learning rate: 0.000095
-2019-04-22 14:49:20,484 - train - INFO - Epoch [1/200], Iter [100/1035] Loss: 10.9781, average_loss: 15.7519, now learning rate: 0.000100
-2019-04-22 14:49:23,880 - train - INFO - Epoch [1/200], Iter [105/1035] Loss: 12.4029, average_loss: 15.4461, now learning rate: 0.000105
-2019-04-22 14:49:27,040 - train - INFO - Epoch [1/200], Iter [110/1035] Loss: 9.2157, average_loss: 15.1844, now learning rate: 0.000110
-2019-04-22 14:49:30,098 - train - INFO - Epoch [1/200], Iter [115/1035] Loss: 11.7801, average_loss: 14.9388, now learning rate: 0.000115
-2019-04-22 14:49:33,094 - train - INFO - Epoch [1/200], Iter [120/1035] Loss: 8.1038, average_loss: 14.6681, now learning rate: 0.000120
-2019-04-22 14:49:36,175 - train - INFO - Epoch [1/200], Iter [125/1035] Loss: 10.0667, average_loss: 14.4271, now learning rate: 0.000125
-2019-04-22 14:49:39,160 - train - INFO - Epoch [1/200], Iter [130/1035] Loss: 13.0830, average_loss: 14.2828, now learning rate: 0.000130
-2019-04-22 14:49:42,153 - train - INFO - Epoch [1/200], Iter [135/1035] Loss: 10.8074, average_loss: 14.1426, now learning rate: 0.000135
-2019-04-22 14:49:45,218 - train - INFO - Epoch [1/200], Iter [140/1035] Loss: 7.0703, average_loss: 13.9554, now learning rate: 0.000140
-2019-04-22 14:49:48,684 - train - INFO - Epoch [1/200], Iter [145/1035] Loss: 5.8686, average_loss: 13.7419, now learning rate: 0.000145
-2019-04-22 14:49:51,811 - train - INFO - Epoch [1/200], Iter [150/1035] Loss: 9.3815, average_loss: 13.5604, now learning rate: 0.000150
-2019-04-22 14:49:54,811 - train - INFO - Epoch [1/200], Iter [155/1035] Loss: 9.5113, average_loss: 13.3999, now learning rate: 0.000155
-2019-04-22 14:49:57,672 - train - INFO - Epoch [1/200], Iter [160/1035] Loss: 7.1045, average_loss: 13.2125, now learning rate: 0.000160
-2019-04-22 14:50:00,955 - train - INFO - Epoch [1/200], Iter [165/1035] Loss: 8.4688, average_loss: 13.0702, now learning rate: 0.000165
-2019-04-22 14:50:04,224 - train - INFO - Epoch [1/200], Iter [170/1035] Loss: 5.9513, average_loss: 12.8773, now learning rate: 0.000170
-2019-04-22 14:50:07,385 - train - INFO - Epoch [1/200], Iter [175/1035] Loss: 7.1971, average_loss: 12.7465, now learning rate: 0.000175
-2019-04-22 14:50:10,385 - train - INFO - Epoch [1/200], Iter [180/1035] Loss: 6.7989, average_loss: 12.5847, now learning rate: 0.000180
-2019-04-22 14:50:13,488 - train - INFO - Epoch [1/200], Iter [185/1035] Loss: 6.8877, average_loss: 12.4638, now learning rate: 0.000185
-2019-04-22 14:50:16,402 - train - INFO - Epoch [1/200], Iter [190/1035] Loss: 3.7293, average_loss: 12.3358, now learning rate: 0.000190
-2019-04-22 14:50:19,564 - train - INFO - Epoch [1/200], Iter [195/1035] Loss: 6.5014, average_loss: 12.2070, now learning rate: 0.000195
-2019-04-22 14:50:22,896 - train - INFO - Epoch [1/200], Iter [200/1035] Loss: 6.3694, average_loss: 12.1551, now learning rate: 0.000200
-2019-04-22 14:50:26,128 - train - INFO - Epoch [1/200], Iter [205/1035] Loss: 5.2555, average_loss: 11.9983, now learning rate: 0.000205
-2019-04-22 14:50:29,044 - train - INFO - Epoch [1/200], Iter [210/1035] Loss: 5.6208, average_loss: 11.8441, now learning rate: 0.000210
-2019-04-22 14:50:31,979 - train - INFO - Epoch [1/200], Iter [215/1035] Loss: 7.1220, average_loss: 11.7486, now learning rate: 0.000215
-2019-04-22 14:50:34,891 - train - INFO - Epoch [1/200], Iter [220/1035] Loss: 5.7124, average_loss: 11.6305, now learning rate: 0.000220
-2019-04-22 14:50:37,964 - train - INFO - Epoch [1/200], Iter [225/1035] Loss: 5.3935, average_loss: 11.5216, now learning rate: 0.000225
-2019-04-22 14:50:40,926 - train - INFO - Epoch [1/200], Iter [230/1035] Loss: 4.1935, average_loss: 11.4063, now learning rate: 0.000230
-2019-04-22 14:50:43,970 - train - INFO - Epoch [1/200], Iter [235/1035] Loss: 6.1952, average_loss: 11.2816, now learning rate: 0.000235
-2019-04-22 14:50:46,938 - train - INFO - Epoch [1/200], Iter [240/1035] Loss: 5.4462, average_loss: 11.1514, now learning rate: 0.000240
-2019-04-22 14:50:50,230 - train - INFO - Epoch [1/200], Iter [245/1035] Loss: 8.0755, average_loss: 11.0624, now learning rate: 0.000245
-2019-04-22 14:50:53,818 - train - INFO - Epoch [1/200], Iter [250/1035] Loss: 5.9856, average_loss: 10.9430, now learning rate: 0.000250
-2019-04-22 14:50:57,345 - train - INFO - Epoch [1/200], Iter [255/1035] Loss: 7.5549, average_loss: 10.8301, now learning rate: 0.000255
-2019-04-22 14:51:00,527 - train - INFO - Epoch [1/200], Iter [260/1035] Loss: 5.4843, average_loss: 10.7581, now learning rate: 0.000260
-2019-04-22 14:51:03,609 - train - INFO - Epoch [1/200], Iter [265/1035] Loss: 4.7401, average_loss: 10.6501, now learning rate: 0.000265
-2019-04-22 14:51:06,567 - train - INFO - Epoch [1/200], Iter [270/1035] Loss: 4.0181, average_loss: 10.5643, now learning rate: 0.000270
-2019-04-22 14:51:09,458 - train - INFO - Epoch [1/200], Iter [275/1035] Loss: 5.5023, average_loss: 10.4586, now learning rate: 0.000275
-2019-04-22 14:51:12,376 - train - INFO - Epoch [1/200], Iter [280/1035] Loss: 6.8318, average_loss: 10.3736, now learning rate: 0.000280
-2019-04-22 14:51:15,348 - train - INFO - Epoch [1/200], Iter [285/1035] Loss: 5.0624, average_loss: 10.2952, now learning rate: 0.000285
-2019-04-22 14:51:18,311 - train - INFO - Epoch [1/200], Iter [290/1035] Loss: 6.5973, average_loss: 10.2182, now learning rate: 0.000290
-2019-04-22 14:51:21,224 - train - INFO - Epoch [1/200], Iter [295/1035] Loss: 6.8258, average_loss: 10.1523, now learning rate: 0.000295
-2019-04-22 14:51:24,153 - train - INFO - Epoch [1/200], Iter [300/1035] Loss: 5.4731, average_loss: 10.0695, now learning rate: 0.000300
-2019-04-22 14:51:30,917 - train - INFO - Epoch [1/200], Iter [305/1035] Loss: 4.5502, average_loss: 9.9754, now learning rate: 0.000305
-2019-04-22 14:51:33,823 - train - INFO - Epoch [1/200], Iter [310/1035] Loss: 4.4676, average_loss: 9.8969, now learning rate: 0.000310
-2019-04-22 14:51:37,125 - train - INFO - Epoch [1/200], Iter [315/1035] Loss: 6.4999, average_loss: 9.8203, now learning rate: 0.000315
-2019-04-22 14:51:40,089 - train - INFO - Epoch [1/200], Iter [320/1035] Loss: 5.2573, average_loss: 9.7439, now learning rate: 0.000320
-2019-04-22 14:51:43,316 - train - INFO - Epoch [1/200], Iter [325/1035] Loss: 5.0260, average_loss: 9.6766, now learning rate: 0.000325
-2019-04-22 14:51:46,345 - train - INFO - Epoch [1/200], Iter [330/1035] Loss: 5.3468, average_loss: 9.6106, now learning rate: 0.000330
-2019-04-22 14:51:49,265 - train - INFO - Epoch [1/200], Iter [335/1035] Loss: 5.1085, average_loss: 9.5396, now learning rate: 0.000335
-2019-04-22 14:51:52,403 - train - INFO - Epoch [1/200], Iter [340/1035] Loss: 5.0943, average_loss: 9.4720, now learning rate: 0.000340
-2019-04-22 14:51:55,538 - train - INFO - Epoch [1/200], Iter [345/1035] Loss: 6.3788, average_loss: 9.4227, now learning rate: 0.000345
-2019-04-22 14:51:58,489 - train - INFO - Epoch [1/200], Iter [350/1035] Loss: 3.9564, average_loss: 9.3523, now learning rate: 0.000350
-2019-04-22 14:52:01,802 - train - INFO - Epoch [1/200], Iter [355/1035] Loss: 3.9035, average_loss: 9.2756, now learning rate: 0.000355
-2019-04-22 14:52:05,182 - train - INFO - Epoch [1/200], Iter [360/1035] Loss: 5.5326, average_loss: 9.2149, now learning rate: 0.000360
-2019-04-22 14:52:08,310 - train - INFO - Epoch [1/200], Iter [365/1035] Loss: 5.9236, average_loss: 9.1615, now learning rate: 0.000365
-2019-04-22 14:52:11,190 - train - INFO - Epoch [1/200], Iter [370/1035] Loss: 5.7252, average_loss: 9.0963, now learning rate: 0.000370
-2019-04-22 14:52:14,113 - train - INFO - Epoch [1/200], Iter [375/1035] Loss: 5.2903, average_loss: 9.0399, now learning rate: 0.000375
-2019-04-22 14:52:17,058 - train - INFO - Epoch [1/200], Iter [380/1035] Loss: 5.6069, average_loss: 8.9918, now learning rate: 0.000380
-2019-04-22 14:52:20,004 - train - INFO - Epoch [1/200], Iter [385/1035] Loss: 4.5644, average_loss: 8.9440, now learning rate: 0.000385
-2019-04-22 14:52:22,913 - train - INFO - Epoch [1/200], Iter [390/1035] Loss: 5.5528, average_loss: 8.8889, now learning rate: 0.000390
-2019-04-22 14:52:26,037 - train - INFO - Epoch [1/200], Iter [395/1035] Loss: 5.1913, average_loss: 8.8401, now learning rate: 0.000395
-2019-04-22 14:52:29,112 - train - INFO - Epoch [1/200], Iter [400/1035] Loss: 4.0248, average_loss: 8.7897, now learning rate: 0.000400
-2019-04-22 14:52:32,195 - train - INFO - Epoch [1/200], Iter [405/1035] Loss: 4.6758, average_loss: 8.7346, now learning rate: 0.000405
-2019-04-22 14:52:35,813 - train - INFO - Epoch [1/200], Iter [410/1035] Loss: 5.1766, average_loss: 8.6863, now learning rate: 0.000410
-2019-04-22 14:52:38,702 - train - INFO - Epoch [1/200], Iter [415/1035] Loss: 6.9888, average_loss: 8.6410, now learning rate: 0.000415
-2019-04-22 14:52:41,645 - train - INFO - Epoch [1/200], Iter [420/1035] Loss: 3.5251, average_loss: 8.5838, now learning rate: 0.000420
-2019-04-22 14:52:44,800 - train - INFO - Epoch [1/200], Iter [425/1035] Loss: 4.5639, average_loss: 8.5394, now learning rate: 0.000425
-2019-04-22 14:52:48,339 - train - INFO - Epoch [1/200], Iter [430/1035] Loss: 3.5713, average_loss: 8.4873, now learning rate: 0.000430
-2019-04-22 14:52:51,353 - train - INFO - Epoch [1/200], Iter [435/1035] Loss: 4.2752, average_loss: 8.4395, now learning rate: 0.000435
-2019-04-22 14:52:54,459 - train - INFO - Epoch [1/200], Iter [440/1035] Loss: 4.5500, average_loss: 8.4085, now learning rate: 0.000440
-2019-04-22 14:52:57,689 - train - INFO - Epoch [1/200], Iter [445/1035] Loss: 5.6118, average_loss: 8.3717, now learning rate: 0.000445
-2019-04-22 14:53:00,682 - train - INFO - Epoch [1/200], Iter [450/1035] Loss: 2.3989, average_loss: 8.3246, now learning rate: 0.000450
-2019-04-22 14:53:07,063 - train - INFO - Epoch [1/200], Iter [455/1035] Loss: 4.2030, average_loss: 8.2868, now learning rate: 0.000455
-2019-04-22 14:53:10,769 - train - INFO - Epoch [1/200], Iter [460/1035] Loss: 3.5377, average_loss: 8.2435, now learning rate: 0.000460
-2019-04-22 14:53:13,662 - train - INFO - Epoch [1/200], Iter [465/1035] Loss: 2.3482, average_loss: 8.2031, now learning rate: 0.000465
-2019-04-22 14:53:16,658 - train - INFO - Epoch [1/200], Iter [470/1035] Loss: 4.6989, average_loss: 8.1653, now learning rate: 0.000470
-2019-04-22 14:53:19,500 - train - INFO - Epoch [1/200], Iter [475/1035] Loss: 3.8997, average_loss: 8.1211, now learning rate: 0.000475
-2019-04-22 14:53:22,985 - train - INFO - Epoch [1/200], Iter [480/1035] Loss: 4.1853, average_loss: 8.0836, now learning rate: 0.000480
-2019-04-22 14:53:26,063 - train - INFO - Epoch [1/200], Iter [485/1035] Loss: 4.6934, average_loss: 8.0537, now learning rate: 0.000485
-2019-04-22 14:53:29,012 - train - INFO - Epoch [1/200], Iter [490/1035] Loss: 2.5274, average_loss: 8.0249, now learning rate: 0.000490
-2019-04-22 14:53:31,921 - train - INFO - Epoch [1/200], Iter [495/1035] Loss: 4.1320, average_loss: 7.9902, now learning rate: 0.000495
-2019-04-22 14:53:34,821 - train - INFO - Epoch [1/200], Iter [500/1035] Loss: 5.1190, average_loss: 7.9515, now learning rate: 0.000500
-2019-04-22 14:53:37,700 - train - INFO - Epoch [1/200], Iter [505/1035] Loss: 2.6837, average_loss: 7.9110, now learning rate: 0.000505
-2019-04-22 14:53:40,653 - train - INFO - Epoch [1/200], Iter [510/1035] Loss: 4.3699, average_loss: 7.8787, now learning rate: 0.000510
-2019-04-22 14:53:43,582 - train - INFO - Epoch [1/200], Iter [515/1035] Loss: 2.8742, average_loss: 7.8497, now learning rate: 0.000515
-2019-04-22 14:53:46,515 - train - INFO - Epoch [1/200], Iter [520/1035] Loss: 5.3734, average_loss: 7.8115, now learning rate: 0.000520
-2019-04-22 14:53:49,601 - train - INFO - Epoch [1/200], Iter [525/1035] Loss: 3.5340, average_loss: 7.7889, now learning rate: 0.000525
-2019-04-22 14:53:53,131 - train - INFO - Epoch [1/200], Iter [530/1035] Loss: 4.9778, average_loss: 7.7584, now learning rate: 0.000530
-2019-04-22 14:53:56,031 - train - INFO - Epoch [1/200], Iter [535/1035] Loss: 3.3245, average_loss: 7.7229, now learning rate: 0.000535
-2019-04-22 14:53:59,307 - train - INFO - Epoch [1/200], Iter [540/1035] Loss: 3.5209, average_loss: 7.6950, now learning rate: 0.000540
-2019-04-22 14:54:02,242 - train - INFO - Epoch [1/200], Iter [545/1035] Loss: 5.4508, average_loss: 7.6683, now learning rate: 0.000545
-2019-04-22 14:54:05,193 - train - INFO - Epoch [1/200], Iter [550/1035] Loss: 3.9197, average_loss: 7.6330, now learning rate: 0.000550
-2019-04-22 14:54:08,409 - train - INFO - Epoch [1/200], Iter [555/1035] Loss: 2.5282, average_loss: 7.5965, now learning rate: 0.000555
-2019-04-22 14:54:11,874 - train - INFO - Epoch [1/200], Iter [560/1035] Loss: 4.3074, average_loss: 7.5679, now learning rate: 0.000560
-2019-04-22 14:54:15,370 - train - INFO - Epoch [1/200], Iter [565/1035] Loss: 3.3125, average_loss: 7.5350, now learning rate: 0.000565
-2019-04-22 14:54:18,570 - train - INFO - Epoch [1/200], Iter [570/1035] Loss: 2.9823, average_loss: 7.5024, now learning rate: 0.000570
-2019-04-22 14:54:22,069 - train - INFO - Epoch [1/200], Iter [575/1035] Loss: 4.1662, average_loss: 7.4762, now learning rate: 0.000575
-2019-04-22 14:54:25,096 - train - INFO - Epoch [1/200], Iter [580/1035] Loss: 2.7557, average_loss: 7.4459, now learning rate: 0.000580
-2019-04-22 14:54:28,603 - train - INFO - Epoch [1/200], Iter [585/1035] Loss: 3.1057, average_loss: 7.4197, now learning rate: 0.000585
-2019-04-22 14:54:31,484 - train - INFO - Epoch [1/200], Iter [590/1035] Loss: 3.6977, average_loss: 7.3886, now learning rate: 0.000590
-2019-04-22 14:54:34,378 - train - INFO - Epoch [1/200], Iter [595/1035] Loss: 3.5847, average_loss: 7.3633, now learning rate: 0.000595
-2019-04-22 14:54:37,258 - train - INFO - Epoch [1/200], Iter [600/1035] Loss: 4.4969, average_loss: 7.3341, now learning rate: 0.000600
-2019-04-22 14:54:40,452 - train - INFO - Epoch [1/200], Iter [605/1035] Loss: 4.4948, average_loss: 7.3135, now learning rate: 0.000605
-2019-04-22 14:54:43,752 - train - INFO - Epoch [1/200], Iter [610/1035] Loss: 3.4777, average_loss: 7.2840, now learning rate: 0.000610
-2019-04-22 14:54:46,635 - train - INFO - Epoch [1/200], Iter [615/1035] Loss: 2.7283, average_loss: 7.2524, now learning rate: 0.000615
-2019-04-22 14:54:49,988 - train - INFO - Epoch [1/200], Iter [620/1035] Loss: 5.8546, average_loss: 7.2325, now learning rate: 0.000620
-2019-04-22 14:54:52,961 - train - INFO - Epoch [1/200], Iter [625/1035] Loss: 5.0889, average_loss: 7.2096, now learning rate: 0.000625
-2019-04-22 14:54:56,123 - train - INFO - Epoch [1/200], Iter [630/1035] Loss: 4.4549, average_loss: 7.1861, now learning rate: 0.000630
-2019-04-22 14:54:59,254 - train - INFO - Epoch [1/200], Iter [635/1035] Loss: 4.3829, average_loss: 7.1652, now learning rate: 0.000635
-2019-04-22 14:55:02,353 - train - INFO - Epoch [1/200], Iter [640/1035] Loss: 5.5218, average_loss: 7.1447, now learning rate: 0.000640
-2019-04-22 14:55:07,965 - train - INFO - Epoch [1/200], Iter [645/1035] Loss: 3.2518, average_loss: 7.1191, now learning rate: 0.000645
-2019-04-22 14:55:11,788 - train - INFO - Epoch [1/200], Iter [650/1035] Loss: 3.3474, average_loss: 7.0940, now learning rate: 0.000650
-2019-04-22 14:55:14,940 - train - INFO - Epoch [1/200], Iter [655/1035] Loss: 4.2901, average_loss: 7.0709, now learning rate: 0.000655
-2019-04-22 14:55:17,878 - train - INFO - Epoch [1/200], Iter [660/1035] Loss: 5.7729, average_loss: 7.0512, now learning rate: 0.000660
-2019-04-22 14:55:20,778 - train - INFO - Epoch [1/200], Iter [665/1035] Loss: 3.7246, average_loss: 7.0287, now learning rate: 0.000665
-2019-04-22 14:55:23,785 - train - INFO - Epoch [1/200], Iter [670/1035] Loss: 4.1328, average_loss: 7.0132, now learning rate: 0.000670
-2019-04-22 14:55:26,689 - train - INFO - Epoch [1/200], Iter [675/1035] Loss: 3.1343, average_loss: 6.9897, now learning rate: 0.000675
-2019-04-22 14:55:29,669 - train - INFO - Epoch [1/200], Iter [680/1035] Loss: 4.3272, average_loss: 6.9705, now learning rate: 0.000680
-2019-04-22 14:55:32,654 - train - INFO - Epoch [1/200], Iter [685/1035] Loss: 3.9608, average_loss: 6.9521, now learning rate: 0.000685
-2019-04-22 14:55:35,977 - train - INFO - Epoch [1/200], Iter [690/1035] Loss: 2.8370, average_loss: 6.9295, now learning rate: 0.000690
-2019-04-22 14:55:38,859 - train - INFO - Epoch [1/200], Iter [695/1035] Loss: 4.0360, average_loss: 6.9050, now learning rate: 0.000695
-2019-04-22 14:55:41,834 - train - INFO - Epoch [1/200], Iter [700/1035] Loss: 4.4219, average_loss: 6.8843, now learning rate: 0.000700
-2019-04-22 14:55:44,920 - train - INFO - Epoch [1/200], Iter [705/1035] Loss: 3.0159, average_loss: 6.8617, now learning rate: 0.000705
-2019-04-22 14:55:47,871 - train - INFO - Epoch [1/200], Iter [710/1035] Loss: 4.1813, average_loss: 6.8419, now learning rate: 0.000710
-2019-04-22 14:55:50,788 - train - INFO - Epoch [1/200], Iter [715/1035] Loss: 3.5520, average_loss: 6.8229, now learning rate: 0.000715
-2019-04-22 14:55:53,680 - train - INFO - Epoch [1/200], Iter [720/1035] Loss: 3.8713, average_loss: 6.7996, now learning rate: 0.000720
-2019-04-22 14:55:56,829 - train - INFO - Epoch [1/200], Iter [725/1035] Loss: 3.5537, average_loss: 6.7777, now learning rate: 0.000725
-2019-04-22 14:55:59,845 - train - INFO - Epoch [1/200], Iter [730/1035] Loss: 4.2794, average_loss: 6.7575, now learning rate: 0.000730
-2019-04-22 14:56:03,117 - train - INFO - Epoch [1/200], Iter [735/1035] Loss: 4.2457, average_loss: 6.7396, now learning rate: 0.000735
-2019-04-22 14:56:06,939 - train - INFO - Epoch [1/200], Iter [740/1035] Loss: 3.7719, average_loss: 6.7201, now learning rate: 0.000740
-2019-04-22 14:56:09,857 - train - INFO - Epoch [1/200], Iter [745/1035] Loss: 3.0027, average_loss: 6.7020, now learning rate: 0.000745
-2019-04-22 14:56:13,348 - train - INFO - Epoch [1/200], Iter [750/1035] Loss: 4.0152, average_loss: 6.6805, now learning rate: 0.000750
-2019-04-22 14:56:16,501 - train - INFO - Epoch [1/200], Iter [755/1035] Loss: 4.1145, average_loss: 6.6643, now learning rate: 0.000755
-2019-04-22 14:56:19,396 - train - INFO - Epoch [1/200], Iter [760/1035] Loss: 2.4825, average_loss: 6.6454, now learning rate: 0.000760
-2019-04-22 14:56:22,921 - train - INFO - Epoch [1/200], Iter [765/1035] Loss: 4.1163, average_loss: 6.6272, now learning rate: 0.000765
-2019-04-22 14:56:25,907 - train - INFO - Epoch [1/200], Iter [770/1035] Loss: 6.2580, average_loss: 6.6150, now learning rate: 0.000770
-2019-04-22 14:56:28,837 - train - INFO - Epoch [1/200], Iter [775/1035] Loss: 3.7560, average_loss: 6.5954, now learning rate: 0.000775
-2019-04-22 14:56:32,061 - train - INFO - Epoch [1/200], Iter [780/1035] Loss: 3.8946, average_loss: 6.5808, now learning rate: 0.000780
-2019-04-22 14:56:38,524 - train - INFO - Epoch [1/200], Iter [785/1035] Loss: 3.8233, average_loss: 6.5652, now learning rate: 0.000785
-2019-04-22 14:56:41,450 - train - INFO - Epoch [1/200], Iter [790/1035] Loss: 3.8709, average_loss: 6.5484, now learning rate: 0.000790
-2019-04-22 14:56:44,711 - train - INFO - Epoch [1/200], Iter [795/1035] Loss: 3.4093, average_loss: 6.5286, now learning rate: 0.000795
-2019-04-22 14:56:47,652 - train - INFO - Epoch [1/200], Iter [800/1035] Loss: 4.2180, average_loss: 6.5146, now learning rate: 0.000800
-2019-04-22 14:56:50,716 - train - INFO - Epoch [1/200], Iter [805/1035] Loss: 3.3153, average_loss: 6.4976, now learning rate: 0.000805
-2019-04-22 14:56:53,626 - train - INFO - Epoch [1/200], Iter [810/1035] Loss: 3.5059, average_loss: 6.4817, now learning rate: 0.000810
-2019-04-22 14:56:56,570 - train - INFO - Epoch [1/200], Iter [815/1035] Loss: 4.7445, average_loss: 6.4671, now learning rate: 0.000815
-2019-04-22 14:56:59,867 - train - INFO - Epoch [1/200], Iter [820/1035] Loss: 3.6137, average_loss: 6.4489, now learning rate: 0.000820
-2019-04-22 14:57:02,737 - train - INFO - Epoch [1/200], Iter [825/1035] Loss: 4.1163, average_loss: 6.4338, now learning rate: 0.000825
-2019-04-22 14:57:05,598 - train - INFO - Epoch [1/200], Iter [830/1035] Loss: 4.1126, average_loss: 6.4170, now learning rate: 0.000830
-2019-04-22 14:57:08,538 - train - INFO - Epoch [1/200], Iter [835/1035] Loss: 4.7980, average_loss: 6.4074, now learning rate: 0.000835
-2019-04-22 14:57:11,464 - train - INFO - Epoch [1/200], Iter [840/1035] Loss: 3.6582, average_loss: 6.3947, now learning rate: 0.000840
-2019-04-22 14:57:15,003 - train - INFO - Epoch [1/200], Iter [845/1035] Loss: 2.1787, average_loss: 6.3759, now learning rate: 0.000845
-2019-04-22 14:57:18,065 - train - INFO - Epoch [1/200], Iter [850/1035] Loss: 4.7801, average_loss: 6.3640, now learning rate: 0.000850
-2019-04-22 14:57:21,238 - train - INFO - Epoch [1/200], Iter [855/1035] Loss: 3.7881, average_loss: 6.3506, now learning rate: 0.000855
-2019-04-22 14:57:24,244 - train - INFO - Epoch [1/200], Iter [860/1035] Loss: 4.6863, average_loss: 6.3338, now learning rate: 0.000860
-2019-04-22 14:57:27,246 - train - INFO - Epoch [1/200], Iter [865/1035] Loss: 2.8533, average_loss: 6.3179, now learning rate: 0.000865
-2019-04-22 14:57:30,142 - train - INFO - Epoch [1/200], Iter [870/1035] Loss: 4.2060, average_loss: 6.3023, now learning rate: 0.000870
-2019-04-22 14:57:33,074 - train - INFO - Epoch [1/200], Iter [875/1035] Loss: 4.6801, average_loss: 6.2907, now learning rate: 0.000875
-2019-04-22 14:57:35,954 - train - INFO - Epoch [1/200], Iter [880/1035] Loss: 3.1582, average_loss: 6.2772, now learning rate: 0.000880
-2019-04-22 14:57:39,322 - train - INFO - Epoch [1/200], Iter [885/1035] Loss: 3.9867, average_loss: 6.2657, now learning rate: 0.000885
-2019-04-22 14:57:42,246 - train - INFO - Epoch [1/200], Iter [890/1035] Loss: 5.0429, average_loss: 6.2533, now learning rate: 0.000890
-2019-04-22 14:57:45,152 - train - INFO - Epoch [1/200], Iter [895/1035] Loss: 3.4307, average_loss: 6.2389, now learning rate: 0.000895
-2019-04-22 14:57:48,176 - train - INFO - Epoch [1/200], Iter [900/1035] Loss: 5.2170, average_loss: 6.2272, now learning rate: 0.000900
-2019-04-22 14:57:51,187 - train - INFO - Epoch [1/200], Iter [905/1035] Loss: 3.5424, average_loss: 6.2164, now learning rate: 0.000905
-2019-04-22 14:57:54,117 - train - INFO - Epoch [1/200], Iter [910/1035] Loss: 4.0664, average_loss: 6.2060, now learning rate: 0.000910
-2019-04-22 14:57:57,154 - train - INFO - Epoch [1/200], Iter [915/1035] Loss: 4.7001, average_loss: 6.1975, now learning rate: 0.000915
-2019-04-22 14:58:00,050 - train - INFO - Epoch [1/200], Iter [920/1035] Loss: 4.5136, average_loss: 6.1850, now learning rate: 0.000920
-2019-04-22 14:58:03,586 - train - INFO - Epoch [1/200], Iter [925/1035] Loss: 3.9329, average_loss: 6.1734, now learning rate: 0.000925
-2019-04-22 14:58:06,522 - train - INFO - Epoch [1/200], Iter [930/1035] Loss: 3.8983, average_loss: 6.1642, now learning rate: 0.000930
-2019-04-22 14:58:09,870 - train - INFO - Epoch [1/200], Iter [935/1035] Loss: 5.1831, average_loss: 6.1534, now learning rate: 0.000935
-2019-04-22 14:58:12,763 - train - INFO - Epoch [1/200], Iter [940/1035] Loss: 3.6679, average_loss: 6.1403, now learning rate: 0.000940
-2019-04-22 14:58:15,691 - train - INFO - Epoch [1/200], Iter [945/1035] Loss: 4.6321, average_loss: 6.1325, now learning rate: 0.000945
-2019-04-22 14:58:18,963 - train - INFO - Epoch [1/200], Iter [950/1035] Loss: 2.7075, average_loss: 6.1205, now learning rate: 0.000950
-2019-04-22 14:58:22,151 - train - INFO - Epoch [1/200], Iter [955/1035] Loss: 2.7609, average_loss: 6.1082, now learning rate: 0.000955
-2019-04-22 14:58:25,109 - train - INFO - Epoch [1/200], Iter [960/1035] Loss: 4.3485, average_loss: 6.1001, now learning rate: 0.000960
-2019-04-22 14:58:28,236 - train - INFO - Epoch [1/200], Iter [965/1035] Loss: 3.7144, average_loss: 6.0892, now learning rate: 0.000965
-2019-04-22 14:58:31,142 - train - INFO - Epoch [1/200], Iter [970/1035] Loss: 3.9918, average_loss: 6.0738, now learning rate: 0.000970
-2019-04-22 14:58:34,381 - train - INFO - Epoch [1/200], Iter [975/1035] Loss: 2.6287, average_loss: 6.0598, now learning rate: 0.000975
-2019-04-22 14:58:37,703 - train - INFO - Epoch [1/200], Iter [980/1035] Loss: 3.0086, average_loss: 6.0503, now learning rate: 0.000980
-2019-04-22 14:58:40,813 - train - INFO - Epoch [1/200], Iter [985/1035] Loss: 4.5528, average_loss: 6.0408, now learning rate: 0.000985
-2019-04-22 14:58:44,064 - train - INFO - Epoch [1/200], Iter [990/1035] Loss: 5.0274, average_loss: 6.0343, now learning rate: 0.000990
-2019-04-22 14:58:46,963 - train - INFO - Epoch [1/200], Iter [995/1035] Loss: 3.5894, average_loss: 6.0238, now learning rate: 0.000995
-2019-04-22 14:58:49,952 - train - INFO - Epoch [1/200], Iter [1000/1035] Loss: 4.4688, average_loss: 6.0130, now learning rate: 0.001000
-2019-04-22 14:58:55,950 - train - INFO - Epoch [1/200], Iter [1005/1035] Loss: 3.9832, average_loss: 6.0016, now learning rate: 0.001000
-2019-04-22 14:58:59,135 - train - INFO - Epoch [1/200], Iter [1010/1035] Loss: 3.4169, average_loss: 5.9919, now learning rate: 0.001000
-2019-04-22 14:59:02,057 - train - INFO - Epoch [1/200], Iter [1015/1035] Loss: 4.1091, average_loss: 5.9791, now learning rate: 0.001000
-2019-04-22 14:59:05,186 - train - INFO - Epoch [1/200], Iter [1020/1035] Loss: 4.0639, average_loss: 5.9686, now learning rate: 0.001000
-2019-04-22 14:59:08,205 - train - INFO - Epoch [1/200], Iter [1025/1035] Loss: 3.4429, average_loss: 5.9591, now learning rate: 0.001000
-2019-04-22 14:59:11,085 - train - INFO - Epoch [1/200], Iter [1030/1035] Loss: 2.7116, average_loss: 5.9442, now learning rate: 0.001000
-2019-04-22 14:59:13,724 - train - INFO - Epoch [1/200], Iter [1035/1035] Loss: 1.4193, average_loss: 5.9327, now learning rate: 0.001000
-2019-04-22 15:02:23,202 - train - INFO - the dataset has 16551 images
-2019-04-22 15:02:23,202 - train - INFO - the batch_size is 16
-2019-04-22 15:02:24,647 - train - INFO - 
-
-Starting epoch 1 / 200
-2019-04-22 15:02:24,648 - train - INFO - Learning Rate for this epoch: 0.0
-2019-04-22 15:02:30,007 - train - INFO - Epoch [1/200], Iter [5/1035] expect end in 10.00 min. Loss: 24.5656, average_loss: 23.4373, now learning rate: 0.000005
-2019-04-22 15:02:32,900 - train - INFO - Epoch [1/200], Iter [10/1035] expect end in 9.00 min. Loss: 24.4337, average_loss: 22.9986, now learning rate: 0.000010
-2019-04-22 15:02:35,910 - train - INFO - Epoch [1/200], Iter [15/1035] expect end in 10.00 min. Loss: 18.3603, average_loss: 21.7504, now learning rate: 0.000015
-2019-04-22 15:02:38,945 - train - INFO - Epoch [1/200], Iter [20/1035] expect end in 10.00 min. Loss: 24.6315, average_loss: 21.9288, now learning rate: 0.000020
-2019-04-22 15:02:41,865 - train - INFO - Epoch [1/200], Iter [25/1035] expect end in 9.00 min. Loss: 23.0299, average_loss: 21.7541, now learning rate: 0.000025
-2019-04-22 15:02:44,707 - train - INFO - Epoch [1/200], Iter [30/1035] expect end in 9.00 min. Loss: 17.0537, average_loss: 20.9336, now learning rate: 0.000030
-2019-04-22 15:02:47,756 - train - INFO - Epoch [1/200], Iter [35/1035] expect end in 10.00 min. Loss: 16.5513, average_loss: 20.5454, now learning rate: 0.000035
-2019-04-22 15:02:50,714 - train - INFO - Epoch [1/200], Iter [40/1035] expect end in 9.00 min. Loss: 19.4568, average_loss: 20.0912, now learning rate: 0.000040
-2019-04-22 15:02:53,620 - train - INFO - Epoch [1/200], Iter [45/1035] expect end in 9.00 min. Loss: 15.9483, average_loss: 19.5301, now learning rate: 0.000045
-2019-04-22 15:02:56,525 - train - INFO - Epoch [1/200], Iter [50/1035] expect end in 9.00 min. Loss: 14.2603, average_loss: 18.9385, now learning rate: 0.000050
-2019-04-22 15:02:59,479 - train - INFO - Epoch [1/200], Iter [55/1035] expect end in 9.00 min. Loss: 11.5753, average_loss: 18.4726, now learning rate: 0.000055
-2019-04-22 15:03:02,453 - train - INFO - Epoch [1/200], Iter [60/1035] expect end in 9.00 min. Loss: 14.7125, average_loss: 18.0303, now learning rate: 0.000060
-2019-04-22 15:03:05,386 - train - INFO - Epoch [1/200], Iter [65/1035] expect end in 9.00 min. Loss: 12.5715, average_loss: 17.7668, now learning rate: 0.000065
-2019-04-22 15:03:08,269 - train - INFO - Epoch [1/200], Iter [70/1035] expect end in 9.00 min. Loss: 10.0530, average_loss: 17.3239, now learning rate: 0.000070
-2019-04-22 15:03:11,143 - train - INFO - Epoch [1/200], Iter [75/1035] expect end in 9.00 min. Loss: 11.9625, average_loss: 16.9260, now learning rate: 0.000075
-2019-04-22 15:03:14,079 - train - INFO - Epoch [1/200], Iter [80/1035] expect end in 9.00 min. Loss: 9.6141, average_loss: 16.6934, now learning rate: 0.000080
-2019-04-22 15:03:16,950 - train - INFO - Epoch [1/200], Iter [85/1035] expect end in 9.00 min. Loss: 13.4105, average_loss: 16.3602, now learning rate: 0.000085
-2019-04-22 15:03:19,844 - train - INFO - Epoch [1/200], Iter [90/1035] expect end in 8.00 min. Loss: 9.7284, average_loss: 16.1661, now learning rate: 0.000090
-2019-04-22 15:03:22,725 - train - INFO - Epoch [1/200], Iter [95/1035] expect end in 9.00 min. Loss: 9.8669, average_loss: 15.8481, now learning rate: 0.000095
-2019-04-22 15:03:25,650 - train - INFO - Epoch [1/200], Iter [100/1035] expect end in 9.00 min. Loss: 17.2100, average_loss: 15.6258, now learning rate: 0.000100
-2019-04-22 15:03:28,548 - train - INFO - Epoch [1/200], Iter [105/1035] expect end in 8.00 min. Loss: 8.3111, average_loss: 15.3715, now learning rate: 0.000105
-2019-04-22 15:03:31,434 - train - INFO - Epoch [1/200], Iter [110/1035] expect end in 8.00 min. Loss: 10.6499, average_loss: 15.1264, now learning rate: 0.000110
-2019-04-22 15:03:34,311 - train - INFO - Epoch [1/200], Iter [115/1035] expect end in 8.00 min. Loss: 9.6496, average_loss: 14.8942, now learning rate: 0.000115
-2019-04-22 15:03:37,202 - train - INFO - Epoch [1/200], Iter [120/1035] expect end in 8.00 min. Loss: 12.2288, average_loss: 14.6731, now learning rate: 0.000120
-2019-04-22 15:03:40,079 - train - INFO - Epoch [1/200], Iter [125/1035] expect end in 8.00 min. Loss: 10.9514, average_loss: 14.4847, now learning rate: 0.000125
-2019-04-22 15:03:43,004 - train - INFO - Epoch [1/200], Iter [130/1035] expect end in 8.00 min. Loss: 8.3315, average_loss: 14.3364, now learning rate: 0.000130
-2019-04-22 15:03:45,863 - train - INFO - Epoch [1/200], Iter [135/1035] expect end in 8.00 min. Loss: 7.6961, average_loss: 14.1131, now learning rate: 0.000135
-2019-04-22 15:03:48,721 - train - INFO - Epoch [1/200], Iter [140/1035] expect end in 8.00 min. Loss: 8.9230, average_loss: 13.8812, now learning rate: 0.000140
-2019-04-22 15:03:51,593 - train - INFO - Epoch [1/200], Iter [145/1035] expect end in 8.00 min. Loss: 6.1468, average_loss: 13.7042, now learning rate: 0.000145
-2019-04-22 15:03:54,498 - train - INFO - Epoch [1/200], Iter [150/1035] expect end in 8.00 min. Loss: 9.4764, average_loss: 13.5512, now learning rate: 0.000150
-2019-04-22 15:03:57,361 - train - INFO - Epoch [1/200], Iter [155/1035] expect end in 8.00 min. Loss: 6.0892, average_loss: 13.3598, now learning rate: 0.000155
-2019-04-22 15:04:00,232 - train - INFO - Epoch [1/200], Iter [160/1035] expect end in 8.00 min. Loss: 7.2250, average_loss: 13.1912, now learning rate: 0.000160
-2019-04-22 15:04:03,146 - train - INFO - Epoch [1/200], Iter [165/1035] expect end in 8.00 min. Loss: 9.4007, average_loss: 13.0331, now learning rate: 0.000165
-2019-04-22 15:04:06,003 - train - INFO - Epoch [1/200], Iter [170/1035] expect end in 7.00 min. Loss: 4.5800, average_loss: 12.8491, now learning rate: 0.000170
-2019-04-22 15:04:08,899 - train - INFO - Epoch [1/200], Iter [175/1035] expect end in 8.00 min. Loss: 9.8705, average_loss: 12.7088, now learning rate: 0.000175
-2019-04-22 15:04:11,773 - train - INFO - Epoch [1/200], Iter [180/1035] expect end in 8.00 min. Loss: 7.4364, average_loss: 12.5184, now learning rate: 0.000180
-2019-04-22 15:04:14,675 - train - INFO - Epoch [1/200], Iter [185/1035] expect end in 8.00 min. Loss: 8.2778, average_loss: 12.3728, now learning rate: 0.000185
-2019-04-22 15:04:17,547 - train - INFO - Epoch [1/200], Iter [190/1035] expect end in 8.00 min. Loss: 7.9903, average_loss: 12.2123, now learning rate: 0.000190
-2019-04-22 15:04:20,416 - train - INFO - Epoch [1/200], Iter [195/1035] expect end in 8.00 min. Loss: 9.3286, average_loss: 12.0699, now learning rate: 0.000195
-2019-04-22 15:04:23,300 - train - INFO - Epoch [1/200], Iter [200/1035] expect end in 7.00 min. Loss: 6.2599, average_loss: 11.9442, now learning rate: 0.000200
-2019-04-22 15:04:26,192 - train - INFO - Epoch [1/200], Iter [205/1035] expect end in 7.00 min. Loss: 6.5038, average_loss: 11.8251, now learning rate: 0.000205
-2019-04-22 15:04:29,103 - train - INFO - Epoch [1/200], Iter [210/1035] expect end in 7.00 min. Loss: 5.6944, average_loss: 11.7046, now learning rate: 0.000210
-2019-04-22 15:04:31,945 - train - INFO - Epoch [1/200], Iter [215/1035] expect end in 7.00 min. Loss: 5.6166, average_loss: 11.5627, now learning rate: 0.000215
-2019-04-22 15:04:34,782 - train - INFO - Epoch [1/200], Iter [220/1035] expect end in 7.00 min. Loss: 5.5964, average_loss: 11.4191, now learning rate: 0.000220
-2019-04-22 15:04:37,663 - train - INFO - Epoch [1/200], Iter [225/1035] expect end in 7.00 min. Loss: 5.0583, average_loss: 11.3019, now learning rate: 0.000225
-2019-04-22 15:04:40,578 - train - INFO - Epoch [1/200], Iter [230/1035] expect end in 7.00 min. Loss: 5.7511, average_loss: 11.1939, now learning rate: 0.000230
-2019-04-22 15:04:43,478 - train - INFO - Epoch [1/200], Iter [235/1035] expect end in 7.00 min. Loss: 5.5509, average_loss: 11.0735, now learning rate: 0.000235
-2019-04-22 15:04:46,345 - train - INFO - Epoch [1/200], Iter [240/1035] expect end in 7.00 min. Loss: 3.3514, average_loss: 10.9427, now learning rate: 0.000240
-2019-04-22 15:04:49,239 - train - INFO - Epoch [1/200], Iter [245/1035] expect end in 7.00 min. Loss: 6.2692, average_loss: 10.8427, now learning rate: 0.000245
-2019-04-22 15:04:52,098 - train - INFO - Epoch [1/200], Iter [250/1035] expect end in 7.00 min. Loss: 7.4713, average_loss: 10.7253, now learning rate: 0.000250
-2019-04-22 15:04:54,955 - train - INFO - Epoch [1/200], Iter [255/1035] expect end in 7.00 min. Loss: 4.6156, average_loss: 10.6143, now learning rate: 0.000255
-2019-04-22 15:04:57,868 - train - INFO - Epoch [1/200], Iter [260/1035] expect end in 7.00 min. Loss: 5.5086, average_loss: 10.5099, now learning rate: 0.000260
-2019-04-22 15:05:00,743 - train - INFO - Epoch [1/200], Iter [265/1035] expect end in 7.00 min. Loss: 6.0287, average_loss: 10.4169, now learning rate: 0.000265
-2019-04-22 15:05:03,630 - train - INFO - Epoch [1/200], Iter [270/1035] expect end in 7.00 min. Loss: 5.2888, average_loss: 10.3220, now learning rate: 0.000270
-2019-04-22 15:05:06,565 - train - INFO - Epoch [1/200], Iter [275/1035] expect end in 7.00 min. Loss: 5.5869, average_loss: 10.2542, now learning rate: 0.000275
-2019-04-22 15:05:09,689 - train - INFO - Epoch [1/200], Iter [280/1035] expect end in 8.00 min. Loss: 10.9414, average_loss: 10.1727, now learning rate: 0.000280
-2019-04-22 15:05:12,557 - train - INFO - Epoch [1/200], Iter [285/1035] expect end in 7.00 min. Loss: 5.0098, average_loss: 10.0748, now learning rate: 0.000285
-2019-04-22 15:05:15,427 - train - INFO - Epoch [1/200], Iter [290/1035] expect end in 7.00 min. Loss: 5.2170, average_loss: 9.9898, now learning rate: 0.000290
-2019-04-22 15:05:18,348 - train - INFO - Epoch [1/200], Iter [295/1035] expect end in 7.00 min. Loss: 4.8689, average_loss: 9.9199, now learning rate: 0.000295
-2019-04-22 15:05:21,212 - train - INFO - Epoch [1/200], Iter [300/1035] expect end in 7.00 min. Loss: 6.3232, average_loss: 9.8426, now learning rate: 0.000300
-2019-04-22 15:05:24,092 - train - INFO - Epoch [1/200], Iter [305/1035] expect end in 7.00 min. Loss: 6.6482, average_loss: 9.7711, now learning rate: 0.000305
-2019-04-22 15:05:26,932 - train - INFO - Epoch [1/200], Iter [310/1035] expect end in 6.00 min. Loss: 5.5449, average_loss: 9.6945, now learning rate: 0.000310
-2019-04-22 15:05:29,832 - train - INFO - Epoch [1/200], Iter [315/1035] expect end in 6.00 min. Loss: 4.9961, average_loss: 9.6325, now learning rate: 0.000315
-2019-04-22 15:05:32,695 - train - INFO - Epoch [1/200], Iter [320/1035] expect end in 6.00 min. Loss: 6.4799, average_loss: 9.5556, now learning rate: 0.000320
-2019-04-22 15:05:35,548 - train - INFO - Epoch [1/200], Iter [325/1035] expect end in 6.00 min. Loss: 8.6239, average_loss: 9.4922, now learning rate: 0.000325
-2019-04-22 15:05:38,470 - train - INFO - Epoch [1/200], Iter [330/1035] expect end in 7.00 min. Loss: 3.8149, average_loss: 9.4193, now learning rate: 0.000330
-2019-04-22 15:05:41,433 - train - INFO - Epoch [1/200], Iter [335/1035] expect end in 6.00 min. Loss: 3.5005, average_loss: 9.3510, now learning rate: 0.000335
-2019-04-22 15:05:44,312 - train - INFO - Epoch [1/200], Iter [340/1035] expect end in 6.00 min. Loss: 5.0963, average_loss: 9.2829, now learning rate: 0.000340
-2019-04-22 15:05:47,192 - train - INFO - Epoch [1/200], Iter [345/1035] expect end in 6.00 min. Loss: 5.3308, average_loss: 9.2225, now learning rate: 0.000345
-2019-04-22 15:05:50,029 - train - INFO - Epoch [1/200], Iter [350/1035] expect end in 6.00 min. Loss: 4.8947, average_loss: 9.1585, now learning rate: 0.000350
-2019-04-22 15:05:53,070 - train - INFO - Epoch [1/200], Iter [355/1035] expect end in 7.00 min. Loss: 6.0468, average_loss: 9.1020, now learning rate: 0.000355
-2019-04-22 15:05:55,998 - train - INFO - Epoch [1/200], Iter [360/1035] expect end in 6.00 min. Loss: 4.7757, average_loss: 9.0411, now learning rate: 0.000360
-2019-04-22 15:05:58,847 - train - INFO - Epoch [1/200], Iter [365/1035] expect end in 6.00 min. Loss: 5.3648, average_loss: 8.9880, now learning rate: 0.000365
-2019-04-22 15:06:01,695 - train - INFO - Epoch [1/200], Iter [370/1035] expect end in 6.00 min. Loss: 5.7986, average_loss: 8.9343, now learning rate: 0.000370
-2019-04-22 15:06:04,568 - train - INFO - Epoch [1/200], Iter [375/1035] expect end in 6.00 min. Loss: 4.1248, average_loss: 8.8784, now learning rate: 0.000375
-2019-04-22 15:06:07,429 - train - INFO - Epoch [1/200], Iter [380/1035] expect end in 6.00 min. Loss: 4.3681, average_loss: 8.8179, now learning rate: 0.000380
-2019-04-22 15:06:10,344 - train - INFO - Epoch [1/200], Iter [385/1035] expect end in 6.00 min. Loss: 7.1186, average_loss: 8.7774, now learning rate: 0.000385
-2019-04-22 15:06:13,212 - train - INFO - Epoch [1/200], Iter [390/1035] expect end in 5.00 min. Loss: 3.6926, average_loss: 8.7232, now learning rate: 0.000390
-2019-04-22 15:06:16,060 - train - INFO - Epoch [1/200], Iter [395/1035] expect end in 5.00 min. Loss: 3.6834, average_loss: 8.6676, now learning rate: 0.000395
-2019-04-22 15:06:18,957 - train - INFO - Epoch [1/200], Iter [400/1035] expect end in 6.00 min. Loss: 6.1750, average_loss: 8.6247, now learning rate: 0.000400
-2019-04-22 15:06:21,794 - train - INFO - Epoch [1/200], Iter [405/1035] expect end in 5.00 min. Loss: 3.8981, average_loss: 8.5738, now learning rate: 0.000405
-2019-04-22 15:06:24,624 - train - INFO - Epoch [1/200], Iter [410/1035] expect end in 5.00 min. Loss: 3.4063, average_loss: 8.5228, now learning rate: 0.000410
-2019-04-22 15:06:27,483 - train - INFO - Epoch [1/200], Iter [415/1035] expect end in 5.00 min. Loss: 4.8835, average_loss: 8.4753, now learning rate: 0.000415
-2019-04-22 15:06:30,353 - train - INFO - Epoch [1/200], Iter [420/1035] expect end in 5.00 min. Loss: 3.7856, average_loss: 8.4300, now learning rate: 0.000420
-2019-04-22 15:06:33,257 - train - INFO - Epoch [1/200], Iter [425/1035] expect end in 5.00 min. Loss: 5.5974, average_loss: 8.3895, now learning rate: 0.000425
-2019-04-22 15:06:36,129 - train - INFO - Epoch [1/200], Iter [430/1035] expect end in 5.00 min. Loss: 4.8002, average_loss: 8.3484, now learning rate: 0.000430
-2019-04-22 15:06:38,963 - train - INFO - Epoch [1/200], Iter [435/1035] expect end in 5.00 min. Loss: 5.3107, average_loss: 8.3059, now learning rate: 0.000435
-2019-04-22 15:06:41,808 - train - INFO - Epoch [1/200], Iter [440/1035] expect end in 5.00 min. Loss: 4.4155, average_loss: 8.2606, now learning rate: 0.000440
-2019-04-22 15:06:44,655 - train - INFO - Epoch [1/200], Iter [445/1035] expect end in 5.00 min. Loss: 5.6928, average_loss: 8.2187, now learning rate: 0.000445
-2019-04-22 15:06:47,521 - train - INFO - Epoch [1/200], Iter [450/1035] expect end in 5.00 min. Loss: 3.7873, average_loss: 8.1802, now learning rate: 0.000450
-2019-04-22 15:06:50,393 - train - INFO - Epoch [1/200], Iter [455/1035] expect end in 5.00 min. Loss: 5.5596, average_loss: 8.1454, now learning rate: 0.000455
-2019-04-22 15:06:53,203 - train - INFO - Epoch [1/200], Iter [460/1035] expect end in 5.00 min. Loss: 2.9221, average_loss: 8.0984, now learning rate: 0.000460
-2019-04-22 15:06:56,058 - train - INFO - Epoch [1/200], Iter [465/1035] expect end in 5.00 min. Loss: 5.3917, average_loss: 8.0572, now learning rate: 0.000465
-2019-04-22 15:06:58,902 - train - INFO - Epoch [1/200], Iter [470/1035] expect end in 5.00 min. Loss: 3.9575, average_loss: 8.0173, now learning rate: 0.000470
-2019-04-22 15:07:01,812 - train - INFO - Epoch [1/200], Iter [475/1035] expect end in 5.00 min. Loss: 4.7656, average_loss: 7.9898, now learning rate: 0.000475
-2019-04-22 15:07:04,669 - train - INFO - Epoch [1/200], Iter [480/1035] expect end in 5.00 min. Loss: 4.6190, average_loss: 7.9528, now learning rate: 0.000480
-2019-04-22 15:07:07,482 - train - INFO - Epoch [1/200], Iter [485/1035] expect end in 5.00 min. Loss: 3.5210, average_loss: 7.9092, now learning rate: 0.000485
-2019-04-22 15:07:10,370 - train - INFO - Epoch [1/200], Iter [490/1035] expect end in 5.00 min. Loss: 3.1900, average_loss: 7.8771, now learning rate: 0.000490
-2019-04-22 15:07:13,239 - train - INFO - Epoch [1/200], Iter [495/1035] expect end in 5.00 min. Loss: 3.6430, average_loss: 7.8394, now learning rate: 0.000495
-2019-04-22 15:07:16,112 - train - INFO - Epoch [1/200], Iter [500/1035] expect end in 5.00 min. Loss: 3.7431, average_loss: 7.8080, now learning rate: 0.000500
-2019-04-22 15:07:19,023 - train - INFO - Epoch [1/200], Iter [505/1035] expect end in 5.00 min. Loss: 4.0736, average_loss: 7.7808, now learning rate: 0.000505
-2019-04-22 15:07:21,877 - train - INFO - Epoch [1/200], Iter [510/1035] expect end in 5.00 min. Loss: 4.8407, average_loss: 7.7496, now learning rate: 0.000510
-2019-04-22 15:07:24,694 - train - INFO - Epoch [1/200], Iter [515/1035] expect end in 4.00 min. Loss: 3.6591, average_loss: 7.7073, now learning rate: 0.000515
-2019-04-22 15:07:27,552 - train - INFO - Epoch [1/200], Iter [520/1035] expect end in 4.00 min. Loss: 4.7200, average_loss: 7.6778, now learning rate: 0.000520
-2019-04-22 15:07:30,431 - train - INFO - Epoch [1/200], Iter [525/1035] expect end in 4.00 min. Loss: 3.9203, average_loss: 7.6496, now learning rate: 0.000525
-2019-04-22 15:07:33,285 - train - INFO - Epoch [1/200], Iter [530/1035] expect end in 4.00 min. Loss: 3.9602, average_loss: 7.6186, now learning rate: 0.000530
-2019-04-22 15:07:36,093 - train - INFO - Epoch [1/200], Iter [535/1035] expect end in 4.00 min. Loss: 3.9974, average_loss: 7.5831, now learning rate: 0.000535
-2019-04-22 15:07:38,963 - train - INFO - Epoch [1/200], Iter [540/1035] expect end in 4.00 min. Loss: 4.1977, average_loss: 7.5549, now learning rate: 0.000540
-2019-04-22 15:07:41,804 - train - INFO - Epoch [1/200], Iter [545/1035] expect end in 4.00 min. Loss: 3.2113, average_loss: 7.5226, now learning rate: 0.000545
-2019-04-22 15:07:44,675 - train - INFO - Epoch [1/200], Iter [550/1035] expect end in 4.00 min. Loss: 3.0225, average_loss: 7.4906, now learning rate: 0.000550
-2019-04-22 15:07:47,520 - train - INFO - Epoch [1/200], Iter [555/1035] expect end in 4.00 min. Loss: 2.7246, average_loss: 7.4623, now learning rate: 0.000555
-2019-04-22 15:07:50,389 - train - INFO - Epoch [1/200], Iter [560/1035] expect end in 4.00 min. Loss: 3.8710, average_loss: 7.4343, now learning rate: 0.000560
-2019-04-22 15:07:53,279 - train - INFO - Epoch [1/200], Iter [565/1035] expect end in 4.00 min. Loss: 2.9633, average_loss: 7.4085, now learning rate: 0.000565
-2019-04-22 15:07:56,157 - train - INFO - Epoch [1/200], Iter [570/1035] expect end in 4.00 min. Loss: 4.1392, average_loss: 7.3822, now learning rate: 0.000570
-2019-04-22 15:07:59,043 - train - INFO - Epoch [1/200], Iter [575/1035] expect end in 4.00 min. Loss: 3.3391, average_loss: 7.3573, now learning rate: 0.000575
-2019-04-22 15:08:01,916 - train - INFO - Epoch [1/200], Iter [580/1035] expect end in 4.00 min. Loss: 5.5162, average_loss: 7.3333, now learning rate: 0.000580
-2019-04-22 15:08:04,812 - train - INFO - Epoch [1/200], Iter [585/1035] expect end in 4.00 min. Loss: 4.7732, average_loss: 7.3112, now learning rate: 0.000585
-2019-04-22 15:08:07,678 - train - INFO - Epoch [1/200], Iter [590/1035] expect end in 4.00 min. Loss: 3.6136, average_loss: 7.2838, now learning rate: 0.000590
-2019-04-22 15:08:10,558 - train - INFO - Epoch [1/200], Iter [595/1035] expect end in 4.00 min. Loss: 4.2870, average_loss: 7.2607, now learning rate: 0.000595
-2019-04-22 15:08:13,413 - train - INFO - Epoch [1/200], Iter [600/1035] expect end in 4.00 min. Loss: 4.3170, average_loss: 7.2337, now learning rate: 0.000600
-2019-04-22 15:08:16,251 - train - INFO - Epoch [1/200], Iter [605/1035] expect end in 4.00 min. Loss: 3.4224, average_loss: 7.2035, now learning rate: 0.000605
-2019-04-22 15:08:19,132 - train - INFO - Epoch [1/200], Iter [610/1035] expect end in 3.00 min. Loss: 3.9518, average_loss: 7.1767, now learning rate: 0.000610
-2019-04-22 15:08:22,016 - train - INFO - Epoch [1/200], Iter [615/1035] expect end in 4.00 min. Loss: 5.1041, average_loss: 7.1540, now learning rate: 0.000615
-2019-04-22 15:08:24,884 - train - INFO - Epoch [1/200], Iter [620/1035] expect end in 3.00 min. Loss: 4.4036, average_loss: 7.1296, now learning rate: 0.000620
-2019-04-22 15:08:27,804 - train - INFO - Epoch [1/200], Iter [625/1035] expect end in 3.00 min. Loss: 4.9492, average_loss: 7.1115, now learning rate: 0.000625
-2019-04-22 15:08:30,655 - train - INFO - Epoch [1/200], Iter [630/1035] expect end in 3.00 min. Loss: 3.7345, average_loss: 7.0866, now learning rate: 0.000630
-2019-04-22 15:08:33,487 - train - INFO - Epoch [1/200], Iter [635/1035] expect end in 3.00 min. Loss: 4.4790, average_loss: 7.0596, now learning rate: 0.000635
-2019-04-22 15:08:36,328 - train - INFO - Epoch [1/200], Iter [640/1035] expect end in 3.00 min. Loss: 3.8040, average_loss: 7.0338, now learning rate: 0.000640
-2019-04-22 15:08:39,230 - train - INFO - Epoch [1/200], Iter [645/1035] expect end in 3.00 min. Loss: 3.8755, average_loss: 7.0134, now learning rate: 0.000645
-2019-04-22 15:08:42,104 - train - INFO - Epoch [1/200], Iter [650/1035] expect end in 3.00 min. Loss: 3.6953, average_loss: 6.9944, now learning rate: 0.000650
-2019-04-22 15:08:45,034 - train - INFO - Epoch [1/200], Iter [655/1035] expect end in 3.00 min. Loss: 3.3485, average_loss: 6.9752, now learning rate: 0.000655
-2019-04-22 15:08:47,884 - train - INFO - Epoch [1/200], Iter [660/1035] expect end in 3.00 min. Loss: 5.0989, average_loss: 6.9525, now learning rate: 0.000660
-2019-04-22 15:08:50,767 - train - INFO - Epoch [1/200], Iter [665/1035] expect end in 3.00 min. Loss: 4.4049, average_loss: 6.9329, now learning rate: 0.000665
-2019-04-22 15:08:53,573 - train - INFO - Epoch [1/200], Iter [670/1035] expect end in 3.00 min. Loss: 4.1302, average_loss: 6.9060, now learning rate: 0.000670
-2019-04-22 15:08:56,383 - train - INFO - Epoch [1/200], Iter [675/1035] expect end in 3.00 min. Loss: 3.6259, average_loss: 6.8802, now learning rate: 0.000675
-2019-04-22 15:08:59,247 - train - INFO - Epoch [1/200], Iter [680/1035] expect end in 3.00 min. Loss: 3.8794, average_loss: 6.8581, now learning rate: 0.000680
-2019-04-22 15:09:02,083 - train - INFO - Epoch [1/200], Iter [685/1035] expect end in 3.00 min. Loss: 2.5299, average_loss: 6.8357, now learning rate: 0.000685
-2019-04-22 15:09:04,943 - train - INFO - Epoch [1/200], Iter [690/1035] expect end in 3.00 min. Loss: 4.1487, average_loss: 6.8150, now learning rate: 0.000690
-2019-04-22 15:09:07,805 - train - INFO - Epoch [1/200], Iter [695/1035] expect end in 3.00 min. Loss: 3.6416, average_loss: 6.7988, now learning rate: 0.000695
-2019-04-22 15:09:10,667 - train - INFO - Epoch [1/200], Iter [700/1035] expect end in 3.00 min. Loss: 3.5690, average_loss: 6.7785, now learning rate: 0.000700
-2019-04-22 15:09:13,536 - train - INFO - Epoch [1/200], Iter [705/1035] expect end in 3.00 min. Loss: 2.7913, average_loss: 6.7559, now learning rate: 0.000705
-2019-04-22 15:09:16,417 - train - INFO - Epoch [1/200], Iter [710/1035] expect end in 3.00 min. Loss: 4.0123, average_loss: 6.7383, now learning rate: 0.000710
-2019-04-22 15:09:19,272 - train - INFO - Epoch [1/200], Iter [715/1035] expect end in 3.00 min. Loss: 3.5530, average_loss: 6.7187, now learning rate: 0.000715
-2019-04-22 15:09:22,129 - train - INFO - Epoch [1/200], Iter [720/1035] expect end in 3.00 min. Loss: 3.4946, average_loss: 6.7010, now learning rate: 0.000720
-2019-04-22 15:09:24,962 - train - INFO - Epoch [1/200], Iter [725/1035] expect end in 3.00 min. Loss: 5.3508, average_loss: 6.6803, now learning rate: 0.000725
-2019-04-22 15:09:27,802 - train - INFO - Epoch [1/200], Iter [730/1035] expect end in 2.00 min. Loss: 2.9728, average_loss: 6.6599, now learning rate: 0.000730
-2019-04-22 15:09:30,661 - train - INFO - Epoch [1/200], Iter [735/1035] expect end in 2.00 min. Loss: 5.8762, average_loss: 6.6445, now learning rate: 0.000735
-2019-04-22 15:09:33,519 - train - INFO - Epoch [1/200], Iter [740/1035] expect end in 2.00 min. Loss: 2.7905, average_loss: 6.6271, now learning rate: 0.000740
-2019-04-22 15:09:36,426 - train - INFO - Epoch [1/200], Iter [745/1035] expect end in 2.00 min. Loss: 3.5023, average_loss: 6.6107, now learning rate: 0.000745
-2019-04-22 15:09:39,399 - train - INFO - Epoch [1/200], Iter [750/1035] expect end in 2.00 min. Loss: 4.0506, average_loss: 6.5942, now learning rate: 0.000750
-2019-04-22 15:09:42,403 - train - INFO - Epoch [1/200], Iter [755/1035] expect end in 2.00 min. Loss: 6.1176, average_loss: 6.5787, now learning rate: 0.000755
-2019-04-22 15:09:45,347 - train - INFO - Epoch [1/200], Iter [760/1035] expect end in 2.00 min. Loss: 4.7487, average_loss: 6.5610, now learning rate: 0.000760
-2019-04-22 15:09:48,290 - train - INFO - Epoch [1/200], Iter [765/1035] expect end in 2.00 min. Loss: 4.4167, average_loss: 6.5441, now learning rate: 0.000765
-2019-04-22 15:09:51,274 - train - INFO - Epoch [1/200], Iter [770/1035] expect end in 2.00 min. Loss: 3.0243, average_loss: 6.5266, now learning rate: 0.000770
-2019-04-22 15:09:54,246 - train - INFO - Epoch [1/200], Iter [775/1035] expect end in 2.00 min. Loss: 4.2087, average_loss: 6.5111, now learning rate: 0.000775
-2019-04-22 15:09:57,176 - train - INFO - Epoch [1/200], Iter [780/1035] expect end in 2.00 min. Loss: 3.4151, average_loss: 6.4947, now learning rate: 0.000780
-2019-04-22 15:10:00,043 - train - INFO - Epoch [1/200], Iter [785/1035] expect end in 2.00 min. Loss: 2.7273, average_loss: 6.4765, now learning rate: 0.000785
-2019-04-22 15:10:02,930 - train - INFO - Epoch [1/200], Iter [790/1035] expect end in 2.00 min. Loss: 4.9367, average_loss: 6.4607, now learning rate: 0.000790
-2019-04-22 15:10:05,897 - train - INFO - Epoch [1/200], Iter [795/1035] expect end in 2.00 min. Loss: 4.7820, average_loss: 6.4499, now learning rate: 0.000795
-2019-04-22 15:10:08,764 - train - INFO - Epoch [1/200], Iter [800/1035] expect end in 2.00 min. Loss: 4.0995, average_loss: 6.4330, now learning rate: 0.000800
-2019-04-22 15:10:11,627 - train - INFO - Epoch [1/200], Iter [805/1035] expect end in 2.00 min. Loss: 3.0745, average_loss: 6.4170, now learning rate: 0.000805
-2019-04-22 15:10:14,509 - train - INFO - Epoch [1/200], Iter [810/1035] expect end in 2.00 min. Loss: 6.9347, average_loss: 6.4018, now learning rate: 0.000810
-2019-04-22 15:10:17,409 - train - INFO - Epoch [1/200], Iter [815/1035] expect end in 2.00 min. Loss: 3.4916, average_loss: 6.3849, now learning rate: 0.000815
-2019-04-22 15:10:20,290 - train - INFO - Epoch [1/200], Iter [820/1035] expect end in 2.00 min. Loss: 2.8975, average_loss: 6.3705, now learning rate: 0.000820
-2019-04-22 15:10:23,221 - train - INFO - Epoch [1/200], Iter [825/1035] expect end in 2.00 min. Loss: 4.4842, average_loss: 6.3593, now learning rate: 0.000825
-2019-04-22 15:10:26,106 - train - INFO - Epoch [1/200], Iter [830/1035] expect end in 1.00 min. Loss: 3.7490, average_loss: 6.3432, now learning rate: 0.000830
-2019-04-22 15:10:28,981 - train - INFO - Epoch [1/200], Iter [835/1035] expect end in 1.00 min. Loss: 2.9724, average_loss: 6.3279, now learning rate: 0.000835
-2019-04-22 15:10:31,857 - train - INFO - Epoch [1/200], Iter [840/1035] expect end in 1.00 min. Loss: 2.9600, average_loss: 6.3153, now learning rate: 0.000840
-2019-04-22 15:10:34,771 - train - INFO - Epoch [1/200], Iter [845/1035] expect end in 1.00 min. Loss: 5.3320, average_loss: 6.3038, now learning rate: 0.000845
-2019-04-22 15:10:37,655 - train - INFO - Epoch [1/200], Iter [850/1035] expect end in 1.00 min. Loss: 3.6908, average_loss: 6.2871, now learning rate: 0.000850
-2019-04-22 15:10:40,546 - train - INFO - Epoch [1/200], Iter [855/1035] expect end in 1.00 min. Loss: 4.8489, average_loss: 6.2741, now learning rate: 0.000855
-2019-04-22 15:10:43,466 - train - INFO - Epoch [1/200], Iter [860/1035] expect end in 1.00 min. Loss: 3.0901, average_loss: 6.2620, now learning rate: 0.000860
-2019-04-22 15:10:46,345 - train - INFO - Epoch [1/200], Iter [865/1035] expect end in 1.00 min. Loss: 3.0442, average_loss: 6.2466, now learning rate: 0.000865
-2019-04-22 15:10:49,260 - train - INFO - Epoch [1/200], Iter [870/1035] expect end in 1.00 min. Loss: 4.3988, average_loss: 6.2355, now learning rate: 0.000870
-2019-04-22 15:10:52,140 - train - INFO - Epoch [1/200], Iter [875/1035] expect end in 1.00 min. Loss: 3.9229, average_loss: 6.2205, now learning rate: 0.000875
-2019-04-22 15:10:55,001 - train - INFO - Epoch [1/200], Iter [880/1035] expect end in 1.00 min. Loss: 3.2362, average_loss: 6.2047, now learning rate: 0.000880
-2019-04-22 15:10:57,865 - train - INFO - Epoch [1/200], Iter [885/1035] expect end in 1.00 min. Loss: 4.0277, average_loss: 6.1904, now learning rate: 0.000885
-2019-04-22 15:11:00,731 - train - INFO - Epoch [1/200], Iter [890/1035] expect end in 1.00 min. Loss: 4.1396, average_loss: 6.1774, now learning rate: 0.000890
-2019-04-22 15:11:03,618 - train - INFO - Epoch [1/200], Iter [895/1035] expect end in 1.00 min. Loss: 4.3934, average_loss: 6.1646, now learning rate: 0.000895
-2019-04-22 15:11:06,475 - train - INFO - Epoch [1/200], Iter [900/1035] expect end in 1.00 min. Loss: 3.7305, average_loss: 6.1506, now learning rate: 0.000900
-2019-04-22 15:11:09,370 - train - INFO - Epoch [1/200], Iter [905/1035] expect end in 1.00 min. Loss: 5.5411, average_loss: 6.1384, now learning rate: 0.000905
-2019-04-22 15:11:12,272 - train - INFO - Epoch [1/200], Iter [910/1035] expect end in 1.00 min. Loss: 3.2878, average_loss: 6.1278, now learning rate: 0.000910
-2019-04-22 15:11:15,205 - train - INFO - Epoch [1/200], Iter [915/1035] expect end in 1.00 min. Loss: 3.6789, average_loss: 6.1171, now learning rate: 0.000915
-2019-04-22 15:11:18,129 - train - INFO - Epoch [1/200], Iter [920/1035] expect end in 1.00 min. Loss: 2.9827, average_loss: 6.1065, now learning rate: 0.000920
-2019-04-22 15:11:21,009 - train - INFO - Epoch [1/200], Iter [925/1035] expect end in 1.00 min. Loss: 3.9634, average_loss: 6.0946, now learning rate: 0.000925
-2019-04-22 15:11:23,897 - train - INFO - Epoch [1/200], Iter [930/1035] expect end in 0.00 min. Loss: 2.5358, average_loss: 6.0805, now learning rate: 0.000930
-2019-04-22 15:11:26,829 - train - INFO - Epoch [1/200], Iter [935/1035] expect end in 1.00 min. Loss: 4.6621, average_loss: 6.0695, now learning rate: 0.000935
-2019-04-22 15:11:29,747 - train - INFO - Epoch [1/200], Iter [940/1035] expect end in 0.00 min. Loss: 5.8489, average_loss: 6.0583, now learning rate: 0.000940
-2019-04-22 15:11:32,819 - train - INFO - Epoch [1/200], Iter [945/1035] expect end in 0.00 min. Loss: 3.8185, average_loss: 6.0446, now learning rate: 0.000945
-2019-04-22 15:11:35,698 - train - INFO - Epoch [1/200], Iter [950/1035] expect end in 0.00 min. Loss: 3.3379, average_loss: 6.0323, now learning rate: 0.000950
-2019-04-22 15:11:38,598 - train - INFO - Epoch [1/200], Iter [955/1035] expect end in 0.00 min. Loss: 3.6910, average_loss: 6.0221, now learning rate: 0.000955
-2019-04-22 15:11:41,492 - train - INFO - Epoch [1/200], Iter [960/1035] expect end in 0.00 min. Loss: 5.0349, average_loss: 6.0112, now learning rate: 0.000960
-2019-04-22 15:11:44,415 - train - INFO - Epoch [1/200], Iter [965/1035] expect end in 0.00 min. Loss: 3.7348, average_loss: 6.0022, now learning rate: 0.000965
-2019-04-22 15:11:47,245 - train - INFO - Epoch [1/200], Iter [970/1035] expect end in 0.00 min. Loss: 2.5335, average_loss: 5.9862, now learning rate: 0.000970
-2019-04-22 15:11:50,207 - train - INFO - Epoch [1/200], Iter [975/1035] expect end in 0.00 min. Loss: 4.2617, average_loss: 5.9794, now learning rate: 0.000975
-2019-04-22 15:11:53,142 - train - INFO - Epoch [1/200], Iter [980/1035] expect end in 0.00 min. Loss: 2.9116, average_loss: 5.9705, now learning rate: 0.000980
-2019-04-22 15:11:56,049 - train - INFO - Epoch [1/200], Iter [985/1035] expect end in 0.00 min. Loss: 4.3954, average_loss: 5.9609, now learning rate: 0.000985
-2019-04-22 15:11:59,016 - train - INFO - Epoch [1/200], Iter [990/1035] expect end in 0.00 min. Loss: 4.0751, average_loss: 5.9498, now learning rate: 0.000990
-2019-04-22 15:12:01,979 - train - INFO - Epoch [1/200], Iter [995/1035] expect end in 0.00 min. Loss: 3.7998, average_loss: 5.9382, now learning rate: 0.000995
-2019-04-22 15:12:04,866 - train - INFO - Epoch [1/200], Iter [1000/1035] expect end in 0.00 min. Loss: 3.0422, average_loss: 5.9289, now learning rate: 0.001000
-2019-04-22 15:12:07,788 - train - INFO - Epoch [1/200], Iter [1005/1035] expect end in 0.00 min. Loss: 3.9351, average_loss: 5.9179, now learning rate: 0.001000
-2019-04-22 15:12:10,703 - train - INFO - Epoch [1/200], Iter [1010/1035] expect end in 0.00 min. Loss: 4.5700, average_loss: 5.9068, now learning rate: 0.001000
-2019-04-22 15:12:13,640 - train - INFO - Epoch [1/200], Iter [1015/1035] expect end in 0.00 min. Loss: 3.7588, average_loss: 5.8982, now learning rate: 0.001000
-2019-04-22 15:12:16,621 - train - INFO - Epoch [1/200], Iter [1020/1035] expect end in 0.00 min. Loss: 3.9203, average_loss: 5.8879, now learning rate: 0.001000
-2019-04-22 15:12:19,521 - train - INFO - Epoch [1/200], Iter [1025/1035] expect end in 0.00 min. Loss: 5.0131, average_loss: 5.8769, now learning rate: 0.001000
-2019-04-22 15:12:22,487 - train - INFO - Epoch [1/200], Iter [1030/1035] expect end in 0.00 min. Loss: 3.5713, average_loss: 5.8663, now learning rate: 0.001000
-2019-04-22 15:12:25,269 - train - INFO - Epoch [1/200], Iter [1035/1035] expect end in 0.00 min. Loss: 1.4943, average_loss: 5.8552, now learning rate: 0.001000
-2019-04-22 15:12:25,282 - train - INFO - Epoch 0 / 200 finished, cost time 10.08 min. expect 2025.9718117500004 min finish train.
-2019-04-22 15:25:27,417 - train - INFO - ---start evaluate---
-2019-04-22 15:25:27,510 - train - INFO - ---class aeroplane ap 0.04580314997568964---
-2019-04-22 15:25:27,537 - train - INFO - ---class bicycle ap 0.03572566528489121---
-2019-04-22 15:25:27,582 - train - INFO - ---class bird ap 0.000940794849131343---
-2019-04-22 15:25:27,902 - train - INFO - ---class boat ap 0.00045506718429965835---
-2019-04-22 15:25:27,904 - train - INFO - ---class bottle ap 0.0---
-2019-04-22 15:25:27,927 - train - INFO - ---class bus ap 0.0009263547938860583---
-2019-04-22 15:25:28,736 - train - INFO - ---class car ap 0.08261849994322215---
-2019-04-22 15:25:28,871 - train - INFO - ---class cat ap 0.1470580536598631---
-2019-04-22 15:25:30,110 - train - INFO - ---class chair ap 0.004479097221150208---
-2019-04-22 15:25:30,185 - train - INFO - ---class cow ap 0.0---
-2019-04-22 15:25:30,306 - train - INFO - ---class diningtable ap 0.0010546116779308595---
-2019-04-22 15:25:30,386 - train - INFO - ---class dog ap 0.0889691831223377---
-2019-04-22 15:25:30,387 - train - INFO - ---class horse ap 0.0---
-2019-04-22 15:25:30,403 - train - INFO - ---class motorbike ap 0.011365257193241789---
-2019-04-22 15:25:34,736 - train - INFO - ---class person ap 0.1345789113472586---
-2019-04-22 15:25:34,759 - train - INFO - ---class pottedplant ap 0.0---
-2019-04-22 15:25:34,822 - train - INFO - ---class sheep ap 0.0---
-2019-04-22 15:25:34,823 - train - INFO - ---class sofa ap 0.0---
-2019-04-22 15:25:34,825 - train - INFO - ---class train ap 0.0033112582781456954---
-2019-04-22 15:25:34,873 - train - INFO - ---class tvmonitor ap 0.0016235436616185892---
-2019-04-22 15:25:34,873 - train - INFO - ---map 0.027945472409633333---
-2019-04-22 15:25:34,950 - train - INFO - get best test mAP 0.02795
-2019-04-22 15:25:35,196 - train - INFO - 
+2019-04-22 17:17:59,886 - train - INFO - Learning Rate for this epoch: 0.0
+2019-04-22 17:18:03,534 - train - INFO - Epoch [1/200], Iter [5/1035] expect end in 9.00 min. Loss: 20.7434, average_loss: 23.6301, now learning rate: 0.000005
+2019-04-22 17:18:06,355 - train - INFO - Epoch [1/200], Iter [10/1035] expect end in 9.00 min. Loss: 23.1957, average_loss: 22.0273, now learning rate: 0.000010
+2019-04-22 17:18:09,223 - train - INFO - Epoch [1/200], Iter [15/1035] expect end in 9.00 min. Loss: 23.1931, average_loss: 22.7206, now learning rate: 0.000015
+2019-04-22 17:18:12,074 - train - INFO - Epoch [1/200], Iter [20/1035] expect end in 9.00 min. Loss: 20.8988, average_loss: 22.2489, now learning rate: 0.000020
+2019-04-22 17:18:14,936 - train - INFO - Epoch [1/200], Iter [25/1035] expect end in 9.00 min. Loss: 21.0462, average_loss: 22.2201, now learning rate: 0.000025
+2019-04-22 17:18:17,784 - train - INFO - Epoch [1/200], Iter [30/1035] expect end in 9.00 min. Loss: 17.4777, average_loss: 21.6960, now learning rate: 0.000030
+2019-04-22 17:18:20,669 - train - INFO - Epoch [1/200], Iter [35/1035] expect end in 9.00 min. Loss: 21.2240, average_loss: 21.6082, now learning rate: 0.000035
+2019-04-22 17:18:23,544 - train - INFO - Epoch [1/200], Iter [40/1035] expect end in 9.00 min. Loss: 15.3931, average_loss: 21.1713, now learning rate: 0.000040
+2019-04-22 17:18:26,453 - train - INFO - Epoch [1/200], Iter [45/1035] expect end in 9.00 min. Loss: 17.3026, average_loss: 21.1122, now learning rate: 0.000045
+2019-04-22 17:18:29,339 - train - INFO - Epoch [1/200], Iter [50/1035] expect end in 9.00 min. Loss: 18.3095, average_loss: 20.7221, now learning rate: 0.000050
+2019-04-22 17:18:32,191 - train - INFO - Epoch [1/200], Iter [55/1035] expect end in 9.00 min. Loss: 10.9610, average_loss: 20.1060, now learning rate: 0.000055
+2019-04-22 17:18:35,033 - train - INFO - Epoch [1/200], Iter [60/1035] expect end in 9.00 min. Loss: 15.9588, average_loss: 19.5189, now learning rate: 0.000060
+2019-04-22 17:18:37,867 - train - INFO - Epoch [1/200], Iter [65/1035] expect end in 9.00 min. Loss: 10.8215, average_loss: 18.9180, now learning rate: 0.000065
+2019-04-22 17:18:40,733 - train - INFO - Epoch [1/200], Iter [70/1035] expect end in 9.00 min. Loss: 11.0058, average_loss: 18.5046, now learning rate: 0.000070
+2019-04-22 17:18:43,569 - train - INFO - Epoch [1/200], Iter [75/1035] expect end in 8.00 min. Loss: 9.0022, average_loss: 18.0472, now learning rate: 0.000075
+2019-04-22 17:18:46,447 - train - INFO - Epoch [1/200], Iter [80/1035] expect end in 9.00 min. Loss: 11.2669, average_loss: 17.6860, now learning rate: 0.000080
+2019-04-22 17:18:49,321 - train - INFO - Epoch [1/200], Iter [85/1035] expect end in 9.00 min. Loss: 12.7710, average_loss: 17.3111, now learning rate: 0.000085
+2019-04-22 17:18:52,229 - train - INFO - Epoch [1/200], Iter [90/1035] expect end in 9.00 min. Loss: 12.9792, average_loss: 17.0576, now learning rate: 0.000090
+2019-04-22 17:18:55,115 - train - INFO - Epoch [1/200], Iter [95/1035] expect end in 9.00 min. Loss: 15.5490, average_loss: 16.7981, now learning rate: 0.000095
+2019-04-22 17:18:57,969 - train - INFO - Epoch [1/200], Iter [100/1035] expect end in 8.00 min. Loss: 10.8957, average_loss: 16.5117, now learning rate: 0.000100
+2019-04-22 17:19:00,814 - train - INFO - Epoch [1/200], Iter [105/1035] expect end in 8.00 min. Loss: 8.0185, average_loss: 16.1946, now learning rate: 0.000105
+2019-04-22 17:19:03,682 - train - INFO - Epoch [1/200], Iter [110/1035] expect end in 9.00 min. Loss: 11.3327, average_loss: 15.9052, now learning rate: 0.000110
+2019-04-22 17:19:06,648 - train - INFO - Epoch [1/200], Iter [115/1035] expect end in 9.00 min. Loss: 8.8074, average_loss: 15.6029, now learning rate: 0.000115
+2019-04-22 17:19:09,553 - train - INFO - Epoch [1/200], Iter [120/1035] expect end in 9.00 min. Loss: 11.5563, average_loss: 15.3682, now learning rate: 0.000120
+2019-04-22 17:19:12,481 - train - INFO - Epoch [1/200], Iter [125/1035] expect end in 8.00 min. Loss: 9.6287, average_loss: 15.1492, now learning rate: 0.000125
+2019-04-22 17:19:15,531 - train - INFO - Epoch [1/200], Iter [130/1035] expect end in 9.00 min. Loss: 7.8120, average_loss: 14.9149, now learning rate: 0.000130
+2019-04-22 17:19:18,601 - train - INFO - Epoch [1/200], Iter [135/1035] expect end in 8.00 min. Loss: 6.6474, average_loss: 14.6430, now learning rate: 0.000135
+2019-04-22 17:19:21,595 - train - INFO - Epoch [1/200], Iter [140/1035] expect end in 8.00 min. Loss: 7.6491, average_loss: 14.4624, now learning rate: 0.000140
+2019-04-22 17:19:24,685 - train - INFO - Epoch [1/200], Iter [145/1035] expect end in 8.00 min. Loss: 5.6350, average_loss: 14.2093, now learning rate: 0.000145
+2019-04-22 17:19:27,731 - train - INFO - Epoch [1/200], Iter [150/1035] expect end in 9.00 min. Loss: 13.3559, average_loss: 14.0164, now learning rate: 0.000150
+2019-04-22 17:19:30,837 - train - INFO - Epoch [1/200], Iter [155/1035] expect end in 9.00 min. Loss: 7.3543, average_loss: 13.8102, now learning rate: 0.000155
+2019-04-22 17:19:33,908 - train - INFO - Epoch [1/200], Iter [160/1035] expect end in 9.00 min. Loss: 6.6532, average_loss: 13.6059, now learning rate: 0.000160
+2019-04-22 17:19:36,967 - train - INFO - Epoch [1/200], Iter [165/1035] expect end in 9.00 min. Loss: 9.7766, average_loss: 13.4059, now learning rate: 0.000165
+2019-04-22 17:19:40,069 - train - INFO - Epoch [1/200], Iter [170/1035] expect end in 8.00 min. Loss: 5.6200, average_loss: 13.2219, now learning rate: 0.000170
+2019-04-22 17:19:43,166 - train - INFO - Epoch [1/200], Iter [175/1035] expect end in 8.00 min. Loss: 6.3693, average_loss: 13.0468, now learning rate: 0.000175
+2019-04-22 17:19:46,123 - train - INFO - Epoch [1/200], Iter [180/1035] expect end in 8.00 min. Loss: 6.6754, average_loss: 12.8847, now learning rate: 0.000180
+2019-04-22 17:19:49,025 - train - INFO - Epoch [1/200], Iter [185/1035] expect end in 8.00 min. Loss: 7.1734, average_loss: 12.7192, now learning rate: 0.000185
+2019-04-22 17:19:52,039 - train - INFO - Epoch [1/200], Iter [190/1035] expect end in 8.00 min. Loss: 9.2075, average_loss: 12.5711, now learning rate: 0.000190
+2019-04-22 17:19:54,985 - train - INFO - Epoch [1/200], Iter [195/1035] expect end in 8.00 min. Loss: 6.3905, average_loss: 12.4026, now learning rate: 0.000195
+2019-04-22 17:19:57,952 - train - INFO - Epoch [1/200], Iter [200/1035] expect end in 8.00 min. Loss: 7.8750, average_loss: 12.2491, now learning rate: 0.000200
+2019-04-22 17:20:00,918 - train - INFO - Epoch [1/200], Iter [205/1035] expect end in 8.00 min. Loss: 5.8179, average_loss: 12.0849, now learning rate: 0.000205
+2019-04-22 17:20:03,864 - train - INFO - Epoch [1/200], Iter [210/1035] expect end in 8.00 min. Loss: 3.8349, average_loss: 11.9428, now learning rate: 0.000210
+2019-04-22 17:20:06,815 - train - INFO - Epoch [1/200], Iter [215/1035] expect end in 7.00 min. Loss: 5.4794, average_loss: 11.8008, now learning rate: 0.000215
+2019-04-22 17:20:09,771 - train - INFO - Epoch [1/200], Iter [220/1035] expect end in 7.00 min. Loss: 5.0625, average_loss: 11.6656, now learning rate: 0.000220
+2019-04-22 17:20:12,820 - train - INFO - Epoch [1/200], Iter [225/1035] expect end in 8.00 min. Loss: 8.8983, average_loss: 11.5796, now learning rate: 0.000225
+2019-04-22 17:20:15,772 - train - INFO - Epoch [1/200], Iter [230/1035] expect end in 7.00 min. Loss: 4.6491, average_loss: 11.4427, now learning rate: 0.000230
+2019-04-22 17:20:18,755 - train - INFO - Epoch [1/200], Iter [235/1035] expect end in 7.00 min. Loss: 5.1401, average_loss: 11.3276, now learning rate: 0.000235
+2019-04-22 17:20:21,699 - train - INFO - Epoch [1/200], Iter [240/1035] expect end in 8.00 min. Loss: 4.6172, average_loss: 11.2048, now learning rate: 0.000240
+2019-04-22 17:20:24,658 - train - INFO - Epoch [1/200], Iter [245/1035] expect end in 7.00 min. Loss: 7.3173, average_loss: 11.1064, now learning rate: 0.000245
+2019-04-22 17:20:27,550 - train - INFO - Epoch [1/200], Iter [250/1035] expect end in 7.00 min. Loss: 5.0687, average_loss: 10.9801, now learning rate: 0.000250
+2019-04-22 17:20:30,489 - train - INFO - Epoch [1/200], Iter [255/1035] expect end in 7.00 min. Loss: 4.3002, average_loss: 10.8602, now learning rate: 0.000255
+2019-04-22 17:20:33,425 - train - INFO - Epoch [1/200], Iter [260/1035] expect end in 7.00 min. Loss: 6.7695, average_loss: 10.7552, now learning rate: 0.000260
+2019-04-22 17:20:36,391 - train - INFO - Epoch [1/200], Iter [265/1035] expect end in 7.00 min. Loss: 4.4461, average_loss: 10.6568, now learning rate: 0.000265
+2019-04-22 17:20:39,326 - train - INFO - Epoch [1/200], Iter [270/1035] expect end in 7.00 min. Loss: 5.4407, average_loss: 10.5548, now learning rate: 0.000270
+2019-04-22 17:20:42,273 - train - INFO - Epoch [1/200], Iter [275/1035] expect end in 7.00 min. Loss: 7.9159, average_loss: 10.4775, now learning rate: 0.000275
+2019-04-22 17:20:45,207 - train - INFO - Epoch [1/200], Iter [280/1035] expect end in 7.00 min. Loss: 5.2593, average_loss: 10.3800, now learning rate: 0.000280
+2019-04-22 17:20:48,177 - train - INFO - Epoch [1/200], Iter [285/1035] expect end in 7.00 min. Loss: 4.5155, average_loss: 10.3023, now learning rate: 0.000285
+2019-04-22 17:20:51,124 - train - INFO - Epoch [1/200], Iter [290/1035] expect end in 7.00 min. Loss: 4.4508, average_loss: 10.2113, now learning rate: 0.000290
+2019-04-22 17:20:54,054 - train - INFO - Epoch [1/200], Iter [295/1035] expect end in 6.00 min. Loss: 3.4400, average_loss: 10.1168, now learning rate: 0.000295
+2019-04-22 17:20:57,077 - train - INFO - Epoch [1/200], Iter [300/1035] expect end in 7.00 min. Loss: 6.0581, average_loss: 10.0494, now learning rate: 0.000300
+2019-04-22 17:21:00,076 - train - INFO - Epoch [1/200], Iter [305/1035] expect end in 7.00 min. Loss: 7.2726, average_loss: 9.9768, now learning rate: 0.000305
+2019-04-22 17:21:03,030 - train - INFO - Epoch [1/200], Iter [310/1035] expect end in 6.00 min. Loss: 4.8757, average_loss: 9.8878, now learning rate: 0.000310
+2019-04-22 17:21:05,837 - train - INFO - Epoch [1/200], Iter [315/1035] expect end in 6.00 min. Loss: 3.7531, average_loss: 9.8051, now learning rate: 0.000315
+2019-04-22 17:21:08,672 - train - INFO - Epoch [1/200], Iter [320/1035] expect end in 6.00 min. Loss: 7.8259, average_loss: 9.7356, now learning rate: 0.000320
+2019-04-22 17:21:11,699 - train - INFO - Epoch [1/200], Iter [325/1035] expect end in 6.00 min. Loss: 6.5650, average_loss: 9.6875, now learning rate: 0.000325
+2019-04-22 17:21:14,640 - train - INFO - Epoch [1/200], Iter [330/1035] expect end in 6.00 min. Loss: 4.2943, average_loss: 9.6073, now learning rate: 0.000330
+2019-04-22 17:21:17,789 - train - INFO - Epoch [1/200], Iter [335/1035] expect end in 7.00 min. Loss: 4.5756, average_loss: 9.5343, now learning rate: 0.000335
+2019-04-22 17:21:20,817 - train - INFO - Epoch [1/200], Iter [340/1035] expect end in 7.00 min. Loss: 4.1022, average_loss: 9.4576, now learning rate: 0.000340
+2019-04-22 17:21:23,721 - train - INFO - Epoch [1/200], Iter [345/1035] expect end in 6.00 min. Loss: 3.3916, average_loss: 9.3789, now learning rate: 0.000345
+2019-04-22 17:21:26,568 - train - INFO - Epoch [1/200], Iter [350/1035] expect end in 6.00 min. Loss: 5.2549, average_loss: 9.3188, now learning rate: 0.000350
+2019-04-22 17:21:29,422 - train - INFO - Epoch [1/200], Iter [355/1035] expect end in 6.00 min. Loss: 7.3198, average_loss: 9.2613, now learning rate: 0.000355
+2019-04-22 17:21:32,469 - train - INFO - Epoch [1/200], Iter [360/1035] expect end in 6.00 min. Loss: 3.2675, average_loss: 9.2010, now learning rate: 0.000360
+2019-04-22 17:21:35,579 - train - INFO - Epoch [1/200], Iter [365/1035] expect end in 7.00 min. Loss: 4.3265, average_loss: 9.1473, now learning rate: 0.000365
+2019-04-22 17:21:38,408 - train - INFO - Epoch [1/200], Iter [370/1035] expect end in 6.00 min. Loss: 4.5836, average_loss: 9.0861, now learning rate: 0.000370
+2019-04-22 17:21:41,245 - train - INFO - Epoch [1/200], Iter [375/1035] expect end in 6.00 min. Loss: 5.4920, average_loss: 9.0367, now learning rate: 0.000375
+2019-04-22 17:21:44,267 - train - INFO - Epoch [1/200], Iter [380/1035] expect end in 6.00 min. Loss: 3.8620, average_loss: 8.9842, now learning rate: 0.000380
+2019-04-22 17:21:47,063 - train - INFO - Epoch [1/200], Iter [385/1035] expect end in 6.00 min. Loss: 3.8107, average_loss: 8.9222, now learning rate: 0.000385
+2019-04-22 17:21:49,896 - train - INFO - Epoch [1/200], Iter [390/1035] expect end in 6.00 min. Loss: 4.7647, average_loss: 8.8734, now learning rate: 0.000390
+2019-04-22 17:21:52,805 - train - INFO - Epoch [1/200], Iter [395/1035] expect end in 6.00 min. Loss: 4.2007, average_loss: 8.8268, now learning rate: 0.000395
+2019-04-22 17:21:55,911 - train - INFO - Epoch [1/200], Iter [400/1035] expect end in 6.00 min. Loss: 4.8358, average_loss: 8.7785, now learning rate: 0.000400
+2019-04-22 17:21:59,025 - train - INFO - Epoch [1/200], Iter [405/1035] expect end in 6.00 min. Loss: 4.2192, average_loss: 8.7216, now learning rate: 0.000405
+2019-04-22 17:22:02,225 - train - INFO - Epoch [1/200], Iter [410/1035] expect end in 6.00 min. Loss: 5.0741, average_loss: 8.6723, now learning rate: 0.000410
+2019-04-22 17:22:05,459 - train - INFO - Epoch [1/200], Iter [415/1035] expect end in 6.00 min. Loss: 4.0122, average_loss: 8.6255, now learning rate: 0.000415
+2019-04-22 17:22:08,414 - train - INFO - Epoch [1/200], Iter [420/1035] expect end in 6.00 min. Loss: 4.0448, average_loss: 8.5706, now learning rate: 0.000420
+2019-04-22 17:22:11,303 - train - INFO - Epoch [1/200], Iter [425/1035] expect end in 5.00 min. Loss: 3.1322, average_loss: 8.5139, now learning rate: 0.000425
+2019-04-22 17:22:14,293 - train - INFO - Epoch [1/200], Iter [430/1035] expect end in 5.00 min. Loss: 3.6550, average_loss: 8.4695, now learning rate: 0.000430
+2019-04-22 17:22:17,195 - train - INFO - Epoch [1/200], Iter [435/1035] expect end in 5.00 min. Loss: 2.9594, average_loss: 8.4232, now learning rate: 0.000435
+2019-04-22 17:22:20,027 - train - INFO - Epoch [1/200], Iter [440/1035] expect end in 5.00 min. Loss: 3.0575, average_loss: 8.3697, now learning rate: 0.000440
+2019-04-22 17:22:22,918 - train - INFO - Epoch [1/200], Iter [445/1035] expect end in 6.00 min. Loss: 5.3589, average_loss: 8.3239, now learning rate: 0.000445
+2019-04-22 17:22:25,725 - train - INFO - Epoch [1/200], Iter [450/1035] expect end in 5.00 min. Loss: 2.5710, average_loss: 8.2657, now learning rate: 0.000450
+2019-04-22 17:22:28,614 - train - INFO - Epoch [1/200], Iter [455/1035] expect end in 5.00 min. Loss: 4.0523, average_loss: 8.2255, now learning rate: 0.000455
+2019-04-22 17:22:31,685 - train - INFO - Epoch [1/200], Iter [460/1035] expect end in 5.00 min. Loss: 3.9036, average_loss: 8.1809, now learning rate: 0.000460
+2019-04-22 17:22:34,801 - train - INFO - Epoch [1/200], Iter [465/1035] expect end in 5.00 min. Loss: 4.6201, average_loss: 8.1417, now learning rate: 0.000465
+2019-04-22 17:22:37,892 - train - INFO - Epoch [1/200], Iter [470/1035] expect end in 5.00 min. Loss: 5.2879, average_loss: 8.1042, now learning rate: 0.000470
+2019-04-22 17:22:40,830 - train - INFO - Epoch [1/200], Iter [475/1035] expect end in 5.00 min. Loss: 3.6087, average_loss: 8.0607, now learning rate: 0.000475
+2019-04-22 17:22:43,723 - train - INFO - Epoch [1/200], Iter [480/1035] expect end in 5.00 min. Loss: 6.1625, average_loss: 8.0231, now learning rate: 0.000480
+2019-04-22 17:22:46,582 - train - INFO - Epoch [1/200], Iter [485/1035] expect end in 5.00 min. Loss: 2.9556, average_loss: 7.9803, now learning rate: 0.000485
+2019-04-22 17:22:49,471 - train - INFO - Epoch [1/200], Iter [490/1035] expect end in 5.00 min. Loss: 4.3529, average_loss: 7.9475, now learning rate: 0.000490
+2019-04-22 17:22:52,463 - train - INFO - Epoch [1/200], Iter [495/1035] expect end in 5.00 min. Loss: 3.8233, average_loss: 7.9047, now learning rate: 0.000495
+2019-04-22 17:22:55,305 - train - INFO - Epoch [1/200], Iter [500/1035] expect end in 4.00 min. Loss: 3.0766, average_loss: 7.8646, now learning rate: 0.000500
+2019-04-22 17:22:58,216 - train - INFO - Epoch [1/200], Iter [505/1035] expect end in 4.00 min. Loss: 3.2000, average_loss: 7.8283, now learning rate: 0.000505
+2019-04-22 17:23:01,203 - train - INFO - Epoch [1/200], Iter [510/1035] expect end in 4.00 min. Loss: 4.0537, average_loss: 7.7953, now learning rate: 0.000510
+2019-04-22 17:23:04,115 - train - INFO - Epoch [1/200], Iter [515/1035] expect end in 5.00 min. Loss: 3.2730, average_loss: 7.7691, now learning rate: 0.000515
+2019-04-22 17:23:06,946 - train - INFO - Epoch [1/200], Iter [520/1035] expect end in 4.00 min. Loss: 4.4321, average_loss: 7.7312, now learning rate: 0.000520
+2019-04-22 17:23:09,825 - train - INFO - Epoch [1/200], Iter [525/1035] expect end in 4.00 min. Loss: 3.2145, average_loss: 7.6977, now learning rate: 0.000525
+2019-04-22 17:23:12,672 - train - INFO - Epoch [1/200], Iter [530/1035] expect end in 4.00 min. Loss: 3.5083, average_loss: 7.6630, now learning rate: 0.000530
+2019-04-22 17:23:15,566 - train - INFO - Epoch [1/200], Iter [535/1035] expect end in 5.00 min. Loss: 5.9004, average_loss: 7.6302, now learning rate: 0.000535
+2019-04-22 17:23:18,472 - train - INFO - Epoch [1/200], Iter [540/1035] expect end in 5.00 min. Loss: 5.9736, average_loss: 7.6041, now learning rate: 0.000540
+2019-04-22 17:23:21,382 - train - INFO - Epoch [1/200], Iter [545/1035] expect end in 5.00 min. Loss: 5.7718, average_loss: 7.5736, now learning rate: 0.000545
+2019-04-22 17:23:24,248 - train - INFO - Epoch [1/200], Iter [550/1035] expect end in 4.00 min. Loss: 5.2227, average_loss: 7.5485, now learning rate: 0.000550
+2019-04-22 17:23:27,293 - train - INFO - Epoch [1/200], Iter [555/1035] expect end in 5.00 min. Loss: 3.4614, average_loss: 7.5230, now learning rate: 0.000555
+2019-04-22 17:23:30,481 - train - INFO - Epoch [1/200], Iter [560/1035] expect end in 5.00 min. Loss: 4.7783, average_loss: 7.4972, now learning rate: 0.000560
+2019-04-22 17:23:33,505 - train - INFO - Epoch [1/200], Iter [565/1035] expect end in 4.00 min. Loss: 2.4617, average_loss: 7.4629, now learning rate: 0.000565
+2019-04-22 17:23:36,544 - train - INFO - Epoch [1/200], Iter [570/1035] expect end in 4.00 min. Loss: 3.8249, average_loss: 7.4310, now learning rate: 0.000570
+2019-04-22 17:23:39,457 - train - INFO - Epoch [1/200], Iter [575/1035] expect end in 4.00 min. Loss: 2.5326, average_loss: 7.4045, now learning rate: 0.000575
+2019-04-22 17:23:42,373 - train - INFO - Epoch [1/200], Iter [580/1035] expect end in 4.00 min. Loss: 4.7560, average_loss: 7.3836, now learning rate: 0.000580
+2019-04-22 17:23:45,305 - train - INFO - Epoch [1/200], Iter [585/1035] expect end in 4.00 min. Loss: 3.9720, average_loss: 7.3579, now learning rate: 0.000585
+2019-04-22 17:23:48,239 - train - INFO - Epoch [1/200], Iter [590/1035] expect end in 4.00 min. Loss: 3.7025, average_loss: 7.3304, now learning rate: 0.000590
+2019-04-22 17:23:51,334 - train - INFO - Epoch [1/200], Iter [595/1035] expect end in 4.00 min. Loss: 4.9324, average_loss: 7.3072, now learning rate: 0.000595
+2019-04-22 17:23:54,281 - train - INFO - Epoch [1/200], Iter [600/1035] expect end in 4.00 min. Loss: 3.4689, average_loss: 7.2794, now learning rate: 0.000600
+2019-04-22 17:23:57,187 - train - INFO - Epoch [1/200], Iter [605/1035] expect end in 4.00 min. Loss: 3.7525, average_loss: 7.2478, now learning rate: 0.000605
+2019-04-22 17:24:00,081 - train - INFO - Epoch [1/200], Iter [610/1035] expect end in 4.00 min. Loss: 4.0706, average_loss: 7.2236, now learning rate: 0.000610
+2019-04-22 17:24:03,098 - train - INFO - Epoch [1/200], Iter [615/1035] expect end in 4.00 min. Loss: 5.6246, average_loss: 7.2028, now learning rate: 0.000615
+2019-04-22 17:24:05,964 - train - INFO - Epoch [1/200], Iter [620/1035] expect end in 3.00 min. Loss: 3.5735, average_loss: 7.1760, now learning rate: 0.000620
+2019-04-22 17:24:08,951 - train - INFO - Epoch [1/200], Iter [625/1035] expect end in 4.00 min. Loss: 4.4438, average_loss: 7.1528, now learning rate: 0.000625
+2019-04-22 17:24:11,948 - train - INFO - Epoch [1/200], Iter [630/1035] expect end in 3.00 min. Loss: 3.4612, average_loss: 7.1313, now learning rate: 0.000630
+2019-04-22 17:24:15,082 - train - INFO - Epoch [1/200], Iter [635/1035] expect end in 4.00 min. Loss: 4.4693, average_loss: 7.1089, now learning rate: 0.000635
+2019-04-22 17:24:18,206 - train - INFO - Epoch [1/200], Iter [640/1035] expect end in 3.00 min. Loss: 4.6314, average_loss: 7.0845, now learning rate: 0.000640
+2019-04-22 17:24:21,291 - train - INFO - Epoch [1/200], Iter [645/1035] expect end in 4.00 min. Loss: 3.8736, average_loss: 7.0560, now learning rate: 0.000645
+2019-04-22 17:24:24,104 - train - INFO - Epoch [1/200], Iter [650/1035] expect end in 3.00 min. Loss: 3.3676, average_loss: 7.0297, now learning rate: 0.000650
+2019-04-22 17:24:26,939 - train - INFO - Epoch [1/200], Iter [655/1035] expect end in 3.00 min. Loss: 3.4639, average_loss: 7.0069, now learning rate: 0.000655
+2019-04-22 17:24:29,808 - train - INFO - Epoch [1/200], Iter [660/1035] expect end in 3.00 min. Loss: 3.2659, average_loss: 6.9839, now learning rate: 0.000660
+2019-04-22 17:24:32,814 - train - INFO - Epoch [1/200], Iter [665/1035] expect end in 3.00 min. Loss: 4.9378, average_loss: 6.9656, now learning rate: 0.000665
+2019-04-22 17:24:35,659 - train - INFO - Epoch [1/200], Iter [670/1035] expect end in 3.00 min. Loss: 4.1068, average_loss: 6.9402, now learning rate: 0.000670
+2019-04-22 17:24:38,545 - train - INFO - Epoch [1/200], Iter [675/1035] expect end in 3.00 min. Loss: 3.9915, average_loss: 6.9190, now learning rate: 0.000675
+2019-04-22 17:24:41,400 - train - INFO - Epoch [1/200], Iter [680/1035] expect end in 3.00 min. Loss: 3.8657, average_loss: 6.9031, now learning rate: 0.000680
+2019-04-22 17:24:44,481 - train - INFO - Epoch [1/200], Iter [685/1035] expect end in 4.00 min. Loss: 7.7302, average_loss: 6.8879, now learning rate: 0.000685
+2019-04-22 17:24:47,533 - train - INFO - Epoch [1/200], Iter [690/1035] expect end in 3.00 min. Loss: 4.1442, average_loss: 6.8692, now learning rate: 0.000690
+2019-04-22 17:24:50,655 - train - INFO - Epoch [1/200], Iter [695/1035] expect end in 3.00 min. Loss: 4.4378, average_loss: 6.8535, now learning rate: 0.000695
+2019-04-22 17:24:53,869 - train - INFO - Epoch [1/200], Iter [700/1035] expect end in 3.00 min. Loss: 3.3449, average_loss: 6.8305, now learning rate: 0.000700
+2019-04-22 17:24:57,005 - train - INFO - Epoch [1/200], Iter [705/1035] expect end in 3.00 min. Loss: 3.8396, average_loss: 6.8099, now learning rate: 0.000705
+2019-04-22 17:25:00,172 - train - INFO - Epoch [1/200], Iter [710/1035] expect end in 3.00 min. Loss: 3.4910, average_loss: 6.7907, now learning rate: 0.000710
+2019-04-22 17:25:03,216 - train - INFO - Epoch [1/200], Iter [715/1035] expect end in 3.00 min. Loss: 2.9162, average_loss: 6.7669, now learning rate: 0.000715
+2019-04-22 17:25:06,107 - train - INFO - Epoch [1/200], Iter [720/1035] expect end in 2.00 min. Loss: 3.2367, average_loss: 6.7508, now learning rate: 0.000720
+2019-04-22 17:25:08,971 - train - INFO - Epoch [1/200], Iter [725/1035] expect end in 2.00 min. Loss: 4.1645, average_loss: 6.7364, now learning rate: 0.000725
+2019-04-22 17:25:11,834 - train - INFO - Epoch [1/200], Iter [730/1035] expect end in 2.00 min. Loss: 3.6772, average_loss: 6.7165, now learning rate: 0.000730
+2019-04-22 17:25:14,733 - train - INFO - Epoch [1/200], Iter [735/1035] expect end in 2.00 min. Loss: 5.4522, average_loss: 6.6997, now learning rate: 0.000735
+2019-04-22 17:25:17,650 - train - INFO - Epoch [1/200], Iter [740/1035] expect end in 2.00 min. Loss: 4.0350, average_loss: 6.6852, now learning rate: 0.000740
+2019-04-22 17:25:20,535 - train - INFO - Epoch [1/200], Iter [745/1035] expect end in 2.00 min. Loss: 2.3713, average_loss: 6.6682, now learning rate: 0.000745
+2019-04-22 17:25:23,374 - train - INFO - Epoch [1/200], Iter [750/1035] expect end in 2.00 min. Loss: 4.5139, average_loss: 6.6511, now learning rate: 0.000750
+2019-04-22 17:25:26,290 - train - INFO - Epoch [1/200], Iter [755/1035] expect end in 2.00 min. Loss: 5.5795, average_loss: 6.6391, now learning rate: 0.000755
+2019-04-22 17:25:29,158 - train - INFO - Epoch [1/200], Iter [760/1035] expect end in 2.00 min. Loss: 4.2082, average_loss: 6.6196, now learning rate: 0.000760
+2019-04-22 17:25:32,060 - train - INFO - Epoch [1/200], Iter [765/1035] expect end in 2.00 min. Loss: 4.9253, average_loss: 6.6033, now learning rate: 0.000765
+2019-04-22 17:25:34,935 - train - INFO - Epoch [1/200], Iter [770/1035] expect end in 2.00 min. Loss: 3.4626, average_loss: 6.5855, now learning rate: 0.000770
+2019-04-22 17:25:37,767 - train - INFO - Epoch [1/200], Iter [775/1035] expect end in 2.00 min. Loss: 3.4118, average_loss: 6.5660, now learning rate: 0.000775
+2019-04-22 17:25:40,694 - train - INFO - Epoch [1/200], Iter [780/1035] expect end in 2.00 min. Loss: 3.0447, average_loss: 6.5489, now learning rate: 0.000780
+2019-04-22 17:25:43,732 - train - INFO - Epoch [1/200], Iter [785/1035] expect end in 2.00 min. Loss: 3.8267, average_loss: 6.5270, now learning rate: 0.000785
+2019-04-22 17:25:46,768 - train - INFO - Epoch [1/200], Iter [790/1035] expect end in 2.00 min. Loss: 3.1848, average_loss: 6.5067, now learning rate: 0.000790
+2019-04-22 17:25:49,814 - train - INFO - Epoch [1/200], Iter [795/1035] expect end in 2.00 min. Loss: 3.6386, average_loss: 6.4895, now learning rate: 0.000795
+2019-04-22 17:25:52,951 - train - INFO - Epoch [1/200], Iter [800/1035] expect end in 2.00 min. Loss: 4.5490, average_loss: 6.4811, now learning rate: 0.000800
+2019-04-22 17:25:56,007 - train - INFO - Epoch [1/200], Iter [805/1035] expect end in 2.00 min. Loss: 3.3475, average_loss: 6.4651, now learning rate: 0.000805
+2019-04-22 17:25:59,088 - train - INFO - Epoch [1/200], Iter [810/1035] expect end in 2.00 min. Loss: 4.1358, average_loss: 6.4492, now learning rate: 0.000810
+2019-04-22 17:26:02,072 - train - INFO - Epoch [1/200], Iter [815/1035] expect end in 2.00 min. Loss: 3.8368, average_loss: 6.4326, now learning rate: 0.000815
+2019-04-22 17:26:05,018 - train - INFO - Epoch [1/200], Iter [820/1035] expect end in 2.00 min. Loss: 4.4686, average_loss: 6.4183, now learning rate: 0.000820
+2019-04-22 17:26:07,936 - train - INFO - Epoch [1/200], Iter [825/1035] expect end in 2.00 min. Loss: 4.4800, average_loss: 6.4040, now learning rate: 0.000825
+2019-04-22 17:26:10,835 - train - INFO - Epoch [1/200], Iter [830/1035] expect end in 1.00 min. Loss: 3.0340, average_loss: 6.3888, now learning rate: 0.000830
+2019-04-22 17:26:13,815 - train - INFO - Epoch [1/200], Iter [835/1035] expect end in 2.00 min. Loss: 5.8776, average_loss: 6.3790, now learning rate: 0.000835
+2019-04-22 17:26:16,722 - train - INFO - Epoch [1/200], Iter [840/1035] expect end in 1.00 min. Loss: 4.2549, average_loss: 6.3631, now learning rate: 0.000840
+2019-04-22 17:26:19,680 - train - INFO - Epoch [1/200], Iter [845/1035] expect end in 1.00 min. Loss: 4.3911, average_loss: 6.3519, now learning rate: 0.000845
+2019-04-22 17:26:22,654 - train - INFO - Epoch [1/200], Iter [850/1035] expect end in 1.00 min. Loss: 4.5797, average_loss: 6.3404, now learning rate: 0.000850
+2019-04-22 17:26:25,565 - train - INFO - Epoch [1/200], Iter [855/1035] expect end in 1.00 min. Loss: 3.9975, average_loss: 6.3282, now learning rate: 0.000855
+2019-04-22 17:26:28,478 - train - INFO - Epoch [1/200], Iter [860/1035] expect end in 1.00 min. Loss: 3.6505, average_loss: 6.3162, now learning rate: 0.000860
+2019-04-22 17:26:31,379 - train - INFO - Epoch [1/200], Iter [865/1035] expect end in 1.00 min. Loss: 3.0249, average_loss: 6.3009, now learning rate: 0.000865
+2019-04-22 17:26:34,304 - train - INFO - Epoch [1/200], Iter [870/1035] expect end in 1.00 min. Loss: 3.8979, average_loss: 6.2898, now learning rate: 0.000870
+2019-04-22 17:26:37,209 - train - INFO - Epoch [1/200], Iter [875/1035] expect end in 1.00 min. Loss: 4.4559, average_loss: 6.2756, now learning rate: 0.000875
+2019-04-22 17:26:40,136 - train - INFO - Epoch [1/200], Iter [880/1035] expect end in 1.00 min. Loss: 5.0257, average_loss: 6.2615, now learning rate: 0.000880
+2019-04-22 17:26:43,030 - train - INFO - Epoch [1/200], Iter [885/1035] expect end in 1.00 min. Loss: 2.6151, average_loss: 6.2466, now learning rate: 0.000885
+2019-04-22 17:26:45,914 - train - INFO - Epoch [1/200], Iter [890/1035] expect end in 1.00 min. Loss: 4.0136, average_loss: 6.2330, now learning rate: 0.000890
+2019-04-22 17:26:48,949 - train - INFO - Epoch [1/200], Iter [895/1035] expect end in 1.00 min. Loss: 3.9333, average_loss: 6.2210, now learning rate: 0.000895
+2019-04-22 17:26:51,953 - train - INFO - Epoch [1/200], Iter [900/1035] expect end in 1.00 min. Loss: 3.5632, average_loss: 6.2059, now learning rate: 0.000900
+2019-04-22 17:26:55,125 - train - INFO - Epoch [1/200], Iter [905/1035] expect end in 1.00 min. Loss: 4.6874, average_loss: 6.1981, now learning rate: 0.000905
+2019-04-22 17:26:58,010 - train - INFO - Epoch [1/200], Iter [910/1035] expect end in 1.00 min. Loss: 4.0996, average_loss: 6.1833, now learning rate: 0.000910
+2019-04-22 17:27:00,911 - train - INFO - Epoch [1/200], Iter [915/1035] expect end in 1.00 min. Loss: 5.2529, average_loss: 6.1697, now learning rate: 0.000915
+2019-04-22 17:27:03,829 - train - INFO - Epoch [1/200], Iter [920/1035] expect end in 1.00 min. Loss: 3.1868, average_loss: 6.1593, now learning rate: 0.000920
+2019-04-22 17:27:06,742 - train - INFO - Epoch [1/200], Iter [925/1035] expect end in 1.00 min. Loss: 4.5956, average_loss: 6.1449, now learning rate: 0.000925
+2019-04-22 17:27:09,623 - train - INFO - Epoch [1/200], Iter [930/1035] expect end in 1.00 min. Loss: 3.2963, average_loss: 6.1283, now learning rate: 0.000930
+2019-04-22 17:27:12,553 - train - INFO - Epoch [1/200], Iter [935/1035] expect end in 1.00 min. Loss: 4.4009, average_loss: 6.1166, now learning rate: 0.000935
+2019-04-22 17:27:15,462 - train - INFO - Epoch [1/200], Iter [940/1035] expect end in 0.00 min. Loss: 4.2147, average_loss: 6.1034, now learning rate: 0.000940
+2019-04-22 17:27:18,361 - train - INFO - Epoch [1/200], Iter [945/1035] expect end in 0.00 min. Loss: 3.2457, average_loss: 6.0901, now learning rate: 0.000945
+2019-04-22 17:27:21,296 - train - INFO - Epoch [1/200], Iter [950/1035] expect end in 0.00 min. Loss: 3.2784, average_loss: 6.0820, now learning rate: 0.000950
+2019-04-22 17:27:24,274 - train - INFO - Epoch [1/200], Iter [955/1035] expect end in 0.00 min. Loss: 4.2975, average_loss: 6.0732, now learning rate: 0.000955
+2019-04-22 17:27:27,210 - train - INFO - Epoch [1/200], Iter [960/1035] expect end in 0.00 min. Loss: 4.5122, average_loss: 6.0616, now learning rate: 0.000960
+2019-04-22 17:27:30,177 - train - INFO - Epoch [1/200], Iter [965/1035] expect end in 0.00 min. Loss: 3.5245, average_loss: 6.0506, now learning rate: 0.000965
+2019-04-22 17:27:33,066 - train - INFO - Epoch [1/200], Iter [970/1035] expect end in 0.00 min. Loss: 3.6280, average_loss: 6.0377, now learning rate: 0.000970
+2019-04-22 17:27:36,019 - train - INFO - Epoch [1/200], Iter [975/1035] expect end in 0.00 min. Loss: 4.6157, average_loss: 6.0272, now learning rate: 0.000975
+2019-04-22 17:27:38,913 - train - INFO - Epoch [1/200], Iter [980/1035] expect end in 0.00 min. Loss: 3.6016, average_loss: 6.0142, now learning rate: 0.000980
+2019-04-22 17:27:41,838 - train - INFO - Epoch [1/200], Iter [985/1035] expect end in 0.00 min. Loss: 3.6713, average_loss: 6.0030, now learning rate: 0.000985
+2019-04-22 17:27:44,773 - train - INFO - Epoch [1/200], Iter [990/1035] expect end in 0.00 min. Loss: 4.2003, average_loss: 5.9912, now learning rate: 0.000990
+2019-04-22 17:27:47,697 - train - INFO - Epoch [1/200], Iter [995/1035] expect end in 0.00 min. Loss: 3.2311, average_loss: 5.9792, now learning rate: 0.000995
+2019-04-22 17:27:50,646 - train - INFO - Epoch [1/200], Iter [1000/1035] expect end in 0.00 min. Loss: 3.5938, average_loss: 5.9669, now learning rate: 0.001000
+2019-04-22 17:27:53,599 - train - INFO - Epoch [1/200], Iter [1005/1035] expect end in 0.00 min. Loss: 4.4363, average_loss: 5.9574, now learning rate: 0.001000
+2019-04-22 17:27:56,494 - train - INFO - Epoch [1/200], Iter [1010/1035] expect end in 0.00 min. Loss: 3.5782, average_loss: 5.9458, now learning rate: 0.001000
+2019-04-22 17:27:59,443 - train - INFO - Epoch [1/200], Iter [1015/1035] expect end in 0.00 min. Loss: 4.5508, average_loss: 5.9384, now learning rate: 0.001000
+2019-04-22 17:28:02,346 - train - INFO - Epoch [1/200], Iter [1020/1035] expect end in 0.00 min. Loss: 3.5247, average_loss: 5.9261, now learning rate: 0.001000
+2019-04-22 17:28:05,257 - train - INFO - Epoch [1/200], Iter [1025/1035] expect end in 0.00 min. Loss: 2.6116, average_loss: 5.9145, now learning rate: 0.001000
+2019-04-22 17:28:08,195 - train - INFO - Epoch [1/200], Iter [1030/1035] expect end in 0.00 min. Loss: 4.7015, average_loss: 5.9048, now learning rate: 0.001000
+2019-04-22 17:28:10,810 - train - INFO - Epoch [1/200], Iter [1035/1035] expect end in 0.00 min. Loss: 2.2376, average_loss: 5.8928, now learning rate: 0.001000
+2019-04-22 17:28:10,817 - train - INFO - Epoch 0 / 200 finished, cost time 10.33 min. expect 2076.86976205 min finish train.
+2019-04-22 17:29:17,039 - train - INFO - ---start evaluate---
+2019-04-22 17:29:17,061 - train - INFO - ---class aeroplane ap 0.1252653987548597---
+2019-04-22 17:29:17,061 - train - INFO - ---class bicycle ap 0.0---
+2019-04-22 17:29:17,068 - train - INFO - ---class bird ap 0.024983735364748315---
+2019-04-22 17:29:17,075 - train - INFO - ---class boat ap 0.0---
+2019-04-22 17:29:17,078 - train - INFO - ---class bottle ap 0.0---
+2019-04-22 17:29:17,078 - train - INFO - ---class bus ap 0.0---
+2019-04-22 17:29:17,129 - train - INFO - ---class car ap 0.11136785938940126---
+2019-04-22 17:29:17,135 - train - INFO - ---class cat ap 0.016898954703832753---
+2019-04-22 17:29:17,280 - train - INFO - ---class chair ap 0.01562631397661074---
+2019-04-22 17:29:17,280 - train - INFO - ---class cow ap 0.0---
+2019-04-22 17:29:17,285 - train - INFO - ---class diningtable ap 0.0---
+2019-04-22 17:29:17,285 - train - INFO - ---class dog ap 0.009333333333333332---
+2019-04-22 17:29:17,287 - train - INFO - ---class horse ap 0.0---
+2019-04-22 17:29:17,291 - train - INFO - ---class motorbike ap 0.0---
+2019-04-22 17:29:17,741 - train - INFO - ---class person ap 0.15700306069224518---
+2019-04-22 17:29:17,743 - train - INFO - ---class pottedplant ap 0.0---
+2019-04-22 17:29:17,744 - train - INFO - ---class sheep ap 0.002304147465437788---
+2019-04-22 17:29:17,746 - train - INFO - ---class sofa ap 0.0---
+2019-04-22 17:29:17,751 - train - INFO - ---class train ap 0.011574074074074073---
+2019-04-22 17:29:17,755 - train - INFO - ---class tvmonitor ap 0.000946969696969697---
+2019-04-22 17:29:17,755 - train - INFO - ---map 0.02376519237257564---
+2019-04-22 17:40:25,833 - train - INFO - ---start evaluate---
+2019-04-22 17:40:26,085 - train - INFO - ---class aeroplane ap 0.10588813492352278---
+2019-04-22 17:40:26,090 - train - INFO - ---class bicycle ap 9.849402633730262e-06---
+2019-04-22 17:40:26,157 - train - INFO - ---class bird ap 0.0054926549222129506---
+2019-04-22 17:40:26,229 - train - INFO - ---class boat ap 0.0---
+2019-04-22 17:40:26,257 - train - INFO - ---class bottle ap 0.0---
+2019-04-22 17:40:26,259 - train - INFO - ---class bus ap 0.0---
+2019-04-22 17:40:26,782 - train - INFO - ---class car ap 0.09679996901189825---
+2019-04-22 17:40:26,842 - train - INFO - ---class cat ap 0.10390050907002359---
+2019-04-22 17:40:28,092 - train - INFO - ---class chair ap 0.007731983794915983---
+2019-04-22 17:40:28,094 - train - INFO - ---class cow ap 0.0---
+2019-04-22 17:40:28,223 - train - INFO - ---class diningtable ap 0.004842157947325747---
+2019-04-22 17:40:28,227 - train - INFO - ---class dog ap 0.015061417328905643---
+2019-04-22 17:40:28,249 - train - INFO - ---class horse ap 2.109704641350211e-05---
+2019-04-22 17:40:28,287 - train - INFO - ---class motorbike ap 0.0018189288318585996---
+2019-04-22 17:40:32,229 - train - INFO - ---class person ap 0.15936817286078805---
+2019-04-22 17:40:32,241 - train - INFO - ---class pottedplant ap 0.0---
+2019-04-22 17:40:32,248 - train - INFO - ---class sheep ap 2.845516888142731e-05---
+2019-04-22 17:40:32,264 - train - INFO - ---class sofa ap 0.0---
+2019-04-22 17:40:32,314 - train - INFO - ---class train ap 0.017505249214267455---
+2019-04-22 17:40:32,356 - train - INFO - ---class tvmonitor ap 0.004929734112685776---
+2019-04-22 17:40:32,356 - train - INFO - ---map 0.026169915681816674---
+2019-04-22 17:40:32,413 - train - INFO - get best test mAP 0.02617
+2019-04-22 17:40:32,666 - train - INFO - 
 
 Starting epoch 2 / 200
-2019-04-22 15:25:35,196 - train - INFO - Learning Rate for this epoch: 0.0010000000000000152
-2019-04-22 15:25:38,763 - train - INFO - Epoch [2/200], Iter [5/1035] expect end in 9.00 min. Loss: 4.8210, average_loss: 4.1029, now learning rate: 0.001000
-2019-04-22 15:25:41,601 - train - INFO - Epoch [2/200], Iter [10/1035] expect end in 9.00 min. Loss: 4.2268, average_loss: 4.1374, now learning rate: 0.001000
-2019-04-22 15:25:44,438 - train - INFO - Epoch [2/200], Iter [15/1035] expect end in 9.00 min. Loss: 3.3282, average_loss: 4.0784, now learning rate: 0.001000
-2019-04-22 15:25:47,262 - train - INFO - Epoch [2/200], Iter [20/1035] expect end in 9.00 min. Loss: 4.1942, average_loss: 3.9915, now learning rate: 0.001000
-2019-04-22 15:25:50,035 - train - INFO - Epoch [2/200], Iter [25/1035] expect end in 9.00 min. Loss: 2.7931, average_loss: 3.8789, now learning rate: 0.001000
-2019-04-22 15:25:53,042 - train - INFO - Epoch [2/200], Iter [30/1035] expect end in 11.00 min. Loss: 5.1826, average_loss: 3.9082, now learning rate: 0.001000
-2019-04-22 15:25:56,127 - train - INFO - Epoch [2/200], Iter [35/1035] expect end in 10.00 min. Loss: 5.4309, average_loss: 3.9494, now learning rate: 0.001000
-2019-04-22 15:25:58,956 - train - INFO - Epoch [2/200], Iter [40/1035] expect end in 9.00 min. Loss: 4.0483, average_loss: 3.9360, now learning rate: 0.001000
-2019-04-22 15:26:01,732 - train - INFO - Epoch [2/200], Iter [45/1035] expect end in 9.00 min. Loss: 3.6561, average_loss: 3.9098, now learning rate: 0.001000
-2019-04-22 15:26:04,527 - train - INFO - Epoch [2/200], Iter [50/1035] expect end in 9.00 min. Loss: 3.2762, average_loss: 3.8656, now learning rate: 0.001000
-2019-04-22 15:26:07,572 - train - INFO - Epoch [2/200], Iter [55/1035] expect end in 10.00 min. Loss: 3.0571, average_loss: 3.8451, now learning rate: 0.001000
-2019-04-22 15:26:10,467 - train - INFO - Epoch [2/200], Iter [60/1035] expect end in 8.00 min. Loss: 3.0919, average_loss: 3.8030, now learning rate: 0.001000
-2019-04-22 15:26:13,425 - train - INFO - Epoch [2/200], Iter [65/1035] expect end in 9.00 min. Loss: 3.1128, average_loss: 3.7985, now learning rate: 0.001000
-2019-04-22 15:26:16,338 - train - INFO - Epoch [2/200], Iter [70/1035] expect end in 9.00 min. Loss: 4.1529, average_loss: 3.8434, now learning rate: 0.001000
-2019-04-22 15:26:19,340 - train - INFO - Epoch [2/200], Iter [75/1035] expect end in 10.00 min. Loss: 6.6287, average_loss: 3.8867, now learning rate: 0.001000
-2019-04-22 15:26:22,262 - train - INFO - Epoch [2/200], Iter [80/1035] expect end in 9.00 min. Loss: 3.4609, average_loss: 3.8508, now learning rate: 0.001000
-2019-04-22 15:26:25,149 - train - INFO - Epoch [2/200], Iter [85/1035] expect end in 8.00 min. Loss: 3.5088, average_loss: 3.8502, now learning rate: 0.001000
-2019-04-22 15:26:28,136 - train - INFO - Epoch [2/200], Iter [90/1035] expect end in 8.00 min. Loss: 4.0458, average_loss: 3.8514, now learning rate: 0.001000
-2019-04-22 15:26:31,064 - train - INFO - Epoch [2/200], Iter [95/1035] expect end in 9.00 min. Loss: 4.5335, average_loss: 3.8462, now learning rate: 0.001000
-2019-04-22 15:26:34,119 - train - INFO - Epoch [2/200], Iter [100/1035] expect end in 9.00 min. Loss: 3.2301, average_loss: 3.8454, now learning rate: 0.001000
-2019-04-22 15:26:37,078 - train - INFO - Epoch [2/200], Iter [105/1035] expect end in 9.00 min. Loss: 4.6363, average_loss: 3.8690, now learning rate: 0.001000
-2019-04-22 15:30:00,857 - train - INFO - the dataset has 16551 images
-2019-04-22 15:30:00,857 - train - INFO - the batch_size is 16
-2019-04-22 15:30:01,157 - train - INFO - 
-
-Starting epoch 1 / 200
-2019-04-22 15:30:01,157 - train - INFO - Learning Rate for this epoch: 0.0
-2019-04-22 15:30:04,485 - train - INFO - Epoch [1/200], Iter [5/1035] expect end in 9.00 min. Loss: 17.8050, average_loss: 21.4517, now learning rate: 0.000005
-2019-04-22 15:30:07,348 - train - INFO - Epoch [1/200], Iter [10/1035] expect end in 9.00 min. Loss: 21.7170, average_loss: 21.7390, now learning rate: 0.000010
-2019-04-22 15:30:10,221 - train - INFO - Epoch [1/200], Iter [15/1035] expect end in 9.00 min. Loss: 19.1740, average_loss: 22.0212, now learning rate: 0.000015
-2019-04-22 15:30:13,067 - train - INFO - Epoch [1/200], Iter [20/1035] expect end in 10.00 min. Loss: 29.7472, average_loss: 21.7845, now learning rate: 0.000020
-2019-04-22 15:30:15,949 - train - INFO - Epoch [1/200], Iter [25/1035] expect end in 9.00 min. Loss: 27.3814, average_loss: 21.8330, now learning rate: 0.000025
-2019-04-22 15:30:18,828 - train - INFO - Epoch [1/200], Iter [30/1035] expect end in 9.00 min. Loss: 21.6687, average_loss: 21.6968, now learning rate: 0.000030
-2019-04-22 15:30:21,706 - train - INFO - Epoch [1/200], Iter [35/1035] expect end in 9.00 min. Loss: 16.1222, average_loss: 21.3729, now learning rate: 0.000035
-2019-04-22 15:30:24,577 - train - INFO - Epoch [1/200], Iter [40/1035] expect end in 9.00 min. Loss: 16.8708, average_loss: 20.9280, now learning rate: 0.000040
-2019-04-22 15:30:27,487 - train - INFO - Epoch [1/200], Iter [45/1035] expect end in 9.00 min. Loss: 14.4906, average_loss: 20.6790, now learning rate: 0.000045
-2019-04-22 15:30:30,371 - train - INFO - Epoch [1/200], Iter [50/1035] expect end in 9.00 min. Loss: 12.6210, average_loss: 20.1643, now learning rate: 0.000050
-2019-04-22 15:30:33,245 - train - INFO - Epoch [1/200], Iter [55/1035] expect end in 9.00 min. Loss: 12.3689, average_loss: 19.6286, now learning rate: 0.000055
-2019-04-22 15:30:36,134 - train - INFO - Epoch [1/200], Iter [60/1035] expect end in 9.00 min. Loss: 13.9784, average_loss: 19.2040, now learning rate: 0.000060
-2019-04-22 15:30:38,952 - train - INFO - Epoch [1/200], Iter [65/1035] expect end in 9.00 min. Loss: 12.8756, average_loss: 18.5292, now learning rate: 0.000065
-2019-04-22 15:30:41,816 - train - INFO - Epoch [1/200], Iter [70/1035] expect end in 8.00 min. Loss: 10.0503, average_loss: 18.0636, now learning rate: 0.000070
-2019-04-22 15:30:44,688 - train - INFO - Epoch [1/200], Iter [75/1035] expect end in 9.00 min. Loss: 13.7325, average_loss: 17.7141, now learning rate: 0.000075
-2019-04-22 15:30:47,537 - train - INFO - Epoch [1/200], Iter [80/1035] expect end in 9.00 min. Loss: 11.3551, average_loss: 17.2660, now learning rate: 0.000080
-2019-04-22 15:30:50,394 - train - INFO - Epoch [1/200], Iter [85/1035] expect end in 9.00 min. Loss: 8.4556, average_loss: 16.9044, now learning rate: 0.000085
-2019-04-22 15:30:53,260 - train - INFO - Epoch [1/200], Iter [90/1035] expect end in 8.00 min. Loss: 9.0890, average_loss: 16.5741, now learning rate: 0.000090
-2019-04-22 15:30:56,083 - train - INFO - Epoch [1/200], Iter [95/1035] expect end in 8.00 min. Loss: 11.3126, average_loss: 16.2276, now learning rate: 0.000095
-2019-04-22 15:30:58,929 - train - INFO - Epoch [1/200], Iter [100/1035] expect end in 8.00 min. Loss: 8.6954, average_loss: 15.9027, now learning rate: 0.000100
-2019-04-22 15:31:01,769 - train - INFO - Epoch [1/200], Iter [105/1035] expect end in 8.00 min. Loss: 9.4636, average_loss: 15.5660, now learning rate: 0.000105
-2019-04-22 15:31:04,646 - train - INFO - Epoch [1/200], Iter [110/1035] expect end in 9.00 min. Loss: 11.6412, average_loss: 15.3132, now learning rate: 0.000110
-2019-04-22 15:31:07,502 - train - INFO - Epoch [1/200], Iter [115/1035] expect end in 8.00 min. Loss: 10.0415, average_loss: 15.0562, now learning rate: 0.000115
-2019-04-22 15:31:10,359 - train - INFO - Epoch [1/200], Iter [120/1035] expect end in 8.00 min. Loss: 9.4861, average_loss: 14.8038, now learning rate: 0.000120
-2019-04-22 15:31:13,237 - train - INFO - Epoch [1/200], Iter [125/1035] expect end in 8.00 min. Loss: 8.1111, average_loss: 14.5746, now learning rate: 0.000125
-2019-04-22 15:31:16,119 - train - INFO - Epoch [1/200], Iter [130/1035] expect end in 8.00 min. Loss: 7.8371, average_loss: 14.3945, now learning rate: 0.000130
-2019-04-22 15:31:18,983 - train - INFO - Epoch [1/200], Iter [135/1035] expect end in 8.00 min. Loss: 10.4935, average_loss: 14.1649, now learning rate: 0.000135
-2019-04-22 15:31:21,907 - train - INFO - Epoch [1/200], Iter [140/1035] expect end in 8.00 min. Loss: 9.1128, average_loss: 14.0479, now learning rate: 0.000140
-2019-04-22 15:31:24,712 - train - INFO - Epoch [1/200], Iter [145/1035] expect end in 8.00 min. Loss: 5.2993, average_loss: 13.8079, now learning rate: 0.000145
-2019-04-22 15:31:27,724 - train - INFO - Epoch [1/200], Iter [150/1035] expect end in 8.00 min. Loss: 10.7446, average_loss: 13.6300, now learning rate: 0.000150
-2019-04-22 15:31:30,702 - train - INFO - Epoch [1/200], Iter [155/1035] expect end in 8.00 min. Loss: 9.6643, average_loss: 13.4820, now learning rate: 0.000155
-2019-04-22 15:31:33,602 - train - INFO - Epoch [1/200], Iter [160/1035] expect end in 8.00 min. Loss: 7.6878, average_loss: 13.3270, now learning rate: 0.000160
-2019-04-22 15:31:36,570 - train - INFO - Epoch [1/200], Iter [165/1035] expect end in 8.00 min. Loss: 9.3663, average_loss: 13.1681, now learning rate: 0.000165
-2019-04-22 15:31:39,450 - train - INFO - Epoch [1/200], Iter [170/1035] expect end in 8.00 min. Loss: 5.8405, average_loss: 13.0048, now learning rate: 0.000170
-2019-04-22 15:31:42,340 - train - INFO - Epoch [1/200], Iter [175/1035] expect end in 8.00 min. Loss: 7.2461, average_loss: 12.8194, now learning rate: 0.000175
-2019-04-22 15:31:45,222 - train - INFO - Epoch [1/200], Iter [180/1035] expect end in 8.00 min. Loss: 6.2953, average_loss: 12.6994, now learning rate: 0.000180
-2019-04-22 15:31:48,101 - train - INFO - Epoch [1/200], Iter [185/1035] expect end in 8.00 min. Loss: 11.3008, average_loss: 12.5702, now learning rate: 0.000185
-2019-04-22 15:31:50,947 - train - INFO - Epoch [1/200], Iter [190/1035] expect end in 8.00 min. Loss: 7.0229, average_loss: 12.4294, now learning rate: 0.000190
-2019-04-22 15:31:53,824 - train - INFO - Epoch [1/200], Iter [195/1035] expect end in 8.00 min. Loss: 9.8665, average_loss: 12.2917, now learning rate: 0.000195
-2019-04-22 15:31:56,711 - train - INFO - Epoch [1/200], Iter [200/1035] expect end in 7.00 min. Loss: 5.7907, average_loss: 12.1441, now learning rate: 0.000200
-2019-04-22 15:31:59,578 - train - INFO - Epoch [1/200], Iter [205/1035] expect end in 8.00 min. Loss: 6.7166, average_loss: 11.9804, now learning rate: 0.000205
-2019-04-22 15:32:02,542 - train - INFO - Epoch [1/200], Iter [210/1035] expect end in 8.00 min. Loss: 8.0088, average_loss: 11.8726, now learning rate: 0.000210
-2019-04-22 15:32:05,440 - train - INFO - Epoch [1/200], Iter [215/1035] expect end in 7.00 min. Loss: 4.3330, average_loss: 11.7585, now learning rate: 0.000215
-2019-04-22 15:32:08,285 - train - INFO - Epoch [1/200], Iter [220/1035] expect end in 7.00 min. Loss: 5.6734, average_loss: 11.6221, now learning rate: 0.000220
-2019-04-22 15:32:11,132 - train - INFO - Epoch [1/200], Iter [225/1035] expect end in 7.00 min. Loss: 4.0620, average_loss: 11.4731, now learning rate: 0.000225
-2019-04-22 15:32:14,009 - train - INFO - Epoch [1/200], Iter [230/1035] expect end in 7.00 min. Loss: 3.9472, average_loss: 11.3422, now learning rate: 0.000230
-2019-04-22 15:32:16,878 - train - INFO - Epoch [1/200], Iter [235/1035] expect end in 7.00 min. Loss: 6.2330, average_loss: 11.2139, now learning rate: 0.000235
-2019-04-22 15:32:19,853 - train - INFO - Epoch [1/200], Iter [240/1035] expect end in 7.00 min. Loss: 3.5129, average_loss: 11.0765, now learning rate: 0.000240
-2019-04-22 15:32:22,740 - train - INFO - Epoch [1/200], Iter [245/1035] expect end in 7.00 min. Loss: 4.2680, average_loss: 10.9345, now learning rate: 0.000245
-2019-04-22 15:32:25,595 - train - INFO - Epoch [1/200], Iter [250/1035] expect end in 7.00 min. Loss: 8.3933, average_loss: 10.8191, now learning rate: 0.000250
-2019-04-22 15:32:28,452 - train - INFO - Epoch [1/200], Iter [255/1035] expect end in 7.00 min. Loss: 6.3554, average_loss: 10.6976, now learning rate: 0.000255
-2019-04-22 15:32:31,332 - train - INFO - Epoch [1/200], Iter [260/1035] expect end in 7.00 min. Loss: 4.1659, average_loss: 10.5972, now learning rate: 0.000260
-2019-04-22 15:32:34,198 - train - INFO - Epoch [1/200], Iter [265/1035] expect end in 7.00 min. Loss: 6.8569, average_loss: 10.5054, now learning rate: 0.000265
-2019-04-22 15:32:37,058 - train - INFO - Epoch [1/200], Iter [270/1035] expect end in 7.00 min. Loss: 4.3715, average_loss: 10.4074, now learning rate: 0.000270
-2019-04-22 15:32:39,916 - train - INFO - Epoch [1/200], Iter [275/1035] expect end in 7.00 min. Loss: 4.9432, average_loss: 10.3130, now learning rate: 0.000275
-2019-04-22 15:32:42,768 - train - INFO - Epoch [1/200], Iter [280/1035] expect end in 7.00 min. Loss: 5.1505, average_loss: 10.2180, now learning rate: 0.000280
-2019-04-22 15:32:45,656 - train - INFO - Epoch [1/200], Iter [285/1035] expect end in 7.00 min. Loss: 5.5591, average_loss: 10.1385, now learning rate: 0.000285
-2019-04-22 15:32:48,480 - train - INFO - Epoch [1/200], Iter [290/1035] expect end in 6.00 min. Loss: 3.7129, average_loss: 10.0388, now learning rate: 0.000290
-2019-04-22 15:32:51,337 - train - INFO - Epoch [1/200], Iter [295/1035] expect end in 6.00 min. Loss: 4.3750, average_loss: 9.9558, now learning rate: 0.000295
-2019-04-22 15:32:54,234 - train - INFO - Epoch [1/200], Iter [300/1035] expect end in 7.00 min. Loss: 4.9502, average_loss: 9.8819, now learning rate: 0.000300
-2019-04-22 15:32:57,067 - train - INFO - Epoch [1/200], Iter [305/1035] expect end in 7.00 min. Loss: 5.9467, average_loss: 9.8069, now learning rate: 0.000305
-2019-04-22 15:32:59,934 - train - INFO - Epoch [1/200], Iter [310/1035] expect end in 6.00 min. Loss: 5.8502, average_loss: 9.7354, now learning rate: 0.000310
-2019-04-22 15:33:02,816 - train - INFO - Epoch [1/200], Iter [315/1035] expect end in 6.00 min. Loss: 5.1906, average_loss: 9.6701, now learning rate: 0.000315
-2019-04-22 15:33:05,706 - train - INFO - Epoch [1/200], Iter [320/1035] expect end in 6.00 min. Loss: 3.9279, average_loss: 9.5934, now learning rate: 0.000320
-2019-04-22 15:33:08,660 - train - INFO - Epoch [1/200], Iter [325/1035] expect end in 7.00 min. Loss: 6.9086, average_loss: 9.5263, now learning rate: 0.000325
-2019-04-22 15:33:11,566 - train - INFO - Epoch [1/200], Iter [330/1035] expect end in 6.00 min. Loss: 3.9561, average_loss: 9.4496, now learning rate: 0.000330
-2019-04-22 15:33:14,460 - train - INFO - Epoch [1/200], Iter [335/1035] expect end in 6.00 min. Loss: 6.5755, average_loss: 9.3882, now learning rate: 0.000335
-2019-04-22 15:33:17,307 - train - INFO - Epoch [1/200], Iter [340/1035] expect end in 6.00 min. Loss: 4.6254, average_loss: 9.3144, now learning rate: 0.000340
-2019-04-22 15:33:20,269 - train - INFO - Epoch [1/200], Iter [345/1035] expect end in 6.00 min. Loss: 5.4112, average_loss: 9.2677, now learning rate: 0.000345
-2019-04-22 15:33:23,169 - train - INFO - Epoch [1/200], Iter [350/1035] expect end in 6.00 min. Loss: 6.8165, average_loss: 9.2043, now learning rate: 0.000350
-2019-04-22 15:33:26,146 - train - INFO - Epoch [1/200], Iter [355/1035] expect end in 7.00 min. Loss: 4.8342, average_loss: 9.1384, now learning rate: 0.000355
-2019-04-22 15:33:29,021 - train - INFO - Epoch [1/200], Iter [360/1035] expect end in 6.00 min. Loss: 3.6095, average_loss: 9.0654, now learning rate: 0.000360
-2019-04-22 15:33:31,885 - train - INFO - Epoch [1/200], Iter [365/1035] expect end in 6.00 min. Loss: 3.6348, average_loss: 9.0065, now learning rate: 0.000365
-2019-04-22 15:33:34,765 - train - INFO - Epoch [1/200], Iter [370/1035] expect end in 6.00 min. Loss: 3.0766, average_loss: 8.9387, now learning rate: 0.000370
-2019-04-22 15:33:37,666 - train - INFO - Epoch [1/200], Iter [375/1035] expect end in 6.00 min. Loss: 4.3922, average_loss: 8.8773, now learning rate: 0.000375
+2019-04-22 17:40:32,667 - train - INFO - Learning Rate for this epoch: 0.0010000000000000152
+2019-04-22 17:40:35,737 - train - INFO - Epoch [2/200], Iter [5/1035] expect end in 9.00 min. Loss: 3.8392, average_loss: 3.5378, now learning rate: 0.001000
+2019-04-22 17:40:38,567 - train - INFO - Epoch [2/200], Iter [10/1035] expect end in 9.00 min. Loss: 3.3875, average_loss: 3.6236, now learning rate: 0.001000
+2019-04-22 17:40:41,389 - train - INFO - Epoch [2/200], Iter [15/1035] expect end in 9.00 min. Loss: 2.8342, average_loss: 3.7270, now learning rate: 0.001000
+2019-04-22 17:40:44,215 - train - INFO - Epoch [2/200], Iter [20/1035] expect end in 9.00 min. Loss: 3.2317, average_loss: 3.7182, now learning rate: 0.001000
+2019-04-22 17:40:47,012 - train - INFO - Epoch [2/200], Iter [25/1035] expect end in 9.00 min. Loss: 3.1008, average_loss: 3.6082, now learning rate: 0.001000
+2019-04-22 17:40:49,825 - train - INFO - Epoch [2/200], Iter [30/1035] expect end in 9.00 min. Loss: 2.7057, average_loss: 3.5612, now learning rate: 0.001000
+2019-04-22 17:40:52,627 - train - INFO - Epoch [2/200], Iter [35/1035] expect end in 9.00 min. Loss: 2.3471, average_loss: 3.5824, now learning rate: 0.001000
+2019-04-22 17:40:55,493 - train - INFO - Epoch [2/200], Iter [40/1035] expect end in 9.00 min. Loss: 3.8480, average_loss: 3.6790, now learning rate: 0.001000
+2019-04-22 17:40:58,327 - train - INFO - Epoch [2/200], Iter [45/1035] expect end in 9.00 min. Loss: 3.9907, average_loss: 3.6829, now learning rate: 0.001000
+2019-04-22 17:41:01,137 - train - INFO - Epoch [2/200], Iter [50/1035] expect end in 9.00 min. Loss: 2.4917, average_loss: 3.6585, now learning rate: 0.001000
+2019-04-22 17:41:03,946 - train - INFO - Epoch [2/200], Iter [55/1035] expect end in 9.00 min. Loss: 3.9194, average_loss: 3.6473, now learning rate: 0.001000
+2019-04-22 17:41:06,797 - train - INFO - Epoch [2/200], Iter [60/1035] expect end in 9.00 min. Loss: 6.3969, average_loss: 3.7085, now learning rate: 0.001000
+2019-04-22 17:41:09,646 - train - INFO - Epoch [2/200], Iter [65/1035] expect end in 9.00 min. Loss: 4.4768, average_loss: 3.7621, now learning rate: 0.001000
+2019-04-22 17:41:12,473 - train - INFO - Epoch [2/200], Iter [70/1035] expect end in 9.00 min. Loss: 4.2475, average_loss: 3.7696, now learning rate: 0.001000
+2019-04-22 17:41:15,338 - train - INFO - Epoch [2/200], Iter [75/1035] expect end in 9.00 min. Loss: 3.7437, average_loss: 3.7947, now learning rate: 0.001000
+2019-04-22 17:41:18,167 - train - INFO - Epoch [2/200], Iter [80/1035] expect end in 8.00 min. Loss: 3.5205, average_loss: 3.7981, now learning rate: 0.001000
+2019-04-22 17:41:21,011 - train - INFO - Epoch [2/200], Iter [85/1035] expect end in 8.00 min. Loss: 2.2539, average_loss: 3.8072, now learning rate: 0.001000
+2019-04-22 17:41:23,841 - train - INFO - Epoch [2/200], Iter [90/1035] expect end in 8.00 min. Loss: 3.6158, average_loss: 3.7999, now learning rate: 0.001000
+2019-04-22 17:41:26,638 - train - INFO - Epoch [2/200], Iter [95/1035] expect end in 8.00 min. Loss: 3.3043, average_loss: 3.7722, now learning rate: 0.001000
+2019-04-22 17:41:29,484 - train - INFO - Epoch [2/200], Iter [100/1035] expect end in 8.00 min. Loss: 2.3031, average_loss: 3.7786, now learning rate: 0.001000
+2019-04-22 17:41:32,328 - train - INFO - Epoch [2/200], Iter [105/1035] expect end in 8.00 min. Loss: 4.1206, average_loss: 3.7887, now learning rate: 0.001000
+2019-04-22 17:41:35,152 - train - INFO - Epoch [2/200], Iter [110/1035] expect end in 8.00 min. Loss: 3.4590, average_loss: 3.7757, now learning rate: 0.001000
+2019-04-22 17:41:38,019 - train - INFO - Epoch [2/200], Iter [115/1035] expect end in 8.00 min. Loss: 2.7741, average_loss: 3.7788, now learning rate: 0.001000
+2019-04-22 17:41:40,843 - train - INFO - Epoch [2/200], Iter [120/1035] expect end in 8.00 min. Loss: 3.4188, average_loss: 3.7717, now learning rate: 0.001000
+2019-04-22 17:41:43,672 - train - INFO - Epoch [2/200], Iter [125/1035] expect end in 8.00 min. Loss: 2.1877, average_loss: 3.7587, now learning rate: 0.001000
+2019-04-22 17:41:46,525 - train - INFO - Epoch [2/200], Iter [130/1035] expect end in 8.00 min. Loss: 4.2315, average_loss: 3.7528, now learning rate: 0.001000
+2019-04-22 17:41:49,383 - train - INFO - Epoch [2/200], Iter [135/1035] expect end in 8.00 min. Loss: 5.0918, average_loss: 3.7724, now learning rate: 0.001000
+2019-04-22 17:41:52,272 - train - INFO - Epoch [2/200], Iter [140/1035] expect end in 8.00 min. Loss: 6.1493, average_loss: 3.7781, now learning rate: 0.001000
+2019-04-22 17:41:55,157 - train - INFO - Epoch [2/200], Iter [145/1035] expect end in 8.00 min. Loss: 3.6422, average_loss: 3.7671, now learning rate: 0.001000
+2019-04-22 17:41:58,044 - train - INFO - Epoch [2/200], Iter [150/1035] expect end in 8.00 min. Loss: 3.7777, average_loss: 3.7564, now learning rate: 0.001000
+2019-04-22 17:42:00,851 - train - INFO - Epoch [2/200], Iter [155/1035] expect end in 8.00 min. Loss: 2.5312, average_loss: 3.7407, now learning rate: 0.001000
+2019-04-22 17:42:03,709 - train - INFO - Epoch [2/200], Iter [160/1035] expect end in 8.00 min. Loss: 4.4493, average_loss: 3.7436, now learning rate: 0.001000
+2019-04-22 17:42:06,753 - train - INFO - Epoch [2/200], Iter [165/1035] expect end in 8.00 min. Loss: 4.0122, average_loss: 3.7524, now learning rate: 0.001000
+2019-04-22 17:42:09,686 - train - INFO - Epoch [2/200], Iter [170/1035] expect end in 8.00 min. Loss: 2.9877, average_loss: 3.7393, now learning rate: 0.001000
+2019-04-22 17:42:12,575 - train - INFO - Epoch [2/200], Iter [175/1035] expect end in 8.00 min. Loss: 3.9742, average_loss: 3.7505, now learning rate: 0.001000
+2019-04-22 17:42:15,596 - train - INFO - Epoch [2/200], Iter [180/1035] expect end in 8.00 min. Loss: 4.1089, average_loss: 3.7672, now learning rate: 0.001000
+2019-04-22 17:42:18,595 - train - INFO - Epoch [2/200], Iter [185/1035] expect end in 8.00 min. Loss: 3.3332, average_loss: 3.7503, now learning rate: 0.001000
+2019-04-22 17:42:21,529 - train - INFO - Epoch [2/200], Iter [190/1035] expect end in 8.00 min. Loss: 2.3947, average_loss: 3.7456, now learning rate: 0.001000
+2019-04-22 17:42:24,554 - train - INFO - Epoch [2/200], Iter [195/1035] expect end in 8.00 min. Loss: 4.9212, average_loss: 3.7406, now learning rate: 0.001000
+2019-04-22 17:42:27,585 - train - INFO - Epoch [2/200], Iter [200/1035] expect end in 7.00 min. Loss: 3.5241, average_loss: 3.7390, now learning rate: 0.001000
+2019-04-22 17:42:30,477 - train - INFO - Epoch [2/200], Iter [205/1035] expect end in 8.00 min. Loss: 3.0003, average_loss: 3.7288, now learning rate: 0.001000
+2019-04-22 17:42:33,454 - train - INFO - Epoch [2/200], Iter [210/1035] expect end in 7.00 min. Loss: 2.9847, average_loss: 3.7260, now learning rate: 0.001000
+2019-04-22 17:42:36,393 - train - INFO - Epoch [2/200], Iter [215/1035] expect end in 7.00 min. Loss: 2.3693, average_loss: 3.7206, now learning rate: 0.001000
+2019-04-22 17:42:39,285 - train - INFO - Epoch [2/200], Iter [220/1035] expect end in 8.00 min. Loss: 4.9586, average_loss: 3.7362, now learning rate: 0.001000
+2019-04-22 17:42:42,177 - train - INFO - Epoch [2/200], Iter [225/1035] expect end in 7.00 min. Loss: 3.3120, average_loss: 3.7590, now learning rate: 0.001000
+2019-04-22 17:42:45,094 - train - INFO - Epoch [2/200], Iter [230/1035] expect end in 8.00 min. Loss: 6.2405, average_loss: 3.7643, now learning rate: 0.001000
+2019-04-22 17:42:48,021 - train - INFO - Epoch [2/200], Iter [235/1035] expect end in 8.00 min. Loss: 5.9695, average_loss: 3.7740, now learning rate: 0.001000
+2019-04-22 17:42:50,959 - train - INFO - Epoch [2/200], Iter [240/1035] expect end in 7.00 min. Loss: 3.3811, average_loss: 3.7704, now learning rate: 0.001000
+2019-04-22 17:42:53,906 - train - INFO - Epoch [2/200], Iter [245/1035] expect end in 7.00 min. Loss: 3.7151, average_loss: 3.7739, now learning rate: 0.001000
+2019-04-22 17:42:56,803 - train - INFO - Epoch [2/200], Iter [250/1035] expect end in 7.00 min. Loss: 3.7258, average_loss: 3.7724, now learning rate: 0.001000
+2019-04-22 17:42:59,774 - train - INFO - Epoch [2/200], Iter [255/1035] expect end in 7.00 min. Loss: 2.3407, average_loss: 3.7769, now learning rate: 0.001000
+2019-04-22 17:43:02,663 - train - INFO - Epoch [2/200], Iter [260/1035] expect end in 7.00 min. Loss: 2.4132, average_loss: 3.7744, now learning rate: 0.001000
+2019-04-22 17:43:05,581 - train - INFO - Epoch [2/200], Iter [265/1035] expect end in 7.00 min. Loss: 3.4967, average_loss: 3.7667, now learning rate: 0.001000
+2019-04-22 17:43:08,519 - train - INFO - Epoch [2/200], Iter [270/1035] expect end in 7.00 min. Loss: 5.7442, average_loss: 3.7842, now learning rate: 0.001000
