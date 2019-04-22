@@ -12,7 +12,6 @@ from backbones.OriginResNet import resnet50
 from backbones.OriginDenseNet import densenet121
 # from LossModel import YOLOLossV1
 from v1Loss import YOLOLossV1
-from testCodes.OthYOLOLoss import yoloLoss
 from utils.YOLODataLoader import yoloDataset
 import numpy as np
 from utils.utils import *
@@ -22,10 +21,26 @@ from collections import defaultdict
 from tqdm import tqdm
 from copy import deepcopy
 
+def warmming_up_policy(now_iter, now_lr, stop_down_iter=1000):
+    if now_iter <= stop_down_iter:
+        now_lr += 0.000001
+    return now_lr
+
+def learning_rate_policy(now_iter, now_epoch, now_lr, lr_adjust_map, stop_down_iter=1000):
+
+    
+    # print('now lr : ', now_lr)
+    now_lr = warmming_up_policy(now_iter, now_lr, stop_down_iter)
+    if now_epoch in lr_adjust_map.keys():
+        now_lr = lr_adjust_map[now_epoch]
+
+    # print('now iter: ', now_iter, ' now epoch : ', now_epoch, ' now lr : ', now_lr)
+    return now_lr
+
 gpu_ids = [0]
 
 device = 'cuda:0'
-learning_rate = 0.001
+learning_rate = 0.0
 num_epochs = 200
 batch_size = 18
 B = 2
@@ -34,6 +49,13 @@ clsN = 20
 lbd_coord = 5. 
 lbd_no_obj = .1
 
+
+
+lr_adjust_map = {
+    1:0.001,
+    50: 0.0001,
+    100: 0.00001
+}
 # S = 14
 backbone_type_list = ['densenet', 'resnet']
 backbone_type = backbone_type_list[0]
@@ -81,7 +103,7 @@ params=[]
 params_dict = dict(backbone_net_p.named_parameters())
 for key,value in params_dict.items():
     if key.startswith('features'):
-        params += [{'params':[value],'lr':learning_rate*1}]
+        params += [{'params':[value],'lr':learning_rate}]
     else:
         params += [{'params':[value],'lr':learning_rate}]
 
@@ -118,35 +140,22 @@ gt_test_map = prep_test_data(test_data_name, little_test=None)
 num_iter = 0
 best_mAP = 0.0
 train_len = len(train_dataset)
+train_iter = 0
 
 for epoch in range(num_epochs):
     backbone_net_p.train()
-    if with_sgd:
-        if epoch == 1:
-            learning_rate = 0.0005
-        if epoch == 2:
-            learning_rate = 0.00075
-        if epoch == 3:
-            learning_rate = 0.001
-        # if epoch == 10:
-        #     learning_rate = 0.01
-        # if epoch == 20:
-        #     learning_rate = 0.001
-        if epoch == 90:
-            learning_rate=0.0001
-        if epoch == 180:
-            learning_rate=0.00001
-        # if epoch == 150:
-        #     learning_rate = 0.000001
-
 
     print('\n\nStarting epoch %d / %d' % (epoch + 1, num_epochs))
-    print('Learning Rate for this epoch: {}'.format(learning_rate))
+    print('Learning Rate for this epoch: {}'.format(optimizer.param_groups[0]['lr']))
     
     total_loss = 0.
     avg_loss = 0.
     
     for i,(images,target) in enumerate(train_loader):
+        train_iter += 1
+        learning_rate = learning_rate_policy(train_iter, epoch, learning_rate, lr_adjust_map)
+        for param_group in optimizer.param_groups:
+            param_group['lr'] = learning_rate
 
         images = images.to(device)
         target = target.to(device)
@@ -160,8 +169,7 @@ for epoch in range(num_epochs):
         optimizer.step()
         if (i+1) % 5 == 0:
             avg_loss = total_loss / (i+1)
-            print ('Epoch [%d/%d], Iter [%d/%d] Loss: %.4f, average_loss: %.4f' 
-            %(epoch+1, num_epochs, i+1, len(train_loader), loss.data[0], total_loss / (i+1)))
+            print ('Epoch [%d/%d], Iter [%d/%d] Loss: %.4f, average_loss: %.4f, now learning rate: %f' %(epoch+1, num_epochs, i+1, len(train_loader), loss.data[0], total_loss / (i+1), optimizer.param_groups[0]['lr']) )
             num_iter += 1
         # exit()
 

@@ -25,16 +25,17 @@ class yoloDataset(data.Dataset):
         self.device = device
         self._test = test_mode
         self.with_file_path = with_file_path
-        self.augsometimes = lambda aug: iaa.Sometimes(0.5, aug)
+        self.img_augsometimes = lambda aug: iaa.Sometimes(0.25, aug)
+        self.bbox_augsometimes = lambda aug: iaa.Sometimes(0.5, aug)
 
         self.augmentation = iaa.Sequential(
             [
                 # augment without change bboxes 
-                self.augsometimes(
+                self.img_augsometimes(
                     iaa.SomeOf((1, 3), [
                         iaa.Dropout([0.05, 0.2]),      # drop 5% or 20% of all pixels
-                        iaa.Sharpen((0.1, 1.0)),       # sharpen the image
-                        iaa.GaussianBlur(sigma=(2., 3.5)),
+                        iaa.Sharpen((0.1, .8)),       # sharpen the image
+                        # iaa.GaussianBlur(sigma=(2., 3.5)),
                         iaa.OneOf([
                             iaa.GaussianBlur(sigma=(2., 3.5)),
                             iaa.AverageBlur(k=(2, 5)),
@@ -63,9 +64,9 @@ class yoloDataset(data.Dataset):
                 ),
 
                 iaa.Fliplr(.5),
-                iaa.Flipud(.5),
+                iaa.Flipud(.125),
                 # augment changing bboxes 
-                self.augsometimes(
+                self.bbox_augsometimes(
                     iaa.Affine(
                         # translate_px={"x": 40, "y": 60},
                         scale={"x": (0.8, 1.2), "y": (0.8, 1.2)},
