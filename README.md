@@ -7,11 +7,15 @@
  - ##### performance
    - train with voc+ datasets (2007train 2007val 2012train 2012val)
    - test on **voc2007 test** 
-     - backbone `densenet121`, with warmming up policy train epoch `103`, **mAP**: `0.6038`
+     - backbone `densenet121`, with **warmming up policy** train epoch `103`, **mAP**: `0.6038`
      - backbone `resnet50`, train epoch `114`, **mAP**: `0.531` (`44` improve to `53` by add bbox affine augments)
 
  ### TODO
-  - `find reason of low performance`
+  - `improve performance`
+    - `optimize warmming up/learning rate policy`
+    - `make better data augment policy`
+  - `add visdom to show train info`
+  - `compress model/run on ARM`
 
 
 

@@ -44,12 +44,12 @@ def convert_annotation(year, image_id):
         out_file.write(str(cls_id) + " " + " ".join([str(a) for a in bb]) + '\n')
 
 # wd = getcwd()
-
+save_base_path = 'datasets'
 for year, image_set in sets:
     if not os.path.exists('%sVOCdevkit/VOC%s/labels/'%(base_path,year)):
         os.makedirs('%sVOCdevkit/VOC%s/labels/'%(base_path,year))
     image_ids = open('%sVOCdevkit/VOC%s/ImageSets/Main/%s.txt'%(base_path,year, image_set)).read().strip().split()
-    list_file = open('%s_%s.txt'%(year, image_set), 'w')
+    list_file = open('%s/%s_%s.txt'%(save_base_path, year, image_set), 'w')
     for image_id in image_ids:
         list_file.write('%sVOCdevkit/VOC%s/JPEGImages/%s.jpg\n'%(base_path, year, image_id))
         convert_annotation(year, image_id)

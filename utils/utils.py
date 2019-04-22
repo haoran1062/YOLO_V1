@@ -1,5 +1,5 @@
 # encoding:utf-8
-import os, numpy as np, random, cv2
+import os, numpy as np, random, cv2, logging
 import torch
 
 import torch.nn as nn
@@ -237,7 +237,7 @@ def voc_ap(rec,prec,use_07_metric=False):
 
     return ap
 
-def voc_eval(preds,target,VOC_CLASSES=VOC_CLASSES,threshold=0.5,use_07_metric=False,):
+def voc_eval(preds,target,VOC_CLASSES=VOC_CLASSES,threshold=0.5,use_07_metric=False, logger=None):
     '''
     preds {'cat':[[image_id,confidence,x1,y1,x2,y2],...],'dog':[[],...]}
     target {(image_id,class):[[],]}
@@ -247,7 +247,10 @@ def voc_eval(preds,target,VOC_CLASSES=VOC_CLASSES,threshold=0.5,use_07_metric=Fa
         pred = preds[class_] #[[image_id,confidence,x1,y1,x2,y2],...]
         if len(pred) == 0: #如果这个类别一个都没有检测到的异常情况
             ap = -1
-            print('---class {} ap {}---'.format(class_,ap))
+            if logger:
+                logger.info('---class {} ap {}---'.format(class_,ap))
+            else:
+                print('---class {} ap {}---'.format(class_,ap))
             aps += [ap]
             break
         #print(pred)
@@ -303,10 +306,16 @@ def voc_eval(preds,target,VOC_CLASSES=VOC_CLASSES,threshold=0.5,use_07_metric=Fa
         prec = tp/np.maximum(tp + fp, np.finfo(np.float64).eps)
         #print(rec,prec)
         ap = voc_ap(rec, prec, use_07_metric)
-        print('---class {} ap {}---'.format(class_,ap))
+        if logger:
+            logger.info('---class {} ap {}---'.format(class_,ap))
+        else:
+            print('---class {} ap {}---'.format(class_,ap))
         aps += [ap]
     mAP = np.mean(aps).item()
-    print('---map {}---'.format(mAP))
+    if logger:
+            logger.info('---map {}---'.format(mAP))
+    else:
+        print('---map {}---'.format(mAP))
     return mAP
 
 def test_eval():
@@ -377,50 +386,67 @@ def prep_test_data(file_path, little_test=None):
     bar.close()
     return target
 
-def run_test_mAP(YOLONet, target, test_loader, data_len, S=7, device='cuda:0'):
+def run_test_mAP(YOLONet, target, test_datasets, data_len, S=7, device='cuda:0', reversed=False, logger=None):
     preds = defaultdict(list)
-    bar = tqdm(total=data_len)
+    # bar = tqdm(total=data_len)
     with torch.no_grad():
-        for i, (images, now_target, fname) in enumerate(test_loader):
-            # print(fname)
-            # if i > debug_n:
-                # print(preds)
-                # break
-            # print(fname)
+        for i, (images, now_target, fname) in tqdm(enumerate(test_datasets)):
             
             images = images.to(device)
             now_target = now_target.to(device)
-            # print(images.shape, now_target.shape)
-            # exit()
-            pred_batch = YOLONet(images)
             
-            # images = un_normal_trans(images.squeeze(0))
-            NN = pred_batch.shape[0]
-            for iii in range(NN):
-                img_id = fname[iii].split('/')[-1].split('.')[0]
-                pred = pred_batch[iii, :, :, :]
-                pred = pred.unsqueeze(0)
-                # print(pred.shape)
-                # exit()
+            img_id = fname.split('/')[-1].split('.')[0]
+            pred = YOLONet(images[None, :, :, :])
+            if reversed:
+                pred = convert_input_tensor_dim(pred)
+            bboxes, clss, confs = decoder(pred, grid_num=S, device=device, thresh=0.005, nms_th=.45)
+            bboxes = bboxes.clamp(min=0., max=1.)
+            bboxes = bbox_un_norm(bboxes)
+            if len(confs) == 1 and confs[0].item() == 0. :
+                continue
+            for j in range(len(confs)):
+                preds[VOC_CLASSES[clss[j].item()]].append( [img_id, confs[j].item(), int(bboxes[j][0].item()), int(bboxes[j][1].item()), int(bboxes[j][2].item()), int(bboxes[j][3].item()), ] )
+            
+    if logger:
+        logger.info('---start evaluate---')
+    else:
+        print('---start evaluate---')
+        
+    return voc_eval(preds,target,VOC_CLASSES=VOC_CLASSES, threshold=0.5, use_07_metric=False, logger=logger)
 
-                bboxes, clss, confs = decoder(pred, grid_num=S, device=device, thresh=0.0001, nms_th=1.)# 23456785)
-                # draw_debug_rect(images.permute(1, 2 ,0), bboxes, clss, confs, show_time=1000)
-                # print(confs, bboxes, clss)
-                bboxes = bbox_un_norm(bboxes)
-                if len(confs) == 1 and confs[0].item() == 0. :
-                    continue
-                for j in range(len(confs)):
-                    preds[VOC_CLASSES[clss[j].item()]].append( [img_id, confs[j].item(), int(bboxes[j][0].item()), int(bboxes[j][1].item()), int(bboxes[j][2].item()), int(bboxes[j][3].item()), ] )
+# def run_test_mAP(YOLONet, target, test_loader, data_len, S=7, device='cuda:0', logger=None):
+#     preds = defaultdict(list)
+#     bar = tqdm(total=data_len)
+#     with torch.no_grad():
+#         for i, (images, now_target, fname) in enumerate(test_loader):
+            
+#             images = images.to(device)
+#             now_target = now_target.to(device)
 
-            bar.update(1)
-        bar.close()
-    print('\n'*5)
-    print('---start evaluate---')
-    return voc_eval(preds,target,VOC_CLASSES=VOC_CLASSES, threshold=0.5, use_07_metric=False)
+#             pred_batch = YOLONet(images)
+#             NN = pred_batch.shape[0]
+#             for iii in range(NN):
+#                 img_id = fname[iii].split('/')[-1].split('.')[0]
+#                 pred = pred_batch[iii, :, :, :]
+#                 pred = pred.unsqueeze(0)
+
+#                 bboxes, clss, confs = decoder(pred, grid_num=S, device=device, thresh=0.0001, nms_th=1.)# 23456785)
+#                 bboxes = bbox_un_norm(bboxes)
+#                 if len(confs) == 1 and confs[0].item() == 0. :
+#                     continue
+#                 for j in range(len(confs)):
+#                     preds[VOC_CLASSES[clss[j].item()]].append( [img_id, confs[j].item(), int(bboxes[j][0].item()), int(bboxes[j][1].item()), int(bboxes[j][2].item()), int(bboxes[j][3].item()), ] )
+
+#             bar.update(1)
+#         bar.close()
+#     # print('\n'*5)
+#     if logger:
+#         logger.info('---start evaluate---')
+#     else:
+#         print('---start evaluate---')
+#     return voc_eval(preds,target,VOC_CLASSES=VOC_CLASSES, threshold=0.5, use_07_metric=False, logger=logger)
     
 def draw_debug_rect(img, bboxes, clss, confs, color=(0, 255, 0), show_time=10000):
-    
-    
 
     if isinstance(img, torch.Tensor):
         img = img.mul(255).byte()
@@ -451,6 +477,28 @@ def draw_debug_rect(img, bboxes, clss, confs, color=(0, 255, 0), show_time=10000
     
 def cv_resize(img, resize=448):
     return cv2.resize(img, (resize, resize))
+
+def create_logger(base_path, log_name):
+    if not os.path.exists(base_path):
+        os.makedirs(base_path)
+    
+    logger = logging.getLogger(log_name)
+    logger.setLevel(logging.DEBUG)
+
+    fhander = logging.FileHandler('%s/%s.log'%(base_path, log_name))
+    fhander.setLevel(logging.INFO)
+
+    shander = logging.StreamHandler()
+    shander.setLevel(logging.DEBUG)
+
+    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s') 
+    fhander.setFormatter(formatter) 
+    shander.setFormatter(formatter) 
+
+    logger.addHandler(fhander)
+    logger.addHandler(shander)
+
+    return logger
 
 if __name__ == "__main__":
     b1 = [

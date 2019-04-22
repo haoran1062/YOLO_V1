@@ -23,7 +23,7 @@ class YOLOLossV1(nn.Module):
         # for each cell S, the Tesnor define: [confidence x B, (x, y, w, h) x B, cls_N]
 
         # get coord or no Object mask from ground truth input:
-        gt_coord_mask = target_tensor[:, :, :, :2] == 1                # [batch_size, S, S, 0]
+        gt_coord_mask = target_tensor[:, :, :, :self.B] == 1                # [batch_size, S, S, 0]
 
         # print(gt_coord_mask.shape)
         # print(gt_no_obj_mask.shape)
