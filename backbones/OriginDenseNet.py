@@ -71,6 +71,7 @@ class DenseNet(nn.Module):
                  num_init_features=64, bn_size=4, drop_rate=0, B=2, S=7, num_classes=20):
 
         super(DenseNet, self).__init__()
+        self.S7 = len(block_config) == 5
         # First convolution
         self.features = nn.Sequential(OrderedDict([
             ('conv0', nn.Conv2d(3, num_init_features, kernel_size=7, stride=2, padding=3, bias=False)),
@@ -112,20 +113,19 @@ class DenseNet(nn.Module):
 
     def forward(self, x):
         # print(x.shape)
-        features = self.features(x)
+        out = self.features(x)
+        out = F.relu(out, inplace=True)
         # print('feature shape: ', features.shape)
-        out = F.relu(features, inplace=True)
         # print(out.shape)
         # out = F.adaptive_avg_pool2d(out, (1, 1)).view(features.size(0), -1)
         # print(out.shape)
         # out = self.classifier(out)
+        # if self.S7:
         out = self.layer6(out)
         out = self.bn_end(out)
-        out = torch.sigmoid(out)
-        # print(out.shape)
-        out = out.permute(0, 2, 3, 1)
         
-        # print(out.shape)
+        out = torch.sigmoid(out)
+        out = out.permute(0, 2, 3, 1)
         return out
 
 
@@ -146,14 +146,19 @@ def _load_state_dict(model, model_url):
     model.load_state_dict(state_dict)
 
 
-def densenet121(pretrained=False, **kwargs):
+def densenet121(pretrained=False, S=7, **kwargs):
     r"""Densenet-121 model from
     `"Densely Connected Convolutional Networks" <https://arxiv.org/pdf/1608.06993.pdf>`_
     Args:
         pretrained (bool): If True, returns a model pre-trained on ImageNet
     """
-    model = DenseNet(num_init_features=64, growth_rate=32, block_config=(6, 12, 24, 16, 16),
-                     **kwargs)
+    if S not in [7, 14]:
+        print('S musk be 7x7 or 14x14')
+        exit()
+    
+    model = DenseNet(num_init_features=64, growth_rate=32, block_config=(6, 12, 24, 16, 16), **kwargs)
+    if S == 14:
+        model = DenseNet(num_init_features=64, growth_rate=32, block_config=(6, 12, 24, 16), **kwargs)
     if pretrained:
         _load_state_dict(model, model_urls['densenet121'])
     return model
@@ -218,7 +223,7 @@ if __name__ == "__main__":
     t_img = t_img.to(device)
     print(t_img.shape)
 
-    model = densenet121(pretrained=False)
+    model = densenet121(pretrained=False, S=14)
     model = model.to(device)
 
     summary(model, (3, 448, 448))

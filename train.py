@@ -36,24 +36,24 @@ gpu_ids = [0]
 device = 'cuda:0'
 learning_rate = 0.0
 num_epochs = 200
-batch_size = 18
+batch_size = 12
 B = 2
-S = 7
+S = 14
 clsN = 20
 lbd_coord = 5. 
-lbd_no_obj = .1
+lbd_no_obj = .5
 
 lr_adjust_map = {
     1:0.001,
-    50: 0.0001,
+    75: 0.0001,
     100: 0.00001
 }
 
 backbone_type_list = ['densenet', 'resnet']
-backbone_type = backbone_type_list[1]
+backbone_type = backbone_type_list[0]
 
 if backbone_type == backbone_type_list[1]:
-    backbone_net = resnet50()
+    backbone_net = resnet50(S=S)
     resnet = models.resnet50(pretrained=True)
     new_state_dict = resnet.state_dict()
     dd = backbone_net.state_dict()
@@ -64,7 +64,7 @@ if backbone_type == backbone_type_list[1]:
     batch_size = 16
 
 if backbone_type == backbone_type_list[0]:
-    backbone_net = densenet121()
+    backbone_net = densenet121(S=S)
     resnet = models.densenet121(pretrained=True)
     new_state_dict = resnet.state_dict()
     dd = backbone_net.state_dict()
@@ -125,6 +125,7 @@ best_mAP = 0.0
 train_len = len(train_dataset)
 train_iter = 0
 last_little_mAP = 0.0
+run_full_mAP_thresh = 0.50
 
 my_vis = Visual(base_save_path[:-1])
 
@@ -177,7 +178,7 @@ for epoch in range(num_epochs):
 
     now_little_mAP = run_test_mAP(backbone_net_p, deepcopy(gt_little_test_map), test_dataset, data_len, logger=logger, little_test=little_val_num)
     
-    if now_little_mAP > last_little_mAP:
+    if now_little_mAP > last_little_mAP and now_little_mAP > run_full_mAP_thresh:
         test_mAP = run_test_mAP(backbone_net_p, deepcopy(gt_test_map), test_dataset, data_len, logger=logger)
         
     my_vis.plot('little mAP', now_little_mAP)

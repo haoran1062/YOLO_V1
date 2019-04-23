@@ -18,7 +18,7 @@ class YOLOLossV1(nn.Module):
         self.batch_size = _batch_size
 
     def forward(self, pred_tensor, target_tensor):
-    
+        
         # input tensor : [batch_szie, S, S, B*5+C]
         # for each cell S, the Tesnor define: [confidence x B, (x, y, w, h) x B, cls_N]
 
