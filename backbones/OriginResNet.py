@@ -115,6 +115,8 @@ class ResNet(nn.Module):
         if norm_layer is None:
             norm_layer = nn.BatchNorm2d
         planes = [int(width_per_group * groups * 2 ** i) for i in range(5)]
+        self.S7 = S == 7
+        print(self.S7)
         self.inplanes = planes[0]
         self.conv1 = nn.Conv2d(3, planes[0], kernel_size=7, stride=2, padding=3,
                                bias=False)
@@ -125,7 +127,9 @@ class ResNet(nn.Module):
         self.layer2 = self._make_layer(block, planes[1], layers[1], stride=2, groups=groups, norm_layer=norm_layer)
         self.layer3 = self._make_layer(block, planes[2], layers[2], stride=2, groups=groups, norm_layer=norm_layer)
         self.layer4 = self._make_layer(block, planes[3], layers[3], stride=2, groups=groups, norm_layer=norm_layer)
-        self.layer5 = self._make_layer(block, planes[3], layers[3], stride=2, groups=groups, norm_layer=norm_layer)
+        
+        if self.S7:
+            self.layer5 = self._make_layer(block, planes[3], layers[3], stride=2, groups=groups, norm_layer=norm_layer)
         self.layer6 = conv1x1(2048, B*5+num_classes)
         self.bn_end = nn.BatchNorm2d(B*5+num_classes)
         # self.avgpool = nn.AdaptiveAvgPool2d((1, 1))
@@ -176,11 +180,10 @@ class ResNet(nn.Module):
         x = self.layer2(x)
         x = self.layer3(x)
         x = self.layer4(x)
-        x = self.layer5(x)
-        # print(x.shape)
-        x = self.layer6(x)
-        # print(x.shape)
 
+        if self.S7:
+            x = self.layer5(x)
+        x = self.layer6(x)
         x = self.bn_end(x)
         x = torch.sigmoid(x) 
         x = x.permute(0,2,3,1) 
@@ -214,12 +217,15 @@ def resnet34(pretrained=False, **kwargs):
     return model
 
 
-def resnet50(pretrained=False, **kwargs):
+def resnet50(pretrained=False, S=7, **kwargs):
     """Constructs a ResNet-50 model.
     Args:
         pretrained (bool): If True, returns a model pre-trained on ImageNet
     """
-    model = ResNet(Bottleneck, [3, 4, 6, 3], **kwargs)
+    if S not in [7, 14]:
+        print('S musk be 7x7 or 14x14')
+        exit()
+    model = ResNet(Bottleneck, [3, 4, 6, 3], S=S, **kwargs)
     if pretrained:
         model.load_state_dict(model_zoo.load_url(model_urls['resnet50']))
     return model
@@ -267,7 +273,7 @@ if __name__ == "__main__":
     from torchvision import transforms, utils
 
     tf = transforms.Compose([
-        transforms.RandomResizedCrop(224),
+        transforms.RandomResizedCrop(448),
         transforms.RandomHorizontalFlip(),
         transforms.ToTensor(),
         transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
@@ -280,8 +286,10 @@ if __name__ == "__main__":
     t_img.unsqueeze_(0)
     t_img = t_img.to(device)
 
-    model = resnet50(pretrained=False)
+    model = resnet50(pretrained=False, S=14)
     model = model.to(device)
 
-    summary(model, (3, 448, 448))
-    model.forward(t_img)
+    print(t_img.shape)
+    # summary(model, (3, 448, 448))
+    x = model.forward(t_img)
+    print(x.shape)

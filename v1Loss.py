@@ -20,7 +20,7 @@ class YOLOLossV1(nn.Module):
         self.vis = _vis
 
     def forward(self, pred_tensor, target_tensor):
-    
+        
         # input tensor : [batch_szie, S, S, B*5+C]
         # for each cell S, the Tesnor define: [confidence x B, (x, y, w, h) x B, cls_N]
 
