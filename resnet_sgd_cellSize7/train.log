@@ -11179,3 +11179,283 @@ Starting epoch 9 / 200
 2019-04-24 13:34:32,768 - train - INFO - location loss : 0.25293 contain loss : 0.11684 not contain loss: 0.77357 classify loss : 1.13862
 2019-04-24 13:34:33,398 - train - INFO - location loss : 0.27481 contain loss : 0.10275 not contain loss: 0.96957 classify loss : 1.17955
 2019-04-24 13:34:34,018 - train - INFO - location loss : 0.17014 contain loss : 0.04762 not contain loss: 0.98147 classify loss : 0.73465
+2019-04-24 13:34:34,648 - train - INFO - location loss : 0.20902 contain loss : 0.14877 not contain loss: 0.85893 classify loss : 1.22683
+2019-04-24 13:34:35,273 - train - INFO - location loss : 0.42228 contain loss : 0.16437 not contain loss: 0.96325 classify loss : 1.66105
+2019-04-24 13:34:35,713 - train - INFO - Epoch [9/200], Iter [855/1035] expect end in 1.00 min. Loss: 4.0331, average_loss: 2.4700, now learning rate: 0.001000
+2019-04-24 13:34:35,917 - train - INFO - location loss : 0.12358 contain loss : 0.08641 not contain loss: 0.93659 classify loss : 1.28970
+2019-04-24 13:34:36,536 - train - INFO - location loss : 0.13979 contain loss : 0.05860 not contain loss: 0.94646 classify loss : 1.04481
+2019-04-24 13:34:37,154 - train - INFO - location loss : 0.28079 contain loss : 0.15553 not contain loss: 0.95049 classify loss : 1.86431
+2019-04-24 13:34:37,769 - train - INFO - location loss : 0.24428 contain loss : 0.09919 not contain loss: 0.96194 classify loss : 1.22363
+2019-04-24 13:34:38,395 - train - INFO - location loss : 0.21364 contain loss : 0.08690 not contain loss: 0.74442 classify loss : 1.11875
+2019-04-24 13:34:38,830 - train - INFO - Epoch [9/200], Iter [860/1035] expect end in 1.00 min. Loss: 2.3483, average_loss: 2.4702, now learning rate: 0.001000
+2019-04-24 13:34:39,040 - train - INFO - location loss : 0.26183 contain loss : 0.12104 not contain loss: 0.95161 classify loss : 1.13185
+2019-04-24 13:34:39,646 - train - INFO - location loss : 0.15076 contain loss : 0.05142 not contain loss: 0.95305 classify loss : 0.56521
+2019-04-24 13:34:40,256 - train - INFO - location loss : 0.18376 contain loss : 0.07693 not contain loss: 0.84846 classify loss : 1.07056
+2019-04-24 13:34:40,881 - train - INFO - location loss : 0.28432 contain loss : 0.13538 not contain loss: 1.01271 classify loss : 1.50847
+2019-04-24 13:34:41,498 - train - INFO - location loss : 0.14239 contain loss : 0.11101 not contain loss: 1.01355 classify loss : 0.74814
+2019-04-24 13:34:41,932 - train - INFO - Epoch [9/200], Iter [865/1035] expect end in 1.00 min. Loss: 1.6724, average_loss: 2.4687, now learning rate: 0.001000
+2019-04-24 13:34:42,142 - train - INFO - location loss : 0.19352 contain loss : 0.09420 not contain loss: 0.91229 classify loss : 0.79491
+2019-04-24 13:34:42,752 - train - INFO - location loss : 0.17939 contain loss : 0.05849 not contain loss: 1.04613 classify loss : 0.89760
+2019-04-24 13:34:43,362 - train - INFO - location loss : 0.24667 contain loss : 0.07522 not contain loss: 0.94235 classify loss : 1.29949
+2019-04-24 13:34:43,973 - train - INFO - location loss : 0.17226 contain loss : 0.12754 not contain loss: 0.93492 classify loss : 1.08213
+2019-04-24 13:34:44,595 - train - INFO - location loss : 0.16396 contain loss : 0.05865 not contain loss: 0.87585 classify loss : 0.80033
+2019-04-24 13:34:45,025 - train - INFO - Epoch [9/200], Iter [870/1035] expect end in 1.00 min. Loss: 1.7664, average_loss: 2.4667, now learning rate: 0.001000
+2019-04-24 13:34:45,220 - train - INFO - location loss : 0.09210 contain loss : 0.04954 not contain loss: 0.97459 classify loss : 0.87032
+2019-04-24 13:34:45,831 - train - INFO - location loss : 0.21796 contain loss : 0.16387 not contain loss: 0.87895 classify loss : 1.25862
+2019-04-24 13:34:46,443 - train - INFO - location loss : 0.21249 contain loss : 0.08545 not contain loss: 0.94709 classify loss : 1.04620
+2019-04-24 13:34:47,061 - train - INFO - location loss : 0.26731 contain loss : 0.15554 not contain loss: 0.90402 classify loss : 0.98943
+2019-04-24 13:34:47,677 - train - INFO - location loss : 0.24061 contain loss : 0.09751 not contain loss: 1.00162 classify loss : 1.13610
+2019-04-24 13:34:48,110 - train - INFO - Epoch [9/200], Iter [875/1035] expect end in 1.00 min. Loss: 2.5368, average_loss: 2.4657, now learning rate: 0.001000
+2019-04-24 13:34:48,311 - train - INFO - location loss : 0.11011 contain loss : 0.07797 not contain loss: 1.02444 classify loss : 0.82261
+2019-04-24 13:34:48,911 - train - INFO - location loss : 0.13583 contain loss : 0.05578 not contain loss: 0.94833 classify loss : 0.57833
+2019-04-24 13:34:49,520 - train - INFO - location loss : 0.20276 contain loss : 0.13124 not contain loss: 0.90611 classify loss : 1.17619
+2019-04-24 13:34:50,143 - train - INFO - location loss : 0.21331 contain loss : 0.08418 not contain loss: 0.93299 classify loss : 0.95377
+2019-04-24 13:34:50,765 - train - INFO - location loss : 0.23005 contain loss : 0.13128 not contain loss: 0.77808 classify loss : 0.88850
+2019-04-24 13:34:51,209 - train - INFO - Epoch [9/200], Iter [880/1035] expect end in 1.00 min. Loss: 2.2478, average_loss: 2.4628, now learning rate: 0.001000
+2019-04-24 13:34:51,423 - train - INFO - location loss : 0.34012 contain loss : 0.17663 not contain loss: 0.86254 classify loss : 1.57762
+2019-04-24 13:34:52,051 - train - INFO - location loss : 0.16692 contain loss : 0.08428 not contain loss: 0.87561 classify loss : 1.12351
+2019-04-24 13:34:52,667 - train - INFO - location loss : 0.19816 contain loss : 0.11220 not contain loss: 0.99630 classify loss : 1.25923
+2019-04-24 13:34:53,265 - train - INFO - location loss : 0.06425 contain loss : 0.03377 not contain loss: 0.90247 classify loss : 0.50483
+2019-04-24 13:34:53,869 - train - INFO - location loss : 0.20815 contain loss : 0.08596 not contain loss: 1.03905 classify loss : 1.37435
+2019-04-24 13:34:54,308 - train - INFO - Epoch [9/200], Iter [885/1035] expect end in 1.00 min. Loss: 2.6050, average_loss: 2.4621, now learning rate: 0.001000
+2019-04-24 13:34:54,509 - train - INFO - location loss : 0.23322 contain loss : 0.07166 not contain loss: 0.97587 classify loss : 0.91281
+2019-04-24 13:34:55,120 - train - INFO - location loss : 0.14689 contain loss : 0.11465 not contain loss: 1.09665 classify loss : 1.05011
+2019-04-24 13:34:55,737 - train - INFO - location loss : 0.22457 contain loss : 0.16180 not contain loss: 0.90945 classify loss : 0.96475
+2019-04-24 13:34:56,361 - train - INFO - location loss : 0.26366 contain loss : 0.12330 not contain loss: 0.86405 classify loss : 0.89134
+2019-04-24 13:34:56,981 - train - INFO - location loss : 0.26057 contain loss : 0.13807 not contain loss: 0.88935 classify loss : 1.32047
+2019-04-24 13:34:57,418 - train - INFO - Epoch [9/200], Iter [890/1035] expect end in 1.00 min. Loss: 2.8503, average_loss: 2.4616, now learning rate: 0.001000
+2019-04-24 13:34:57,616 - train - INFO - location loss : 0.10437 contain loss : 0.09166 not contain loss: 1.01839 classify loss : 0.90559
+2019-04-24 13:34:58,253 - train - INFO - location loss : 0.49458 contain loss : 0.26055 not contain loss: 0.87589 classify loss : 2.78108
+2019-04-24 13:34:58,891 - train - INFO - location loss : 0.23509 contain loss : 0.13179 not contain loss: 0.84267 classify loss : 1.27568
+2019-04-24 13:34:59,508 - train - INFO - location loss : 0.17319 contain loss : 0.08047 not contain loss: 0.95011 classify loss : 0.84539
+2019-04-24 13:35:00,126 - train - INFO - location loss : 0.10786 contain loss : 0.10872 not contain loss: 1.02025 classify loss : 0.59742
+2019-04-24 13:35:00,558 - train - INFO - Epoch [9/200], Iter [895/1035] expect end in 1.00 min. Loss: 1.3475, average_loss: 2.4625, now learning rate: 0.001000
+2019-04-24 13:35:00,762 - train - INFO - location loss : 0.23429 contain loss : 0.10177 not contain loss: 0.90409 classify loss : 0.64070
+2019-04-24 13:35:01,375 - train - INFO - location loss : 0.18465 contain loss : 0.10479 not contain loss: 1.02741 classify loss : 0.86085
+2019-04-24 13:35:01,996 - train - INFO - location loss : 0.33498 contain loss : 0.15748 not contain loss: 0.86612 classify loss : 1.38399
+2019-04-24 13:35:02,611 - train - INFO - location loss : 0.16031 contain loss : 0.09858 not contain loss: 0.92766 classify loss : 0.84667
+2019-04-24 13:35:03,225 - train - INFO - location loss : 0.20994 contain loss : 0.14360 not contain loss: 0.90478 classify loss : 1.55656
+2019-04-24 13:35:03,657 - train - INFO - Epoch [9/200], Iter [900/1035] expect end in 1.00 min. Loss: 2.8403, average_loss: 2.4622, now learning rate: 0.001000
+2019-04-24 13:35:03,874 - train - INFO - location loss : 0.39559 contain loss : 0.14745 not contain loss: 0.88190 classify loss : 1.61373
+2019-04-24 13:35:04,486 - train - INFO - location loss : 0.14348 contain loss : 0.08315 not contain loss: 1.03708 classify loss : 0.50330
+2019-04-24 13:35:05,100 - train - INFO - location loss : 0.22401 contain loss : 0.16773 not contain loss: 0.92374 classify loss : 1.06966
+2019-04-24 13:35:05,714 - train - INFO - location loss : 0.14880 contain loss : 0.06777 not contain loss: 0.92976 classify loss : 0.96159
+2019-04-24 13:35:06,333 - train - INFO - location loss : 0.16638 contain loss : 0.11051 not contain loss: 0.87930 classify loss : 1.81156
+2019-04-24 13:35:06,777 - train - INFO - Epoch [9/200], Iter [905/1035] expect end in 1.00 min. Loss: 2.8419, average_loss: 2.4623, now learning rate: 0.001000
+2019-04-24 13:35:06,980 - train - INFO - location loss : 0.15649 contain loss : 0.08585 not contain loss: 0.87118 classify loss : 1.24401
+2019-04-24 13:35:07,606 - train - INFO - location loss : 0.26068 contain loss : 0.15415 not contain loss: 0.67192 classify loss : 0.95933
+2019-04-24 13:35:08,249 - train - INFO - location loss : 0.28375 contain loss : 0.16080 not contain loss: 0.70491 classify loss : 1.69658
+2019-04-24 13:35:08,883 - train - INFO - location loss : 0.36115 contain loss : 0.14635 not contain loss: 0.81072 classify loss : 1.71859
+2019-04-24 13:35:09,507 - train - INFO - location loss : 0.17243 contain loss : 0.12051 not contain loss: 0.99732 classify loss : 1.06742
+2019-04-24 13:35:09,941 - train - INFO - Epoch [9/200], Iter [910/1035] expect end in 1.00 min. Loss: 2.1498, average_loss: 2.4640, now learning rate: 0.001000
+2019-04-24 13:35:10,159 - train - INFO - location loss : 0.32834 contain loss : 0.22780 not contain loss: 0.77414 classify loss : 1.70644
+2019-04-24 13:35:10,776 - train - INFO - location loss : 0.22409 contain loss : 0.07396 not contain loss: 0.83691 classify loss : 1.21080
+2019-04-24 13:35:11,405 - train - INFO - location loss : 0.40189 contain loss : 0.22233 not contain loss: 0.88079 classify loss : 1.72027
+2019-04-24 13:35:12,031 - train - INFO - location loss : 0.20957 contain loss : 0.12116 not contain loss: 0.82658 classify loss : 0.90287
+2019-04-24 13:35:12,655 - train - INFO - location loss : 0.25444 contain loss : 0.15125 not contain loss: 0.91496 classify loss : 0.87793
+2019-04-24 13:35:13,090 - train - INFO - Epoch [9/200], Iter [915/1035] expect end in 1.00 min. Loss: 2.3929, average_loss: 2.4667, now learning rate: 0.001000
+2019-04-24 13:35:13,301 - train - INFO - location loss : 0.33569 contain loss : 0.21053 not contain loss: 0.77820 classify loss : 1.07811
+2019-04-24 13:35:13,924 - train - INFO - location loss : 0.20262 contain loss : 0.14300 not contain loss: 0.89048 classify loss : 1.28226
+2019-04-24 13:35:14,537 - train - INFO - location loss : 0.15207 contain loss : 0.15128 not contain loss: 0.88918 classify loss : 0.99484
+2019-04-24 13:35:15,154 - train - INFO - location loss : 0.22908 contain loss : 0.16389 not contain loss: 0.82431 classify loss : 1.12962
+2019-04-24 13:35:15,786 - train - INFO - location loss : 0.34647 contain loss : 0.21171 not contain loss: 0.89807 classify loss : 1.79008
+2019-04-24 13:35:16,226 - train - INFO - Epoch [9/200], Iter [920/1035] expect end in 1.00 min. Loss: 3.8239, average_loss: 2.4684, now learning rate: 0.001000
+2019-04-24 13:35:16,433 - train - INFO - location loss : 0.23413 contain loss : 0.12636 not contain loss: 0.78153 classify loss : 0.87704
+2019-04-24 13:35:17,051 - train - INFO - location loss : 0.15216 contain loss : 0.10499 not contain loss: 0.87927 classify loss : 1.11479
+2019-04-24 13:35:17,677 - train - INFO - location loss : 0.22374 contain loss : 0.19764 not contain loss: 0.78014 classify loss : 0.84793
+2019-04-24 13:35:18,306 - train - INFO - location loss : 0.22176 contain loss : 0.11649 not contain loss: 0.82664 classify loss : 1.47203
+2019-04-24 13:35:18,939 - train - INFO - location loss : 0.31124 contain loss : 0.18916 not contain loss: 0.83557 classify loss : 1.26523
+2019-04-24 13:35:19,387 - train - INFO - Epoch [9/200], Iter [925/1035] expect end in 1.00 min. Loss: 3.0941, average_loss: 2.4685, now learning rate: 0.001000
+2019-04-24 13:35:19,599 - train - INFO - location loss : 0.28126 contain loss : 0.16492 not contain loss: 0.90096 classify loss : 1.62985
+2019-04-24 13:35:20,213 - train - INFO - location loss : 0.22150 contain loss : 0.19579 not contain loss: 0.85817 classify loss : 1.21392
+2019-04-24 13:35:20,823 - train - INFO - location loss : 0.29547 contain loss : 0.08952 not contain loss: 0.80581 classify loss : 1.06192
+2019-04-24 13:35:21,449 - train - INFO - location loss : 0.30281 contain loss : 0.14237 not contain loss: 0.83097 classify loss : 1.03621
+2019-04-24 13:35:22,077 - train - INFO - location loss : 0.36057 contain loss : 0.13079 not contain loss: 0.73281 classify loss : 0.69520
+2019-04-24 13:35:22,519 - train - INFO - Epoch [9/200], Iter [930/1035] expect end in 1.00 min. Loss: 2.7021, average_loss: 2.4704, now learning rate: 0.001000
+2019-04-24 13:35:22,736 - train - INFO - location loss : 0.22149 contain loss : 0.14606 not contain loss: 0.72456 classify loss : 1.23551
+2019-04-24 13:35:23,363 - train - INFO - location loss : 0.27903 contain loss : 0.11963 not contain loss: 0.83815 classify loss : 1.21579
+2019-04-24 13:35:23,973 - train - INFO - location loss : 0.15872 contain loss : 0.11382 not contain loss: 0.82556 classify loss : 1.00393
+2019-04-24 13:35:24,594 - train - INFO - location loss : 0.25734 contain loss : 0.12929 not contain loss: 0.90422 classify loss : 1.10907
+2019-04-24 13:35:25,215 - train - INFO - location loss : 0.38537 contain loss : 0.14035 not contain loss: 0.88233 classify loss : 1.35927
+2019-04-24 13:35:25,651 - train - INFO - Epoch [9/200], Iter [935/1035] expect end in 0.00 min. Loss: 3.5147, average_loss: 2.4716, now learning rate: 0.001000
+2019-04-24 13:35:25,857 - train - INFO - location loss : 0.14866 contain loss : 0.16136 not contain loss: 0.74601 classify loss : 0.80306
+2019-04-24 13:35:26,469 - train - INFO - location loss : 0.12654 contain loss : 0.07064 not contain loss: 0.90560 classify loss : 0.52902
+2019-04-24 13:35:27,085 - train - INFO - location loss : 0.24770 contain loss : 0.12543 not contain loss: 0.86753 classify loss : 1.18459
+2019-04-24 13:35:27,706 - train - INFO - location loss : 0.20390 contain loss : 0.15661 not contain loss: 0.78995 classify loss : 0.90223
+2019-04-24 13:35:28,334 - train - INFO - location loss : 0.15687 contain loss : 0.12664 not contain loss: 0.81015 classify loss : 0.75226
+2019-04-24 13:35:28,762 - train - INFO - Epoch [9/200], Iter [940/1035] expect end in 0.00 min. Loss: 1.7443, average_loss: 2.4687, now learning rate: 0.001000
+2019-04-24 13:35:28,961 - train - INFO - location loss : 0.22959 contain loss : 0.11186 not contain loss: 0.83818 classify loss : 1.08142
+2019-04-24 13:35:29,570 - train - INFO - location loss : 0.23210 contain loss : 0.10297 not contain loss: 0.83855 classify loss : 0.98011
+2019-04-24 13:35:30,188 - train - INFO - location loss : 0.29078 contain loss : 0.11234 not contain loss: 0.77298 classify loss : 1.07047
+2019-04-24 13:35:30,802 - train - INFO - location loss : 0.21712 contain loss : 0.06257 not contain loss: 0.85869 classify loss : 1.51479
+2019-04-24 13:35:31,420 - train - INFO - location loss : 0.20338 contain loss : 0.09259 not contain loss: 0.93089 classify loss : 0.81638
+2019-04-24 13:35:31,851 - train - INFO - Epoch [9/200], Iter [945/1035] expect end in 0.00 min. Loss: 2.0190, average_loss: 2.4686, now learning rate: 0.001000
+2019-04-24 13:35:32,056 - train - INFO - location loss : 0.22387 contain loss : 0.08977 not contain loss: 0.91970 classify loss : 0.94665
+2019-04-24 13:35:32,668 - train - INFO - location loss : 0.11471 contain loss : 0.04339 not contain loss: 0.80379 classify loss : 0.90434
+2019-04-24 13:35:33,316 - train - INFO - location loss : 0.15597 contain loss : 0.09861 not contain loss: 0.86229 classify loss : 1.07832
+2019-04-24 13:35:33,992 - train - INFO - location loss : 0.22254 contain loss : 0.18015 not contain loss: 0.82162 classify loss : 0.85804
+2019-04-24 13:35:34,685 - train - INFO - location loss : 0.16042 contain loss : 0.11195 not contain loss: 0.77310 classify loss : 1.05045
+2019-04-24 13:35:35,120 - train - INFO - Epoch [9/200], Iter [950/1035] expect end in 0.00 min. Loss: 2.0418, average_loss: 2.4663, now learning rate: 0.001000
+2019-04-24 13:35:35,319 - train - INFO - location loss : 0.19052 contain loss : 0.10958 not contain loss: 0.85714 classify loss : 0.90356
+2019-04-24 13:35:35,965 - train - INFO - location loss : 0.27081 contain loss : 0.13398 not contain loss: 0.81962 classify loss : 1.26671
+2019-04-24 13:35:36,616 - train - INFO - location loss : 0.14613 contain loss : 0.12523 not contain loss: 0.74071 classify loss : 0.72603
+2019-04-24 13:35:37,251 - train - INFO - location loss : 0.14751 contain loss : 0.05147 not contain loss: 0.84746 classify loss : 1.08663
+2019-04-24 13:35:37,862 - train - INFO - location loss : 0.21716 contain loss : 0.14925 not contain loss: 0.85114 classify loss : 1.24897
+2019-04-24 13:35:38,293 - train - INFO - Epoch [9/200], Iter [955/1035] expect end in 0.00 min. Loss: 2.5691, average_loss: 2.4650, now learning rate: 0.001000
+2019-04-24 13:35:38,500 - train - INFO - location loss : 0.19371 contain loss : 0.11293 not contain loss: 0.88787 classify loss : 1.07183
+2019-04-24 13:35:39,113 - train - INFO - location loss : 0.21955 contain loss : 0.08286 not contain loss: 0.84551 classify loss : 0.96597
+2019-04-24 13:35:39,793 - train - INFO - location loss : 0.24426 contain loss : 0.10616 not contain loss: 0.78255 classify loss : 1.12555
+2019-04-24 13:35:40,406 - train - INFO - location loss : 0.14876 contain loss : 0.11400 not contain loss: 0.76615 classify loss : 1.29674
+2019-04-24 13:35:41,004 - train - INFO - location loss : 0.14060 contain loss : 0.06340 not contain loss: 0.86825 classify loss : 0.63681
+2019-04-24 13:35:41,423 - train - INFO - Epoch [9/200], Iter [960/1035] expect end in 0.00 min. Loss: 1.4900, average_loss: 2.4633, now learning rate: 0.001000
+2019-04-24 13:35:41,628 - train - INFO - location loss : 0.19822 contain loss : 0.08778 not contain loss: 0.73443 classify loss : 0.82048
+2019-04-24 13:35:42,239 - train - INFO - location loss : 0.14161 contain loss : 0.10027 not contain loss: 0.86303 classify loss : 0.92491
+2019-04-24 13:35:42,850 - train - INFO - location loss : 0.26194 contain loss : 0.13113 not contain loss: 0.81083 classify loss : 1.09053
+2019-04-24 13:35:43,488 - train - INFO - location loss : 0.19169 contain loss : 0.11142 not contain loss: 0.80030 classify loss : 0.95156
+2019-04-24 13:35:44,101 - train - INFO - location loss : 0.26412 contain loss : 0.10594 not contain loss: 0.79229 classify loss : 1.38098
+2019-04-24 13:35:44,530 - train - INFO - Epoch [9/200], Iter [965/1035] expect end in 0.00 min. Loss: 2.8867, average_loss: 2.4624, now learning rate: 0.001000
+2019-04-24 13:35:44,729 - train - INFO - location loss : 0.12198 contain loss : 0.04684 not contain loss: 0.88544 classify loss : 0.80861
+2019-04-24 13:35:45,340 - train - INFO - location loss : 0.25949 contain loss : 0.12415 not contain loss: 0.90181 classify loss : 1.60074
+2019-04-24 13:35:45,958 - train - INFO - location loss : 0.22310 contain loss : 0.09164 not contain loss: 0.83836 classify loss : 0.50411
+2019-04-24 13:35:46,566 - train - INFO - location loss : 0.18324 contain loss : 0.07558 not contain loss: 0.88194 classify loss : 0.75502
+2019-04-24 13:35:47,178 - train - INFO - location loss : 0.25697 contain loss : 0.11861 not contain loss: 0.81088 classify loss : 1.58211
+2019-04-24 13:35:47,609 - train - INFO - Epoch [9/200], Iter [970/1035] expect end in 0.00 min. Loss: 3.0667, average_loss: 2.4614, now learning rate: 0.001000
+2019-04-24 13:35:47,813 - train - INFO - location loss : 0.24691 contain loss : 0.09843 not contain loss: 0.85331 classify loss : 1.31062
+2019-04-24 13:35:48,426 - train - INFO - location loss : 0.28282 contain loss : 0.10783 not contain loss: 0.74598 classify loss : 1.13805
+2019-04-24 13:35:49,028 - train - INFO - location loss : 0.14313 contain loss : 0.08388 not contain loss: 0.88013 classify loss : 1.08586
+2019-04-24 13:35:49,635 - train - INFO - location loss : 0.16699 contain loss : 0.10215 not contain loss: 0.82264 classify loss : 1.29202
+2019-04-24 13:35:50,257 - train - INFO - location loss : 0.26872 contain loss : 0.12368 not contain loss: 0.67119 classify loss : 1.27214
+2019-04-24 13:35:50,691 - train - INFO - Epoch [9/200], Iter [975/1035] expect end in 0.00 min. Loss: 2.8065, average_loss: 2.4616, now learning rate: 0.001000
+2019-04-24 13:35:50,901 - train - INFO - location loss : 0.20357 contain loss : 0.10514 not contain loss: 0.75842 classify loss : 1.06970
+2019-04-24 13:35:51,525 - train - INFO - location loss : 0.25876 contain loss : 0.15179 not contain loss: 0.85232 classify loss : 0.70743
+2019-04-24 13:35:52,149 - train - INFO - location loss : 0.28891 contain loss : 0.07445 not contain loss: 0.74518 classify loss : 1.12813
+2019-04-24 13:35:52,783 - train - INFO - location loss : 0.29367 contain loss : 0.18581 not contain loss: 0.70102 classify loss : 1.43633
+2019-04-24 13:35:53,401 - train - INFO - location loss : 0.24864 contain loss : 0.08116 not contain loss: 0.73284 classify loss : 1.01059
+2019-04-24 13:35:53,838 - train - INFO - Epoch [9/200], Iter [980/1035] expect end in 0.00 min. Loss: 2.4082, average_loss: 2.4621, now learning rate: 0.001000
+2019-04-24 13:35:54,042 - train - INFO - location loss : 0.19991 contain loss : 0.09975 not contain loss: 0.73329 classify loss : 0.98653
+2019-04-24 13:35:54,660 - train - INFO - location loss : 0.22597 contain loss : 0.12106 not contain loss: 0.82336 classify loss : 1.20436
+2019-04-24 13:35:55,279 - train - INFO - location loss : 0.24895 contain loss : 0.17200 not contain loss: 0.79824 classify loss : 0.96901
+2019-04-24 13:35:55,920 - train - INFO - location loss : 0.20278 contain loss : 0.07423 not contain loss: 0.75284 classify loss : 1.02793
+2019-04-24 13:35:56,534 - train - INFO - location loss : 0.17706 contain loss : 0.04609 not contain loss: 0.87861 classify loss : 0.78569
+2019-04-24 13:35:56,961 - train - INFO - Epoch [9/200], Iter [985/1035] expect end in 0.00 min. Loss: 1.8049, average_loss: 2.4610, now learning rate: 0.001000
+2019-04-24 13:35:57,175 - train - INFO - location loss : 0.28445 contain loss : 0.16027 not contain loss: 0.72655 classify loss : 1.72459
+2019-04-24 13:35:57,794 - train - INFO - location loss : 0.28732 contain loss : 0.09863 not contain loss: 0.77281 classify loss : 1.34421
+2019-04-24 13:35:58,418 - train - INFO - location loss : 0.23860 contain loss : 0.12045 not contain loss: 0.84552 classify loss : 0.76566
+2019-04-24 13:35:59,049 - train - INFO - location loss : 0.20384 contain loss : 0.16482 not contain loss: 0.83654 classify loss : 1.87465
+2019-04-24 13:35:59,732 - train - INFO - location loss : 0.19256 contain loss : 0.08855 not contain loss: 0.87926 classify loss : 1.26484
+2019-04-24 13:36:00,194 - train - INFO - Epoch [9/200], Iter [990/1035] expect end in 0.00 min. Loss: 2.4041, average_loss: 2.4627, now learning rate: 0.001000
+2019-04-24 13:36:00,401 - train - INFO - location loss : 0.22891 contain loss : 0.13120 not contain loss: 0.79150 classify loss : 1.34560
+2019-04-24 13:36:01,016 - train - INFO - location loss : 0.29088 contain loss : 0.08825 not contain loss: 0.77139 classify loss : 1.26959
+2019-04-24 13:36:01,698 - train - INFO - location loss : 0.31037 contain loss : 0.14264 not contain loss: 0.86192 classify loss : 1.04001
+2019-04-24 13:36:02,314 - train - INFO - location loss : 0.11135 contain loss : 0.03663 not contain loss: 0.78492 classify loss : 0.51278
+2019-04-24 13:36:02,931 - train - INFO - location loss : 0.23380 contain loss : 0.17379 not contain loss: 0.79721 classify loss : 1.24312
+2019-04-24 13:36:03,363 - train - INFO - Epoch [9/200], Iter [995/1035] expect end in 0.00 min. Loss: 2.6656, average_loss: 2.4627, now learning rate: 0.001000
+2019-04-24 13:36:03,567 - train - INFO - location loss : 0.16455 contain loss : 0.10717 not contain loss: 0.82156 classify loss : 0.70321
+2019-04-24 13:36:04,191 - train - INFO - location loss : 0.21001 contain loss : 0.09760 not contain loss: 0.75613 classify loss : 1.09683
+2019-04-24 13:36:04,821 - train - INFO - location loss : 0.31341 contain loss : 0.16962 not contain loss: 0.72928 classify loss : 1.45804
+2019-04-24 13:36:05,466 - train - INFO - location loss : 0.16999 contain loss : 0.09312 not contain loss: 0.75272 classify loss : 0.83076
+2019-04-24 13:36:06,142 - train - INFO - location loss : 0.39130 contain loss : 0.20227 not contain loss: 0.64902 classify loss : 1.59214
+2019-04-24 13:36:06,599 - train - INFO - Epoch [9/200], Iter [1000/1035] expect end in 0.00 min. Loss: 3.8158, average_loss: 2.4633, now learning rate: 0.001000
+2019-04-24 13:36:06,839 - train - INFO - location loss : 0.37500 contain loss : 0.19084 not contain loss: 0.78768 classify loss : 2.05655
+2019-04-24 13:36:07,514 - train - INFO - location loss : 0.16975 contain loss : 0.06597 not contain loss: 0.83614 classify loss : 0.85791
+2019-04-24 13:36:08,130 - train - INFO - location loss : 0.10873 contain loss : 0.07846 not contain loss: 0.83392 classify loss : 0.61514
+2019-04-24 13:36:08,745 - train - INFO - location loss : 0.22027 contain loss : 0.14083 not contain loss: 0.78281 classify loss : 0.75874
+2019-04-24 13:36:09,378 - train - INFO - location loss : 0.14835 contain loss : 0.12237 not contain loss: 0.80336 classify loss : 0.70015
+2019-04-24 13:36:09,807 - train - INFO - Epoch [9/200], Iter [1005/1035] expect end in 0.00 min. Loss: 1.6446, average_loss: 2.4621, now learning rate: 0.001000
+2019-04-24 13:36:10,027 - train - INFO - location loss : 0.30129 contain loss : 0.23307 not contain loss: 0.72149 classify loss : 2.10876
+2019-04-24 13:36:10,657 - train - INFO - location loss : 0.17468 contain loss : 0.12137 not contain loss: 0.78202 classify loss : 1.17640
+2019-04-24 13:36:11,358 - train - INFO - location loss : 0.20375 contain loss : 0.09868 not contain loss: 0.87727 classify loss : 0.96475
+2019-04-24 13:36:11,994 - train - INFO - location loss : 0.15389 contain loss : 0.14275 not contain loss: 0.82708 classify loss : 1.06139
+2019-04-24 13:36:12,603 - train - INFO - location loss : 0.19451 contain loss : 0.11194 not contain loss: 0.81274 classify loss : 0.95651
+2019-04-24 13:36:13,033 - train - INFO - Epoch [9/200], Iter [1010/1035] expect end in 0.00 min. Loss: 2.1223, average_loss: 2.4623, now learning rate: 0.001000
+2019-04-24 13:36:13,249 - train - INFO - location loss : 0.33905 contain loss : 0.18497 not contain loss: 0.82074 classify loss : 1.87106
+2019-04-24 13:36:13,860 - train - INFO - location loss : 0.25488 contain loss : 0.06330 not contain loss: 0.83200 classify loss : 1.26945
+2019-04-24 13:36:14,493 - train - INFO - location loss : 0.23980 contain loss : 0.12806 not contain loss: 0.86311 classify loss : 0.72076
+2019-04-24 13:36:15,104 - train - INFO - location loss : 0.19179 contain loss : 0.05739 not contain loss: 0.80836 classify loss : 0.69729
+2019-04-24 13:36:15,719 - train - INFO - location loss : 0.17475 contain loss : 0.12549 not contain loss: 0.81163 classify loss : 1.06270
+2019-04-24 13:36:16,153 - train - INFO - Epoch [9/200], Iter [1015/1035] expect end in 0.00 min. Loss: 2.1431, average_loss: 2.4626, now learning rate: 0.001000
+2019-04-24 13:36:16,358 - train - INFO - location loss : 0.25919 contain loss : 0.15565 not contain loss: 0.87329 classify loss : 1.25619
+2019-04-24 13:36:16,976 - train - INFO - location loss : 0.18265 contain loss : 0.10314 not contain loss: 0.96547 classify loss : 0.63124
+2019-04-24 13:36:17,583 - train - INFO - location loss : 0.17706 contain loss : 0.15047 not contain loss: 0.90476 classify loss : 1.51176
+2019-04-24 13:36:18,195 - train - INFO - location loss : 0.24483 contain loss : 0.15853 not contain loss: 0.80528 classify loss : 0.99415
+2019-04-24 13:36:18,816 - train - INFO - location loss : 0.23146 contain loss : 0.08487 not contain loss: 0.77944 classify loss : 1.09605
+2019-04-24 13:36:19,245 - train - INFO - Epoch [9/200], Iter [1020/1035] expect end in 0.00 min. Loss: 2.4161, average_loss: 2.4623, now learning rate: 0.001000
+2019-04-24 13:36:19,450 - train - INFO - location loss : 0.21781 contain loss : 0.14694 not contain loss: 0.81501 classify loss : 1.39397
+2019-04-24 13:36:20,066 - train - INFO - location loss : 0.20252 contain loss : 0.07084 not contain loss: 0.85236 classify loss : 1.21186
+2019-04-24 13:36:20,680 - train - INFO - location loss : 0.26489 contain loss : 0.14067 not contain loss: 0.87249 classify loss : 1.35360
+2019-04-24 13:36:21,292 - train - INFO - location loss : 0.13192 contain loss : 0.03996 not contain loss: 0.97902 classify loss : 0.82299
+2019-04-24 13:36:21,909 - train - INFO - location loss : 0.22164 contain loss : 0.18584 not contain loss: 0.88436 classify loss : 0.86678
+2019-04-24 13:36:22,362 - train - INFO - Epoch [9/200], Iter [1025/1035] expect end in 0.00 min. Loss: 2.2493, average_loss: 2.4619, now learning rate: 0.001000
+2019-04-24 13:36:22,569 - train - INFO - location loss : 0.23174 contain loss : 0.13639 not contain loss: 0.83012 classify loss : 0.82317
+2019-04-24 13:36:23,188 - train - INFO - location loss : 0.27909 contain loss : 0.13510 not contain loss: 0.83155 classify loss : 1.07116
+2019-04-24 13:36:23,804 - train - INFO - location loss : 0.22345 contain loss : 0.13262 not contain loss: 0.76290 classify loss : 1.01925
+2019-04-24 13:36:24,462 - train - INFO - location loss : 0.14838 contain loss : 0.12805 not contain loss: 1.00027 classify loss : 0.56922
+2019-04-24 13:36:25,132 - train - INFO - location loss : 0.19645 contain loss : 0.13131 not contain loss: 0.86154 classify loss : 0.89286
+2019-04-24 13:36:25,591 - train - INFO - Epoch [9/200], Iter [1030/1035] expect end in 0.00 min. Loss: 2.0926, average_loss: 2.4605, now learning rate: 0.001000
+2019-04-24 13:36:25,800 - train - INFO - location loss : 0.20562 contain loss : 0.11128 not contain loss: 0.78778 classify loss : 0.81493
+2019-04-24 13:36:26,423 - train - INFO - location loss : 0.22674 contain loss : 0.14533 not contain loss: 0.87724 classify loss : 0.87384
+2019-04-24 13:36:27,046 - train - INFO - location loss : 0.19923 contain loss : 0.09898 not contain loss: 0.89789 classify loss : 1.09111
+2019-04-24 13:36:27,662 - train - INFO - location loss : 0.29741 contain loss : 0.16322 not contain loss: 0.72397 classify loss : 1.02274
+2019-04-24 13:36:28,260 - train - INFO - location loss : 0.02901 contain loss : 0.02772 not contain loss: 0.38515 classify loss : 0.28514
+2019-04-24 13:36:28,502 - train - INFO - Epoch [9/200], Iter [1035/1035] expect end in 0.00 min. Loss: 0.4964, average_loss: 2.4581, now learning rate: 0.001000
+2019-04-24 13:36:28,514 - train - INFO - Epoch 8 / 200 finished, cost time 10.19 min. expect 1967.5551848499995 min finish train.
+2019-04-24 13:37:51,436 - train - INFO - ---start evaluate---
+2019-04-24 13:37:51,443 - train - INFO - ---class aeroplane ap 0.4367643353858832---
+2019-04-24 13:37:51,452 - train - INFO - ---class bicycle ap 0.32152652918082253---
+2019-04-24 13:37:51,484 - train - INFO - ---class bird ap 0.23730694079389075---
+2019-04-24 13:37:51,552 - train - INFO - ---class boat ap 0.12113068732582594---
+2019-04-24 13:37:51,567 - train - INFO - ---class bottle ap 0.09762964812780892---
+2019-04-24 13:37:51,570 - train - INFO - ---class bus ap 0.5414539969834088---
+2019-04-24 13:37:51,636 - train - INFO - ---class car ap 0.43113736567135735---
+2019-04-24 13:37:51,642 - train - INFO - ---class cat ap 0.4229688706089568---
+2019-04-24 13:37:51,757 - train - INFO - ---class chair ap 0.16816959382483124---
+2019-04-24 13:37:51,760 - train - INFO - ---class cow ap 0.09307359307359307---
+2019-04-24 13:37:51,765 - train - INFO - ---class diningtable ap 0.25356323747174814---
+2019-04-24 13:37:51,770 - train - INFO - ---class dog ap 0.33574889645960565---
+2019-04-24 13:37:51,775 - train - INFO - ---class horse ap 0.6492283605176175---
+2019-04-24 13:37:51,780 - train - INFO - ---class motorbike ap 0.4106946223098673---
+2019-04-24 13:37:52,122 - train - INFO - ---class person ap 0.4451194715233608---
+2019-04-24 13:37:52,157 - train - INFO - ---class pottedplant ap 0.18748089552109723---
+2019-04-24 13:37:52,187 - train - INFO - ---class sheep ap 0.11012345679012345---
+2019-04-24 13:37:52,190 - train - INFO - ---class sofa ap 0.27241718287659406---
+2019-04-24 13:37:52,199 - train - INFO - ---class train ap 0.45103367661194066---
+2019-04-24 13:37:52,215 - train - INFO - ---class tvmonitor ap 0.3475246148756249---
+2019-04-24 13:37:52,215 - train - INFO - ---map 0.3167047987966979---
+2019-04-24 13:37:52,512 - train - INFO - 
+
+Starting epoch 10 / 200
+2019-04-24 13:37:52,513 - train - INFO - Learning Rate for this epoch: 0.001
+2019-04-24 13:37:53,104 - train - INFO - location loss : 0.21561 contain loss : 0.16791 not contain loss: 0.91637 classify loss : 0.88779
+2019-04-24 13:37:53,720 - train - INFO - location loss : 0.13007 contain loss : 0.04111 not contain loss: 1.03842 classify loss : 0.54689
+2019-04-24 13:37:54,327 - train - INFO - location loss : 0.23428 contain loss : 0.08537 not contain loss: 0.98131 classify loss : 0.97447
+2019-04-24 13:37:54,958 - train - INFO - location loss : 0.39795 contain loss : 0.15464 not contain loss: 0.91580 classify loss : 2.25040
+2019-04-24 13:37:55,594 - train - INFO - location loss : 0.24907 contain loss : 0.15172 not contain loss: 0.74810 classify loss : 1.32856
+2019-04-24 13:37:56,029 - train - INFO - Epoch [10/200], Iter [5/1035] expect end in 10.00 min. Loss: 2.8004, average_loss: 2.6368, now learning rate: 0.001000
+2019-04-24 13:37:56,230 - train - INFO - location loss : 0.20308 contain loss : 0.12382 not contain loss: 0.96421 classify loss : 1.25410
+2019-04-24 13:37:56,852 - train - INFO - location loss : 0.29908 contain loss : 0.11674 not contain loss: 0.95790 classify loss : 1.13033
+2019-04-24 13:37:57,538 - train - INFO - location loss : 0.17032 contain loss : 0.10069 not contain loss: 0.88298 classify loss : 1.05908
+2019-04-24 13:37:58,161 - train - INFO - location loss : 0.20446 contain loss : 0.10121 not contain loss: 0.90288 classify loss : 0.86872
+2019-04-24 13:37:58,770 - train - INFO - location loss : 0.16397 contain loss : 0.05831 not contain loss: 0.96851 classify loss : 1.27252
+2019-04-24 13:37:59,200 - train - INFO - Epoch [10/200], Iter [10/1035] expect end in 9.00 min. Loss: 2.2475, average_loss: 2.4941, now learning rate: 0.001000
+2019-04-24 13:37:59,404 - train - INFO - location loss : 0.23366 contain loss : 0.13094 not contain loss: 1.01942 classify loss : 1.09857
+2019-04-24 13:38:00,030 - train - INFO - location loss : 0.36232 contain loss : 0.10381 not contain loss: 0.82433 classify loss : 1.37971
+2019-04-24 13:38:00,642 - train - INFO - location loss : 0.13759 contain loss : 0.06434 not contain loss: 1.00806 classify loss : 0.80731
+2019-04-24 13:38:01,247 - train - INFO - location loss : 0.18259 contain loss : 0.07832 not contain loss: 0.88329 classify loss : 0.64258
+2019-04-24 13:38:01,841 - train - INFO - location loss : 0.11384 contain loss : 0.08965 not contain loss: 1.00995 classify loss : 0.67274
+2019-04-24 13:38:02,271 - train - INFO - Epoch [10/200], Iter [15/1035] expect end in 9.00 min. Loss: 1.4326, average_loss: 2.3756, now learning rate: 0.001000
+2019-04-24 13:38:02,472 - train - INFO - location loss : 0.19755 contain loss : 0.08608 not contain loss: 0.91355 classify loss : 0.75062
+2019-04-24 13:38:03,084 - train - INFO - location loss : 0.18108 contain loss : 0.09529 not contain loss: 0.81258 classify loss : 1.28343
+2019-04-24 13:38:03,742 - train - INFO - location loss : 0.21694 contain loss : 0.09925 not contain loss: 1.01016 classify loss : 0.85724
+2019-04-24 13:38:04,375 - train - INFO - location loss : 0.37429 contain loss : 0.19201 not contain loss: 0.82248 classify loss : 1.86889
+2019-04-24 13:38:04,990 - train - INFO - location loss : 0.18000 contain loss : 0.10388 not contain loss: 1.09175 classify loss : 0.85663
+2019-04-24 13:38:05,423 - train - INFO - Epoch [10/200], Iter [20/1035] expect end in 9.00 min. Loss: 1.9697, average_loss: 2.4021, now learning rate: 0.001000
+2019-04-24 13:38:05,631 - train - INFO - location loss : 0.20571 contain loss : 0.16649 not contain loss: 0.88880 classify loss : 1.61432
+2019-04-24 13:38:06,258 - train - INFO - location loss : 0.20770 contain loss : 0.11547 not contain loss: 0.85876 classify loss : 1.20283
+2019-04-24 13:38:06,880 - train - INFO - location loss : 0.23224 contain loss : 0.15356 not contain loss: 0.91742 classify loss : 1.23883
+2019-04-24 13:38:07,497 - train - INFO - location loss : 0.23220 contain loss : 0.10376 not contain loss: 1.08673 classify loss : 1.16459
+2019-04-24 13:38:08,100 - train - INFO - location loss : 0.14260 contain loss : 0.07288 not contain loss: 1.01266 classify loss : 0.85871
+2019-04-24 13:38:08,530 - train - INFO - Epoch [10/200], Iter [25/1035] expect end in 9.00 min. Loss: 1.7459, average_loss: 2.4125, now learning rate: 0.001000
+2019-04-24 13:38:08,733 - train - INFO - location loss : 0.18847 contain loss : 0.06948 not contain loss: 0.79268 classify loss : 0.59518
+2019-04-24 13:38:09,366 - train - INFO - location loss : 0.39281 contain loss : 0.18268 not contain loss: 0.76000 classify loss : 1.50194
+2019-04-24 13:38:09,985 - train - INFO - location loss : 0.15849 contain loss : 0.07317 not contain loss: 0.85542 classify loss : 0.99578
+2019-04-24 13:38:10,601 - train - INFO - location loss : 0.30988 contain loss : 0.19700 not contain loss: 0.95849 classify loss : 0.97163
