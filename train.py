@@ -45,8 +45,8 @@ lbd_no_obj = .1
 
 lr_adjust_map = {
     1:0.001,
-    50: 0.0001,
-    100: 0.00001
+    75: 0.0001,
+    115: 0.00001
 }
 
 backbone_type_list = ['densenet', 'resnet']
@@ -76,11 +76,6 @@ if backbone_type == backbone_type_list[0]:
 backbone_net_p = nn.DataParallel(backbone_net.to(device), device_ids=gpu_ids)
 summary(backbone_net_p, (3, 448, 448), batch_size=batch_size)
 
-# backbone_net_p.load_state_dict(torch.load('densenet_sgd_S7_yolo.pth'))
-lossLayer = YOLOLossV1(batch_size, S, B, clsN, lbd_coord, lbd_no_obj)
-
-backbone_net_p.train()
-
 with_sgd = True
 optimizer = torch.optim.SGD(backbone_net_p.parameters(), lr=learning_rate, momentum=0.99) # , weight_decay=5e-4)
 opt_name = 'sgd'
@@ -89,18 +84,27 @@ if not with_sgd:
     optimizer = torch.optim.Adam(backbone_net_p.parameters(), lr=learning_rate, weight_decay=1e-8)
     opt_name = 'adam'
 
-transform = transforms.Compose([
-        transforms.Lambda(cv_resize),
-        transforms.ToTensor(),
-        transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225]),
-    ])
-
 base_save_path = '%s_%s_cellSize%d/'%(backbone_type, opt_name, S)
 if not os.path.exists(base_save_path):
     os.makedirs(base_save_path)
 
 log_name = 'train'
 logger = create_logger(base_save_path, log_name)
+
+my_vis = Visual(base_save_path[:-1])
+
+# backbone_net_p.load_state_dict(torch.load('densenet_sgd_S7_yolo.pth'))
+lossLayer = YOLOLossV1(batch_size, S, B, clsN, lbd_coord, lbd_no_obj, _logger=logger, _vis=my_vis)
+
+backbone_net_p.train()
+
+transform = transforms.Compose([
+        transforms.Lambda(cv_resize),
+        transforms.ToTensor(),
+        transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225]),
+    ])
+
+
 
 data_base = 'datasets/'
 train_data_name = data_base + 'train.txt'
@@ -116,7 +120,7 @@ data_len = int(len(test_dataset) / batch_size)
 logger.info('the dataset has %d images' % (len(train_dataset)))
 logger.info('the batch_size is %d' % (batch_size))
 
-little_val_num = 500
+little_val_num = 750
 gt_test_map = prep_test_data(test_data_name, little_test=None)
 gt_little_test_map = prep_test_data(test_data_name, little_test=little_val_num)
 
@@ -125,8 +129,9 @@ best_mAP = 0.0
 train_len = len(train_dataset)
 train_iter = 0
 last_little_mAP = 0.0
+run_full_test_mAP_thresh = 0.585 # run full mAP cost much time, so when little mAP > thresh then run full test data's mAP 
 
-my_vis = Visual(base_save_path[:-1])
+
 
 for epoch in range(num_epochs):
     backbone_net_p.train()
@@ -172,12 +177,12 @@ for epoch in range(num_epochs):
 
     #validation
     backbone_net_p.eval()
-    little_mAP = 0.0
+    now_little_mAP = 0.0
     test_mAP = 0.0
 
     now_little_mAP = run_test_mAP(backbone_net_p, deepcopy(gt_little_test_map), test_dataset, data_len, logger=logger, little_test=little_val_num)
     
-    if now_little_mAP > last_little_mAP:
+    if now_little_mAP > last_little_mAP and now_little_mAP > run_full_test_mAP_thresh:
         test_mAP = run_test_mAP(backbone_net_p, deepcopy(gt_test_map), test_dataset, data_len, logger=logger)
         
     my_vis.plot('little mAP', now_little_mAP)
