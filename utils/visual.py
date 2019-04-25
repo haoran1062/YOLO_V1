@@ -1,5 +1,8 @@
 # encoding:utf-8
 import visdom, time, numpy as np, torch, random, cv2
+from PIL import Image
+
+from torchvision import transforms
 
 
 class Visual(object):
@@ -33,8 +36,12 @@ class Visual(object):
        self.index[name] = x + 1
 
    def img(self, name, img_, **kwargs):
-       if isinstance(img_, torch.Tensor):
-           img_ = img_.cpu().numpy()
+       def cv2PIL(img):
+           return Image.fromarray(cv2.cvtColor(img,cv2.COLOR_BGR2RGB))
+
+       if isinstance(img_, np.ndarray):
+           img_ = cv2PIL(img_)
+           img_ = transforms.ToTensor()(img_)
        self.vis.images(img_,
                       win=name,
                       opts=dict(title=name),

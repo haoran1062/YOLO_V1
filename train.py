@@ -73,6 +73,8 @@ train_len = len(train_dataset)
 train_iter = config_map['resume_epoch'] * len(train_loader)
 last_little_mAP = 0.0
 
+my_vis.img('label colors', get_class_color_img())
+
 for epoch in range(config_map['resume_epoch'], config_map['epoch_num']):
     backbone_net_p.train()
 

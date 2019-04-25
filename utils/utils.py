@@ -411,16 +411,20 @@ def run_test_mAP(YOLONet, target, test_datasets, data_len, S=7, device='cuda:0',
 
             if reversed:
                 pred = convert_input_tensor_dim(pred)
+            
+            if vis and i % show_img_iter == 0:
+                img = un_normal_trans(images)
+                bboxes, clss, confs = decoder(pred, grid_num=S, device=device, thresh=0.15, nms_th=.45)
+                bboxes = bboxes.clamp(min=0., max=1.)
+                bboxes = bbox_un_norm(bboxes)
+                img = draw_debug_rect(img.permute(1, 2 ,0), bboxes, clss, confs)
+                vis.img('detect bboxes show', img)
+                img = draw_classify_confidence_map(img, pred, S, Color)
+                vis.img('confidence map show', img)
+
             bboxes, clss, confs = decoder(pred, grid_num=S, device=device, thresh=0.005, nms_th=.45)
             bboxes = bboxes.clamp(min=0., max=1.)
             bboxes = bbox_un_norm(bboxes)
-            if vis and i % show_img_iter == 0:
-                img = un_normal_trans(images)
-                img = draw_debug_rect(img.permute(1, 2 ,0), bboxes, clss, confs)
-                vis.img('detect bboxes show', img)
-                img = draw_classify_confidence_map(img, target, S, Color)
-                vis.img('confidence map show', img)
-
 
             if len(confs) == 1 and confs[0].item() == 0. :
                 continue
@@ -485,14 +489,14 @@ def draw_debug_rect(img, bboxes, clss, confs, color=(0, 255, 0), show_time=10000
             bbox[3] = int(bbox[3] * h)
         return bboxes
 
-    if bboxes[0][0] < 1:
+    if bboxes[0][2] < 1:
         bboxes = bbox_un_norm(img, bboxes)
     # print(bboxes)
     for i, box in enumerate(bboxes):
         color = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
-        cv2.rectangle(img, (box[0], box[1]), (box[2], box[3]), color=color,thickness=2)
         cls_i = int(clss[i].item())
-        cv2.putText(img, '%s %.2f'%(VOC_CLASSES[cls_i], confs[i]), (box[0], box[1] + 10), cv2.FONT_HERSHEY_SIMPLEX, 0.4, color, 1, 10)
+        cv2.rectangle(img, (int(box[0]), int(box[1])), (int(box[2]), int(box[3])), color=Color[cls_i],thickness=2)
+        cv2.putText(img, '%s %.2f'%(VOC_CLASSES[cls_i], confs[i]), (int(box[0]), int(box[1]) + 10), cv2.FONT_HERSHEY_SIMPLEX, 0.4, Color[cls_i], 1, 10)
     # cv2.imshow('debug draw bboxes', img)
     # cv2.waitKey(show_time)
     return img
@@ -595,17 +599,31 @@ def draw_classify_confidence_map(img, pred_tensor, S, color_list, B=2):
     pred_tensor = pred_tensor.squeeze(0) 
     h, w, c = img.shape 
     empty_img = np.zeros((h, w, c), np.uint8)
+    empty_img.fill(255)
     for i in range(S):
         for j in range(S):
             cv2.line(img, (0, int(j * h/S)), (w, int(j * h/S)), (0, 0, 0), 3)
             cv2.line(img, (int(i * w/S), 0), (int(i * w/S), h), (0, 0, 0), 3)
-            if i < S-1 and j < S-1:
+            if i < S and j < S:
                 # color_index = torch.max(pred_tensor[i,j,5*B:],0)
                 max_prob, cls_index = torch.max(pred_tensor[i,j,5*B:],0)
                 # print(cls_index)
                 color_index = cls_index.item()
                 empty_img[int(i * h/S):int((i+1) * h/S), int(j * w/S):int((j+1) * w/S)] = np.array(color_list[color_index], np.uint8)
     img = addImage(img, empty_img)
+    return img
+
+def get_class_color_img():
+    img = np.zeros((750, 300, 3), np.uint8)
+    h, w, c = img.shape
+    img.fill(255)
+    color_img = np.zeros(img.shape, np.uint8)
+    clsn = 20
+    cross = int(h / clsn)
+    for i in range(clsn):
+        color_img[i*cross:(i+1)*cross] =  np.array(Color[i], np.uint8)
+        cv2.putText(img, '%s'%(VOC_CLASSES[i]), (30, int(i * cross) + int(cross/1.2)), cv2.FONT_HERSHEY_SIMPLEX, 1.2, (0, 0, 0), 2, 30)
+    img = addImage(img, color_img)
     return img
 
 if __name__ == "__main__":
