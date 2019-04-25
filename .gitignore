@@ -1,2 +1,4 @@
 *.pth
 *.pyc
+saved_models
+testCodes

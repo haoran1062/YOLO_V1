@@ -229,10 +229,17 @@ class yoloDataset(data.Dataset):
             
         return target
 
-
+def draw_classify_confidence_map(img, cls_tensor, S, color_map):
+    h, w, c = img.shape 
+    for i in range(S):
+        for j in range(S):
+            cv2.line(img, (0, j * h/S), (w, j * h/S), (0, 0, 0), 3)
+            cv2.line(img, (i * w/S, 0), (i * w/S, h), (0, 0, 0), 3)
+    return img
+    
 if __name__ == "__main__":
 
-    from utils import decoder, draw_debug_rect, cv_resize
+    from utils import decoder, draw_debug_rect, cv_resize, draw_classify_confidence_map, Color
 
     transform = transforms.Compose([
         transforms.Lambda(cv_resize),
@@ -240,7 +247,7 @@ if __name__ == "__main__":
         transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225]),
     ])
     S = 7
-    train_dataset = yoloDataset(list_file='2007_val.txt',train=True,transform = transform, test_mode=True, S=S, device='cuda:0')
+    train_dataset = yoloDataset(list_file='datasets/2007_val.txt',train=True,transform = transform, test_mode=True, S=S, device='cuda:0')
     train_loader = DataLoader(train_dataset,batch_size=1,shuffle=False,num_workers=0)
     train_iter = iter(train_loader)
     for i in range(200):
@@ -254,7 +261,12 @@ if __name__ == "__main__":
         std = torch.tensor([0.229, 0.224, 0.225], dtype=torch.float32)
         un_normal_trans = transforms.Normalize((-mean / std).tolist(), (1.0 / std).tolist())
         img = un_normal_trans(img.squeeze(0))
-        draw_debug_rect(img.permute(1, 2 ,0), boxes, clss, confs)
+        img = draw_debug_rect(img.permute(1, 2 ,0), boxes, clss, confs)
+        img = draw_classify_confidence_map(img, target, S, Color)
+        cv2.imshow('img', img)
+        if cv2.waitKey(12000)&0xFF == ord('q'):
+            break
+
     # for i in range(7):
     #     for j in range(7):
     #         print(target[:, i:i+1, j:j+1, :])

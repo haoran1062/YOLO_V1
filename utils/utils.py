@@ -1,11 +1,14 @@
 # encoding:utf-8
-import os, numpy as np, random, cv2, logging
+import os, numpy as np, random, cv2, logging, json
 import torch
 
+from torchvision import models, transforms
 import torch.nn as nn
 import torch.nn.functional as F
 from collections import defaultdict
 from tqdm import tqdm
+from backbones.OriginDenseNet import densenet121
+from backbones.OriginResNet import resnet50
 
 def compute_iou_matrix(bbox1, bbox2):
     '''
@@ -386,7 +389,11 @@ def prep_test_data(file_path, little_test=None):
     bar.close()
     return target
 
-def run_test_mAP(YOLONet, target, test_datasets, data_len, S=7, device='cuda:0', reversed=False, logger=None, little_test=None):
+mean = torch.tensor([0.485, 0.456, 0.406], dtype=torch.float32)
+std = torch.tensor([0.229, 0.224, 0.225], dtype=torch.float32)
+un_normal_trans = transforms.Normalize((-mean / std).tolist(), (1.0 / std).tolist())
+
+def run_test_mAP(YOLONet, target, test_datasets, data_len, S=7, device='cuda:0', reversed=False, logger=None, little_test=None, show_img_iter=75, vis=None):
     preds = defaultdict(list)
     # bar = tqdm(total=data_len)
 
@@ -400,11 +407,21 @@ def run_test_mAP(YOLONet, target, test_datasets, data_len, S=7, device='cuda:0',
             
             img_id = fname.split('/')[-1].split('.')[0]
             pred = YOLONet(images[None, :, :, :])
+            
+
             if reversed:
                 pred = convert_input_tensor_dim(pred)
             bboxes, clss, confs = decoder(pred, grid_num=S, device=device, thresh=0.005, nms_th=.45)
             bboxes = bboxes.clamp(min=0., max=1.)
             bboxes = bbox_un_norm(bboxes)
+            if vis and i % show_img_iter == 0:
+                img = un_normal_trans(images)
+                img = draw_debug_rect(img.permute(1, 2 ,0), bboxes, clss, confs)
+                vis.img('detect bboxes show', img)
+                img = draw_classify_confidence_map(img, target, S, Color)
+                vis.img('confidence map show', img)
+
+
             if len(confs) == 1 and confs[0].item() == 0. :
                 continue
             for j in range(len(confs)):
@@ -448,7 +465,8 @@ def run_test_mAP(YOLONet, target, test_datasets, data_len, S=7, device='cuda:0',
 #     else:
 #         print('---start evaluate---')
 #     return voc_eval(preds,target,VOC_CLASSES=VOC_CLASSES, threshold=0.5, use_07_metric=False, logger=logger)
-    
+
+
 def draw_debug_rect(img, bboxes, clss, confs, color=(0, 255, 0), show_time=10000):
 
     if isinstance(img, torch.Tensor):
@@ -475,8 +493,9 @@ def draw_debug_rect(img, bboxes, clss, confs, color=(0, 255, 0), show_time=10000
         cv2.rectangle(img, (box[0], box[1]), (box[2], box[3]), color=color,thickness=2)
         cls_i = int(clss[i].item())
         cv2.putText(img, '%s %.2f'%(VOC_CLASSES[cls_i], confs[i]), (box[0], box[1] + 10), cv2.FONT_HERSHEY_SIMPLEX, 0.4, color, 1, 10)
-    cv2.imshow('debug draw bboxes', img)
-    cv2.waitKey(show_time)
+    # cv2.imshow('debug draw bboxes', img)
+    # cv2.waitKey(show_time)
+    return img
     
 def cv_resize(img, resize=448):
     return cv2.resize(img, (resize, resize))
@@ -503,7 +522,95 @@ def create_logger(base_path, log_name):
 
     return logger
 
+def warmming_up_policy(now_iter, now_lr, stop_down_iter=1000):
+    if now_iter <= stop_down_iter:
+        now_lr += 0.000001
+    return now_lr
+
+def learning_rate_policy(now_iter, now_epoch, now_lr, lr_adjust_map, stop_down_iter=1000):
+    now_lr = warmming_up_policy(now_iter, now_lr, stop_down_iter)
+    if now_iter >= stop_down_iter and now_epoch in lr_adjust_map.keys():
+        now_lr = lr_adjust_map[now_epoch]
+
+    return now_lr
+
+def get_config_map(file_path):
+    config_map = json.loads(open(file_path).read())
+    temp_map = {}
+    for k, v in config_map['lr_adjust_map'].items():
+        temp_map[int(k)] = v
+    config_map['lr_adjust_map'] = temp_map
+    config_map['batch_size'] *= len(config_map['gpu_ids'])
+    return config_map
+
+def init_model(config_map, backbone_type_list=['densenet', 'resnet']):
+    assert config_map['backbone'] in backbone_type_list, 'backbone not supported!!!'
+    if config_map['backbone'] == backbone_type_list[1]:
+        backbone_net = resnet50(S=config_map['S'])
+        resnet = models.resnet50(pretrained=True)
+        new_state_dict = resnet.state_dict()
+        dd = backbone_net.state_dict()
+        for k in new_state_dict.keys():
+            if k in dd.keys() and not k.startswith('fc'):
+                dd[k] = new_state_dict[k]
+        backbone_net.load_state_dict(dd)
+
+    if config_map['backbone'] == backbone_type_list[0]:
+        backbone_net = densenet121(S=config_map['S'])
+        resnet = models.densenet121(pretrained=True)
+        new_state_dict = resnet.state_dict()
+        dd = backbone_net.state_dict()
+        for k in new_state_dict.keys():
+            if k in dd.keys() and not k.startswith('fc'):
+                dd[k] = new_state_dict[k]
+        backbone_net.load_state_dict(dd)
+    
+    return backbone_net
+
+def init_lr(config_map):
+    learning_rate = 0.0
+    if config_map['resume_epoch'] > 0:
+        for k, v in config_map['lr_adjust_map'].items():
+            if k <= config_map['resume_epoch']:
+                learning_rate = v 
+    return learning_rate
+
+def addImage(img, img1): 
+    
+    h, w, _ = img1.shape 
+    # 函数要求两张图必须是同一个size 
+    img2 = cv2.resize(img, (w,h), interpolation=cv2.INTER_AREA) #print img1.shape, img2.shape #alpha，beta，gamma可调 
+    alpha = 0.5
+    beta = 1-alpha 
+    gamma = 0 
+    img_add = cv2.addWeighted(img1, alpha, img2, beta, gamma)
+    return img_add
+
+
+def draw_classify_confidence_map(img, pred_tensor, S, color_list, B=2):
+    if isinstance(img, torch.Tensor):
+        img = img.mul(255).byte()
+        img = img.cpu().numpy()
+    pred_tensor = pred_tensor.data
+    pred_tensor = pred_tensor.squeeze(0) 
+    h, w, c = img.shape 
+    empty_img = np.zeros((h, w, c), np.uint8)
+    for i in range(S):
+        for j in range(S):
+            cv2.line(img, (0, int(j * h/S)), (w, int(j * h/S)), (0, 0, 0), 3)
+            cv2.line(img, (int(i * w/S), 0), (int(i * w/S), h), (0, 0, 0), 3)
+            if i < S-1 and j < S-1:
+                # color_index = torch.max(pred_tensor[i,j,5*B:],0)
+                max_prob, cls_index = torch.max(pred_tensor[i,j,5*B:],0)
+                # print(cls_index)
+                color_index = cls_index.item()
+                empty_img[int(i * h/S):int((i+1) * h/S), int(j * w/S):int((j+1) * w/S)] = np.array(color_list[color_index], np.uint8)
+    img = addImage(img, empty_img)
+    return img
+
 if __name__ == "__main__":
+    from YOLODataLoader import yoloDataset
+    
     b1 = [
         [10, 20, 100, 123],
         [200, 300, 300, 350]

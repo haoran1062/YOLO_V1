@@ -115,6 +115,7 @@ class ResNet(nn.Module):
         if norm_layer is None:
             norm_layer = nn.BatchNorm2d
         planes = [int(width_per_group * groups * 2 ** i) for i in range(5)]
+        self.S = S
         self.inplanes = planes[0]
         self.conv1 = nn.Conv2d(3, planes[0], kernel_size=7, stride=2, padding=3,
                                bias=False)
@@ -176,7 +177,8 @@ class ResNet(nn.Module):
         x = self.layer2(x)
         x = self.layer3(x)
         x = self.layer4(x)
-        x = self.layer5(x)
+        if self.S == 7:
+            x = self.layer5(x)
         # print(x.shape)
         x = self.layer6(x)
         # print(x.shape)
@@ -214,12 +216,12 @@ def resnet34(pretrained=False, **kwargs):
     return model
 
 
-def resnet50(pretrained=False, **kwargs):
+def resnet50(pretrained=False, S=7, **kwargs):
     """Constructs a ResNet-50 model.
     Args:
         pretrained (bool): If True, returns a model pre-trained on ImageNet
     """
-    model = ResNet(Bottleneck, [3, 4, 6, 3], **kwargs)
+    model = ResNet(Bottleneck, [3, 4, 6, 3], S=S, **kwargs)
     if pretrained:
         model.load_state_dict(model_zoo.load_url(model_urls['resnet50']))
     return model

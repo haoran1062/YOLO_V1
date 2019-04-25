@@ -1,0 +1,26 @@
+{
+    "backbone": "resnet",
+    "gpu_ids": [
+        0
+    ],
+    "base_save_path": "saved_models/resnet_sgd_14x14",
+    "log_name": "trainLog",
+    "batch_size": 16,
+    "epoch_num": 200,
+    "B": 2,
+    "S": 14,
+    "clsN": 20,
+    "lbd_coord": 5,
+    "lbd_no_obj": 0.075,
+    "lr_adjust_map": {
+        "1": 0.001,
+        "85": 0.0001,
+        "135": 0.00001
+    },
+    "train_txt_path": "datasets/train.txt",
+    "test_txt_path": "datasets/2007_test.txt",
+    "little_val_data_len": 750,
+    "run_full_test_mAP_thresh": 0.585,
+    "resume_from_path": null,
+    "resume_epoch": 0
+}

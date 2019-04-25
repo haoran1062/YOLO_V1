@@ -1,5 +1,5 @@
 # encoding:utf-8
-import visdom, time, numpy as np
+import visdom, time, numpy as np, torch, random, cv2
 
 
 class Visual(object):
@@ -33,8 +33,9 @@ class Visual(object):
        self.index[name] = x + 1
 
    def img(self, name, img_, **kwargs):
-       
-       self.vis.images(img_.cpu().numpy(),
+       if isinstance(img_, torch.Tensor):
+           img_ = img_.cpu().numpy()
+       self.vis.images(img_,
                       win=name,
                       opts=dict(title=name),
                       **kwargs)

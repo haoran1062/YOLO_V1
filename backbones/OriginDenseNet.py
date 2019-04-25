@@ -78,7 +78,6 @@ class DenseNet(nn.Module):
             ('relu0', nn.ReLU(inplace=True)),
             ('pool0', nn.MaxPool2d(kernel_size=3, stride=2, padding=1)),
         ]))
-
         # Each denseblock
         num_features = num_init_features
         for i, num_layers in enumerate(block_config):
@@ -146,13 +145,16 @@ def _load_state_dict(model, model_url):
     model.load_state_dict(state_dict)
 
 
-def densenet121(pretrained=False, **kwargs):
+def densenet121(pretrained=False, S=7, **kwargs):
     r"""Densenet-121 model from
     `"Densely Connected Convolutional Networks" <https://arxiv.org/pdf/1608.06993.pdf>`_
     Args:
         pretrained (bool): If True, returns a model pre-trained on ImageNet
     """
-    model = DenseNet(num_init_features=64, growth_rate=32, block_config=(6, 12, 24, 16, 16),
+    block_config=(6, 12, 24, 16, 16)
+    if S == 14:
+        block_config=(6, 12, 24, 16)
+    model = DenseNet(num_init_features=64, growth_rate=32, block_config=block_config,
                      **kwargs)
     if pretrained:
         _load_state_dict(model, model_urls['densenet121'])
