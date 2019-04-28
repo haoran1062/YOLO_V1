@@ -4,6 +4,7 @@
         0
     ],
     "base_save_path": "saved_models/resnet_sgd_7x7",
+    "vis_log_path": "saved_models/resnet_sgd_7x7/vis_log.log",
     "log_name": "trainLog",
     "batch_size": 16,
     "epoch_num": 200,
@@ -20,7 +21,9 @@
     "train_txt_path": "datasets/train.txt",
     "test_txt_path": "datasets/2007_test.txt",
     "little_val_data_len": 750,
+    "show_img_iter_during_train":5,
+    "show_img_iter_during_val":50,
     "run_full_test_mAP_thresh": 0.585,
     "resume_from_path": "/home/ubuntu/project/YOLO_V1/saved_models/resnet_sgd_7x7/resnet_S7_last.pth",
-    "resume_epoch": 1
+    "resume_epoch": 70
 }

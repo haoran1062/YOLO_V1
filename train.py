@@ -43,7 +43,7 @@ if not os.path.exists(config_map['base_save_path']):
 
 logger = create_logger(config_map['base_save_path'], config_map['log_name'])
 
-my_vis = Visual(config_map['base_save_path'])
+my_vis = Visual(config_map['base_save_path'], log_to_file=config_map['vis_log_path'])
 
 # backbone_net_p.load_state_dict(torch.load('densenet_sgd_S7_yolo.pth'))
 lossLayer = YOLOLossV1(config_map['batch_size'], config_map['S'], config_map['B'], config_map['clsN'], config_map['lbd_coord'], config_map['lbd_no_obj'], _logger=logger, _vis=my_vis)
@@ -64,7 +64,7 @@ data_len = int(len(test_dataset) / config_map['batch_size'])
 logger.info('the dataset has %d images' % (len(train_dataset)))
 logger.info('the batch_size is %d' % (config_map['batch_size']))
 
-gt_test_map = prep_test_data(config_map['train_txt_path'], little_test=None)
+gt_test_map = prep_test_data(config_map['test_txt_path'], little_test=None)
 gt_little_test_map = prep_test_data(config_map['test_txt_path'], little_test=config_map['little_val_data_len'])
 
 num_iter = 0
@@ -100,7 +100,19 @@ for epoch in range(config_map['resume_epoch'], config_map['epoch_num']):
         pred = backbone_net_p(images)
         loss = lossLayer(pred, target)
         total_loss += loss.data.item()
-        
+
+        if my_vis and i % config_map['show_img_iter_during_train'] == 0:
+            backbone_net_p.eval()
+            img = un_normal_trans(images[0])
+            bboxes, clss, confs = decoder(pred[0], grid_num=config_map['S'], device=device, thresh=0.15, nms_th=.45)
+            bboxes = bboxes.clamp(min=0., max=1.)
+            bboxes = bbox_un_norm(bboxes)
+            img = draw_debug_rect(img.permute(1, 2 ,0), bboxes, clss, confs)
+            my_vis.img('detect bboxes show', img)
+            img = draw_classify_confidence_map(img, pred[0], config_map['S'], Color)
+            my_vis.img('confidence map show', img)
+            backbone_net_p.train()
+
         optimizer.zero_grad()
         loss.backward()
         optimizer.step()
@@ -122,7 +134,7 @@ for epoch in range(config_map['resume_epoch'], config_map['epoch_num']):
     now_little_mAP = 0.0
     test_mAP = 0.0
 
-    now_little_mAP = run_test_mAP(backbone_net_p, deepcopy(gt_little_test_map), test_dataset, data_len, S=config_map['S'], logger=logger, little_test=config_map['little_val_data_len'], vis=my_vis)
+    now_little_mAP = run_test_mAP(backbone_net_p, deepcopy(gt_little_test_map), test_dataset, data_len, S=config_map['S'], logger=logger, show_img_iter = config_map["show_img_iter_during_val"], little_test=config_map['little_val_data_len'], vis=my_vis)
     
     # run full mAP cost much time, so when little mAP > thresh then run full test data's mAP 
     if now_little_mAP > last_little_mAP and now_little_mAP > config_map['run_full_test_mAP_thresh']:

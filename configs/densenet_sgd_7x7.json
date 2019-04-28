@@ -20,6 +20,8 @@
     "train_txt_path": "datasets/train.txt",
     "test_txt_path": "datasets/2007_test.txt",
     "little_val_data_len": 750,
+    "show_img_iter_during_train":5,
+    "show_img_iter_during_val":50,
     "run_full_test_mAP_thresh": 0.585,
     "resume_from_path": null,
     "resume_epoch": 0

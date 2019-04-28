@@ -5,7 +5,7 @@
     ],
     "base_save_path": "saved_models/densenet_sgd_14x14",
     "log_name": "trainLog",
-    "batch_size": 18,
+    "batch_size": 12,
     "epoch_num": 200,
     "B": 2,
     "S": 14,
@@ -20,7 +20,9 @@
     "train_txt_path": "datasets/2007_train.txt",
     "test_txt_path": "datasets/2007_val.txt",
     "little_val_data_len": 750,
+    "show_img_iter_during_train":5,
+    "show_img_iter_during_val":50,
     "run_full_test_mAP_thresh": 0.585,
-    "resume_from_path": null,
-    "resume_epoch": 0
+    "resume_from_path": "/home/ubuntu/project/YOLO_V1/saved_models/densenet_sgd_14x14/densenet_S14_last.pth",
+    "resume_epoch": 4
 }
