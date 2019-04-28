@@ -2,15 +2,19 @@
 import os, sys, numpy as np, random, time, cv2
 import torch
 
+from PIL import Image
 import torch.utils.data as data
 import torchvision.transforms as transforms
 from torch.utils.data import DataLoader
 import imgaug as ia
 from imgaug import augmenters as iaa
+from utils import *
 ia.seed(random.randint(1, 10000))
+
+
 class yoloDataset(data.Dataset):
     image_size = 448
-    def __init__(self,list_file,train,transform, device, little_train=False, with_file_path=False, S=7, B = 2, C = 20, test_mode=False):
+    def __init__(self,list_file,train,transform, device, little_train=False, with_file_path=False, with_mask=False, S=7, B = 2, C = 20, test_mode=False):
         print('data init')
         
         self.train = train
@@ -19,6 +23,7 @@ class yoloDataset(data.Dataset):
         self.boxes = []
         self.labels = []
         self.resize = 448
+        self.with_mask = with_mask
         self.S = S
         self.B = B
         self.C = C
@@ -105,6 +110,26 @@ class yoloDataset(data.Dataset):
                 bboxes.append([x, y, w, h])
         return torch.Tensor(bboxes), torch.LongTensor(labels)
     
+    def get_mask_img(self, in_path, resize=224):
+        def image2label(img):
+
+            # data = np.array(im, dtype='int32')
+            idx = (img[:, :, 0] * 256 + img[:, :, 1]) * 256 + img[:, :, 2]
+            return np.array(colormap2label[idx], dtype='int64')
+        in_path = in_path.replace('JPEGImages', 'SegmentationClass').replace('jpg', 'png')
+        mask_img = cv2.imread(in_path)
+        mask_img = cv2.cvtColor(mask_img, cv2.COLOR_BGR2RGB)
+        if isinstance(resize, int):
+            mask_img = cv2.resize(mask_img, (resize, resize), interpolation=cv2.INTER_NEAREST)
+        elif isinstance(resize, list):
+            mask_img = cv2.resize(mask_img, (resize[0], resize[1]), interpolation=cv2.INTER_NEAREST)
+
+        # mask_label = image2label(mask_img)
+        # mask_label = torch.from_numpy(mask_label)
+        mask_label = mask_img_2_mask_label(mask_img)
+        return mask_label
+
+    
     def convertXYWH2XYXY(self, bboxes, im_size=(image_size, image_size)):
         '''
             input: tensor [Cx, Cy, w, h] normalized bboxes
@@ -160,6 +185,8 @@ class yoloDataset(data.Dataset):
             print(fname)
         img = cv2.imread(fname)
         boxes, labels = self.get_boxes_labels(fname)
+        mask_label = self.get_mask_img(fname)
+
 
         if self.train:
             # TODO
@@ -190,7 +217,11 @@ class yoloDataset(data.Dataset):
         # print(fname)
         # print(type(img))
         if self.with_file_path:
+            if self.with_mask:
+                return img, target, mask_label, fname
             return img, target, fname
+        if self.with_mask:
+            return img, target, mask_label
         return img, target
         # return img.to(self.device), target.to(self.device)
 
@@ -247,11 +278,14 @@ if __name__ == "__main__":
         transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225]),
     ])
     S = 7
-    train_dataset = yoloDataset(list_file='datasets/2007_val.txt',train=True,transform = transform, test_mode=True, S=S, device='cuda:0')
+    train_dataset = yoloDataset(list_file='datasets/2012_seg.txt',train=False,transform = transform, test_mode=True, with_mask=True, S=S, device='cuda:0')
     train_loader = DataLoader(train_dataset,batch_size=1,shuffle=False,num_workers=0)
     train_iter = iter(train_loader)
+    # print(next(train_iter))
     for i in range(200):
-        img, target = next(train_iter)
+        img, target, mask_label = next(train_iter)
+        # mask_img = mask_img.squeeze(0).cpu().numpy()
+        # print('mask shape is :', mask_img.shape)
         # print(img.shape, target.shape)
         boxes, clss, confs = decoder(target, grid_num=S, gt=True)
         # print(boxes, clss, confs)
@@ -264,6 +298,10 @@ if __name__ == "__main__":
         img = draw_debug_rect(img.permute(1, 2 ,0), boxes, clss, confs)
         img = draw_classify_confidence_map(img, target, S, Color)
         cv2.imshow('img', img)
+        # print(mask_label[0, 10:100, 10:100])
+        
+        mask_img = mask_label_2_mask_img(mask_label)
+        cv2.imshow('mask', mask_img)
         if cv2.waitKey(12000)&0xFF == ord('q'):
             break
 

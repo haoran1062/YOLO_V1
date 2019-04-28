@@ -109,13 +109,15 @@ class Bottleneck(nn.Module):
 
 class ResNet(nn.Module):
 
-    def __init__(self, block, layers, S=7, B=2, num_classes=20, zero_init_residual=False,
+    def __init__(self, block, layers, S=7, B=2, num_classes=20, mask_level=[2048, 2048, 1024, 512, 256, 64, 32], zero_init_residual=False,
                  groups=1, width_per_group=64, norm_layer=None):
         super(ResNet, self).__init__()
         if norm_layer is None:
             norm_layer = nn.BatchNorm2d
         planes = [int(width_per_group * groups * 2 ** i) for i in range(5)]
         self.S = S
+        self.n_class = num_classes
+        self.mask_level = mask_level
         self.inplanes = planes[0]
         self.conv1 = nn.Conv2d(3, planes[0], kernel_size=7, stride=2, padding=3,
                                bias=False)
@@ -127,8 +129,21 @@ class ResNet(nn.Module):
         self.layer3 = self._make_layer(block, planes[2], layers[2], stride=2, groups=groups, norm_layer=norm_layer)
         self.layer4 = self._make_layer(block, planes[3], layers[3], stride=2, groups=groups, norm_layer=norm_layer)
         self.layer5 = self._make_layer(block, planes[3], layers[3], stride=2, groups=groups, norm_layer=norm_layer)
-        self.layer6 = conv1x1(2048, B*5+num_classes)
+        self.layer6 = conv1x1(self.inplanes, B*5+num_classes)
         self.bn_end = nn.BatchNorm2d(B*5+num_classes)
+
+        if self.mask_level:
+            self.deconv1 = nn.ConvTranspose2d(self.mask_level[0], self.mask_level[1], kernel_size=3, stride=2, padding=1, dilation=1, output_padding=1)
+            self.dbn1     = nn.BatchNorm2d(self.mask_level[1])
+            self.deconv2 = nn.ConvTranspose2d(self.mask_level[1], self.mask_level[2], kernel_size=3, stride=2, padding=1, dilation=1, output_padding=1)
+            self.dbn2     = nn.BatchNorm2d(self.mask_level[2])
+            self.deconv3 = nn.ConvTranspose2d(self.mask_level[2], self.mask_level[3], kernel_size=3, stride=2, padding=1, dilation=1, output_padding=1)
+            self.dbn3     = nn.BatchNorm2d(self.mask_level[3])
+            self.deconv4 = nn.ConvTranspose2d(self.mask_level[3], self.mask_level[4], kernel_size=3, stride=2, padding=1, dilation=1, output_padding=1)
+            self.dbn4     = nn.BatchNorm2d(self.mask_level[4])
+            self.deconv5 = nn.ConvTranspose2d(self.mask_level[4], self.mask_level[5], kernel_size=3, stride=2, padding=1, dilation=1, output_padding=1)
+            self.dbn5     = nn.BatchNorm2d(self.mask_level[5])
+            self.classifier = nn.Conv2d(self.mask_level[5], self.n_class, kernel_size=1) 
         # self.avgpool = nn.AdaptiveAvgPool2d((1, 1))
         # self.fc = nn.Linear(planes[3] * block.expansion, num_classes)
 
@@ -168,20 +183,43 @@ class ResNet(nn.Module):
         return nn.Sequential(*layers)
 
     def forward(self, x):
+        score = None
         x = self.conv1(x)
         x = self.bn1(x)
         x = self.relu(x)
-        x = self.maxpool(x)
-
-        x = self.layer1(x)
-        x = self.layer2(x)
-        x = self.layer3(x)
-        x = self.layer4(x)
+        x0 = x = self.maxpool(x)
+        x1 = x = self.layer1(x)
+        x2 = x = self.layer2(x)
+        x3 = x = self.layer3(x)
+        x4 = x = self.layer4(x)
         if self.S == 7:
-            x = self.layer5(x)
+            x5 = x = self.layer5(x)
+            print(x.shape)
         # print(x.shape)
-        x = self.layer6(x)
+        x6 = x = self.layer6(x)
+        print('x0 shape : ', x0.shape)
+        print('x1 shape : ', x1.shape)
+        print('x2 shape : ', x2.shape)
+        print('x3 shape : ', x3.shape)
+        print('x4 shape : ', x4.shape)
+        print('x5 shape : ', x5.shape)
+        print('x6 shape : ', x6.shape)
         # print(x.shape)
+        if self.mask_level:
+            score = self.dbn1(self.relu(self.deconv1(x5)))     
+            print(score.shape)
+            score = score + x4                                
+            score = self.dbn2(self.relu(self.deconv2(score)))  
+            print(score.shape)
+            score = score + x3                                
+            score = self.dbn3(self.relu(self.deconv3(score)))  
+            print(score.shape)
+            score = score + x2                                
+            score = self.dbn4(self.relu(self.deconv4(score)))  
+            print(score.shape)
+            score = score + x1                                
+            score = self.dbn5(self.relu(self.deconv5(score)))  
+            score = self.classifier(score)                    
 
         x = self.bn_end(x)
         x = torch.sigmoid(x) 
@@ -191,7 +229,7 @@ class ResNet(nn.Module):
         # x = x.view(x.size(0), -1)
         # x = self.fc(x)
 
-        return x
+        return x, score
 
 
 def resnet18(pretrained=False, **kwargs):
@@ -216,12 +254,12 @@ def resnet34(pretrained=False, **kwargs):
     return model
 
 
-def resnet50(pretrained=False, S=7, **kwargs):
+def resnet50(pretrained=False, S=7, mask_level=None, **kwargs):
     """Constructs a ResNet-50 model.
     Args:
         pretrained (bool): If True, returns a model pre-trained on ImageNet
     """
-    model = ResNet(Bottleneck, [3, 4, 6, 3], S=S, **kwargs)
+    model = ResNet(Bottleneck, [3, 4, 6, 3], S=S, mask_level=mask_level, **kwargs)
     if pretrained:
         model.load_state_dict(model_zoo.load_url(model_urls['resnet50']))
     return model
@@ -282,8 +320,9 @@ if __name__ == "__main__":
     t_img.unsqueeze_(0)
     t_img = t_img.to(device)
 
-    model = resnet50(pretrained=False)
+    model = resnet50(pretrained=False, S=7, mask_level=[2048, 2048, 1024, 512, 256, 64])
     model = model.to(device)
 
+    out, mask_out = model.forward(t_img)
+    print(out.shape, mask_out.shape)
     summary(model, (3, 448, 448))
-    model.forward(t_img)

@@ -7,8 +7,63 @@ import torch.nn as nn
 import torch.nn.functional as F
 from collections import defaultdict
 from tqdm import tqdm
-from backbones.OriginDenseNet import densenet121
-from backbones.OriginResNet import resnet50
+# from backbones.OriginDenseNet import densenet121
+# from backbones.OriginResNet import resnet50
+colormap = [[0,0,0],[128,0,0],[0,128,0], [128,128,0], [0,0,128],
+            [128,0,128],[0,128,128],[128,128,128],[64,0,0],[192,0,0],
+            [64,128,0],[192,128,0],[64,0,128],[192,0,128],
+            [64,128,128],[192,128,128],[0,64,0],[128,64,0],
+            [0,192,0],[128,192,0],[0,64,128]]
+
+colormap2label = np.zeros(256**3)
+for i, cm in enumerate(colormap):
+    colormap2label[(cm[0]*256+cm[1])*256+cm[2]] = i 
+
+def mask_img_2_mask_label(mask_img):
+    mask_label = np.zeros(mask_img.shape, np.uint8)
+    for it, i in enumerate(colormap):
+        mask_label = np.where(mask_img[:, :] == i, it, mask_label)
+    mask_label = mask_label[..., 0]
+    print(mask_label.shape)
+    # if isinstance(mask_img, np.ndarray):
+    #     mask_img = torch.from_numpy(mask_img).short()
+    # mask_label = torch.zeros(mask_img.shape[:2])
+    # print(mask_label.shape)
+    # for it, i in enumerate(colormap):
+    #     now_mask = mask_img[:, :,] == torch.Tensor(i).short()
+    #     print(now_mask.sum())
+    #     now_mask = now_mask.permute(2 ,0, 1)[0]
+    #     print(now_mask.shape)
+    #     mask_label[now_mask[0]] = it
+    
+    return mask_label
+
+
+def mask_label_2_mask_img(mask_label):
+    # if isinstance(mask_label, torch.Tensor):
+    #     mask_label = mask_label.cpu().numpy()
+    mask_img = np.zeros((mask_label.shape[1], mask_label.shape[2], 3), np.uint8)
+    for it, i in enumerate(colormap):
+        mask_it = mask_label[:, :, :] == it
+        mask_it = mask_it.byte()
+        # print(mask_it.shape)
+        mask_it = mask_it.permute(1, 2 ,0)
+        # print(mask_it.shape)
+        t_shape = torch.Tensor(mask_img).squeeze(0)
+        # print(t_shape.shape)
+        mask_it = mask_it.expand_as(t_shape)
+        mask_it = mask_it.squeeze(-1).cpu().numpy()
+        if mask_it.sum() > 0:
+            print(mask_it.sum())
+        print(i)
+        # t_shape = torch.Tensor(mask_img).squeeze(0)
+        # print(t_shape.shape)
+        # mask_it = mask_it.expand_as(t_shape)
+        # print(mask_it.shape)
+
+        mask_img = np.where(mask_it, np.array(i, np.uint8), mask_img)
+        # mask_img[mask_it.cpu().numpy(), :] = np.array(i, np.uint8)
+    return mask_img
 
 def compute_iou_matrix(bbox1, bbox2):
     '''
