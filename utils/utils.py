@@ -7,63 +7,64 @@ import torch.nn as nn
 import torch.nn.functional as F
 from collections import defaultdict
 from tqdm import tqdm
-# from backbones.OriginDenseNet import densenet121
-# from backbones.OriginResNet import resnet50
+from PIL import Image
+from backbones.OriginDenseNet import densenet121
+from backbones.OriginResNet import resnet50
 colormap = [[0,0,0],[128,0,0],[0,128,0], [128,128,0], [0,0,128],
             [128,0,128],[0,128,128],[128,128,128],[64,0,0],[192,0,0],
             [64,128,0],[192,128,0],[64,0,128],[192,0,128],
             [64,128,128],[192,128,128],[0,64,0],[128,64,0],
             [0,192,0],[128,192,0],[0,64,128]]
+palette=[]
+for i in range(256):
+    palette.extend((i,i,i))
+palette[:3*21]=np.array([[0, 0, 0],
+                        [128, 0, 0],
+                        [0, 128, 0],
+                        [128, 128, 0],
+                        [0, 0, 128],
+                        [128, 0, 128],
+                        [0, 128, 128],
+                        [128, 128, 128],
+                        [64, 0, 0],
+                        [192, 0, 0],
+                        [64, 128, 0],
+                        [192, 128, 0],
+                        [64, 0, 128],
+                        [192, 0, 128],
+                        [64, 128, 128],
+                        [192, 128, 128],
+                        [0, 64, 0],
+                        [128, 64, 0],
+                        [0, 192, 0],
+                        [128, 192, 0],
+                        [0, 64, 128]], dtype='uint8').flatten()
+def PIL2cv(image):
+    image.save('temp.png')
+    return cv2.imread('temp.png')
+    # return cv2.cvtColor(np.asarray(image),cv2.COLOR_RGB2BGR)
+def mask_label_2_img(mask_label):
+    # print(type(mask_label))
+    def bit_2_one(bit_label, cls_n=20):
+        one_img = np.zeros((bit_label.shape[-2], bit_label.shape[-2]), np.uint8)
+        for i in range(cls_n):
+            one_img = np.where(bit_label[i], i, one_img)
+        return one_img
+    if isinstance(mask_label, torch.Tensor):
+        mask_label = mask_label.byte().cpu().numpy()[0]
+    mask_label = bit_2_one(mask_label)
+    # print(type(mask_label))
+    # print(mask_label.shape, mask_label.dtype)
+    im=Image.fromarray(mask_label)
+    im.putpalette(palette)
+    return PIL2cv(im)
 
-colormap2label = np.zeros(256**3)
-for i, cm in enumerate(colormap):
-    colormap2label[(cm[0]*256+cm[1])*256+cm[2]] = i 
-
-def mask_img_2_mask_label(mask_img):
-    mask_label = np.zeros(mask_img.shape, np.uint8)
-    for it, i in enumerate(colormap):
-        mask_label = np.where(mask_img[:, :] == i, it, mask_label)
-    mask_label = mask_label[..., 0]
-    print(mask_label.shape)
-    # if isinstance(mask_img, np.ndarray):
-    #     mask_img = torch.from_numpy(mask_img).short()
-    # mask_label = torch.zeros(mask_img.shape[:2])
-    # print(mask_label.shape)
-    # for it, i in enumerate(colormap):
-    #     now_mask = mask_img[:, :,] == torch.Tensor(i).short()
-    #     print(now_mask.sum())
-    #     now_mask = now_mask.permute(2 ,0, 1)[0]
-    #     print(now_mask.shape)
-    #     mask_label[now_mask[0]] = it
+def pred_mask_label_2_img(mask_label):
+    if isinstance(mask_label, np.ndarray):
+        mask_label = torch.from_numpy(mask_label)
     
-    return mask_label
 
 
-def mask_label_2_mask_img(mask_label):
-    # if isinstance(mask_label, torch.Tensor):
-    #     mask_label = mask_label.cpu().numpy()
-    mask_img = np.zeros((mask_label.shape[1], mask_label.shape[2], 3), np.uint8)
-    for it, i in enumerate(colormap):
-        mask_it = mask_label[:, :, :] == it
-        mask_it = mask_it.byte()
-        # print(mask_it.shape)
-        mask_it = mask_it.permute(1, 2 ,0)
-        # print(mask_it.shape)
-        t_shape = torch.Tensor(mask_img).squeeze(0)
-        # print(t_shape.shape)
-        mask_it = mask_it.expand_as(t_shape)
-        mask_it = mask_it.squeeze(-1).cpu().numpy()
-        if mask_it.sum() > 0:
-            print(mask_it.sum())
-        print(i)
-        # t_shape = torch.Tensor(mask_img).squeeze(0)
-        # print(t_shape.shape)
-        # mask_it = mask_it.expand_as(t_shape)
-        # print(mask_it.shape)
-
-        mask_img = np.where(mask_it, np.array(i, np.uint8), mask_img)
-        # mask_img[mask_it.cpu().numpy(), :] = np.array(i, np.uint8)
-    return mask_img
 
 def compute_iou_matrix(bbox1, bbox2):
     '''
@@ -461,7 +462,7 @@ def run_test_mAP(YOLONet, target, test_datasets, data_len, S=7, device='cuda:0',
             now_target = now_target.to(device)
             
             img_id = fname.split('/')[-1].split('.')[0]
-            pred = YOLONet(images[None, :, :, :])
+            pred, _ = YOLONet(images[None, :, :, :])
             
 
             if reversed:
@@ -605,7 +606,7 @@ def get_config_map(file_path):
 def init_model(config_map, backbone_type_list=['densenet', 'resnet']):
     assert config_map['backbone'] in backbone_type_list, 'backbone not supported!!!'
     if config_map['backbone'] == backbone_type_list[1]:
-        backbone_net = resnet50(S=config_map['S'])
+        backbone_net = resnet50(S=config_map['S'], mask_level=config_map['mask_level'])
         resnet = models.resnet50(pretrained=True)
         new_state_dict = resnet.state_dict()
         dd = backbone_net.state_dict()

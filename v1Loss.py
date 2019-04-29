@@ -17,10 +17,13 @@ class YOLOLossV1(nn.Module):
         self.lambda_noobj = _l_noobj
         self.batch_size = _batch_size
         self.logger = _logger
+        self.mask_loss=nn.BCELoss(size_average=True).to(self.device) #(size_average=False, reduce=False)
         self.vis = _vis
 
     def forward(self, pred_tensor, target_tensor, pred_mask=None, target_mask=None):
-    
+        # print(pred_mask.device, target_mask.device)
+        # print(pred_mask)
+        # print(target_mask)
         # input tensor : [batch_szie, S, S, B*5+C]
         # for each cell S, the Tesnor define: [confidence x B, (x, y, w, h) x B, cls_N]
 
@@ -103,9 +106,11 @@ class YOLOLossV1(nn.Module):
 
         total_loss = self.lambda_coord * hit_obj_location_loss + hit_obj_conf_loss + self.lambda_noobj * not_hit_obj_conf_loss + cls_loss 
         mask_loss = torch.FloatTensor([0.]).to(self.device)
-        if pred_mask:
-            mask_loss = nn.BCELoss(pred_mask, target_mask)
-            total_loss += mask_loss
+        if pred_mask is not None:
+            mask_loss = self.mask_loss(F.sigmoid(pred_mask), target_mask)
+            # mask_loss = F.binary_cross_entropy(pred_mask, target_mask)
+            # mask_loss = nn.BCELoss(pred_mask, target_mask)
+            total_loss += mask_loss.sum()
         total_loss /= self.batch_size
 
         if self.logger:
@@ -118,7 +123,7 @@ class YOLOLossV1(nn.Module):
             self.vis.plot('confidence loss', hit_obj_conf_loss.item() / self.batch_size)
             self.vis.plot('no object loss', not_hit_obj_conf_loss.item() / self.batch_size)
             self.vis.plot('classify loss', cls_loss.item() / self.batch_size)
-            if pred_mask:
+            if pred_mask is not None:
                 self.vis.plot('mask loss', mask_loss.item() / self.batch_size)
         # exit()
         return total_loss

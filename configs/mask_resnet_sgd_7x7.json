@@ -1,0 +1,31 @@
+{
+    "backbone": "resnet",
+    "gpu_ids": [
+        0
+    ],
+    "base_save_path": "saved_models/mask_resnet_sgd_7x7",
+    "vis_log_path": "saved_models/mask_resnet_sgd_7x7/vis_log.log",
+    "log_name": "trainLog",
+    "batch_size": 8,
+    "epoch_num": 200,
+    "with_mask": true,
+    "mask_level": [2048, 2048, 1024, 512, 256, 64, 32],
+    "B": 2,
+    "S": 7,
+    "clsN": 20,
+    "lbd_coord": 5,
+    "lbd_no_obj": 0.5,
+    "lr_adjust_map": {
+        "4": 0.001,
+        "85": 0.0001,
+        "135": 0.00001
+    },
+    "train_txt_path": "datasets/2012_seg.txt",
+    "test_txt_path": "datasets/2012_seg.txt",
+    "little_val_data_len": 750,
+    "show_img_iter_during_train":5,
+    "show_img_iter_during_val":50,
+    "run_full_test_mAP_thresh": 0.585,
+    "resume_from_path": "/home/ubuntu/project/YOLO_V1/saved_models/mask_resnet_sgd_7x7/resnet_S7_last.pth",
+    "resume_epoch": 30
+}
