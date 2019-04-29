@@ -62,6 +62,11 @@ def mask_label_2_img(mask_label):
 def pred_mask_label_2_img(mask_label):
     if isinstance(mask_label, np.ndarray):
         mask_label = torch.from_numpy(mask_label)
+    _, index_mask = torch.max(mask_label, 0)
+    np_mask = index_mask.byte().cpu().numpy()
+    im=Image.fromarray(np_mask)
+    im.putpalette(palette)
+    return PIL2cv(im)
     
 
 

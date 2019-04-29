@@ -114,6 +114,7 @@ for epoch in range(config_map['resume_epoch'], config_map['epoch_num']):
             img = draw_classify_confidence_map(img, pred[0], config_map['S'], Color)
             my_vis.img('confidence map show', img)
             my_vis.img('mask gt', mask_label_2_img(mask_label[0].byte().cpu().numpy()))
+            my_vis.img('pred mask', pred_mask_label_2_img(p_mask[0]))
             backbone_net_p.train()
 
         optimizer.zero_grad()
