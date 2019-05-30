@@ -9,7 +9,8 @@ from collections import defaultdict
 from tqdm import tqdm
 from PIL import Image
 from backbones.OriginDenseNet import densenet121
-from backbones.OriginResNet import resnet50
+from backbones.OriginResNet import resnet50, resnet18
+
 colormap = [[0,0,0],[128,0,0],[0,128,0], [128,128,0], [0,0,128],
             [128,0,128],[0,128,128],[128,128,128],[64,0,0],[192,0,0],
             [64,128,0],[192,128,0],[64,0,128],[192,0,128],
@@ -132,7 +133,7 @@ def convert_CxCyWH_to_X1Y1X2Y2(input_tensor, S, B, device):
     # print('input tensor shape: ', input_tensor.size())
     assert input_tensor.size()[-1] == 4, 'convert position tensor must [n, 4], but this input last dim is %d'%(input_tensor.size()[-1])
 
-    output_tensor = torch.FloatTensor(input_tensor.size(), device=device)
+    output_tensor = torch.FloatTensor(input_tensor.size()).to(device)
     output_tensor[:, :2] = input_tensor[:, :2] / (S) - 0.5 * input_tensor[:, 2:]
     output_tensor[:, 2:] = input_tensor[:, :2] / (S) + 0.5 * input_tensor[:, 2:]
 
@@ -225,6 +226,10 @@ def nms(bboxes,scores,threshold=0.25):
     _,order = scores.sort(0,descending=True)
     keep = []
     while order.numel() > 0:
+
+        if order.numel() == 1:
+            break
+
         i = order[0]
         keep.append(i)
 
@@ -450,9 +455,31 @@ def prep_test_data(file_path, little_test=None):
     bar.close()
     return target
 
-mean = torch.tensor([0.485, 0.456, 0.406], dtype=torch.float32)
-std = torch.tensor([0.229, 0.224, 0.225], dtype=torch.float32)
-un_normal_trans = transforms.Normalize((-mean / std).tolist(), (1.0 / std).tolist())
+mean = torch.tensor([0.485, 0.456, 0.406], dtype=torch.float32).to('cuda:0')
+std = torch.tensor([0.229, 0.224, 0.225], dtype=torch.float32).to('cuda:0')
+# un_normal_trans = transforms.Normalize((-mean / std).tolist(), (1.0 / std).tolist())
+aa = (-mean / std).clone().tolist()
+bb = (1.0 / std).clone().tolist()
+un_normal_trans = transforms.Normalize(aa, bb)
+
+class UnNormalize(object):
+    def __init__(self, mean, std):
+        self.mean = mean
+        self.std = std
+
+    def __call__(self, tensor):
+        """
+        Args:
+            tensor (Tensor): Tensor image of size (C, H, W) to be normalized.
+        Returns:
+            Tensor: Normalized image.
+        """
+        for t, m, s in zip(tensor, self.mean, self.std):
+            t.mul_(s).add_(m)
+            # The normalize code -> t.sub_(m).div_(s)
+        return tensor
+
+unorm = UnNormalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225))
 
 def run_test_mAP(YOLONet, target, test_datasets, data_len, S=7, device='cuda:0', reversed=False, logger=None, little_test=None, show_img_iter=75, vis=None):
     preds = defaultdict(list)
@@ -467,14 +494,15 @@ def run_test_mAP(YOLONet, target, test_datasets, data_len, S=7, device='cuda:0',
             now_target = now_target.to(device)
             
             img_id = fname.split('/')[-1].split('.')[0]
-            pred, _ = YOLONet(images[None, :, :, :])
+            pred = YOLONet(images[None, :, :, :])
             
 
-            if reversed:
-                pred = convert_input_tensor_dim(pred)
-            
+
             if vis and i % show_img_iter == 0:
-                img = un_normal_trans(images)
+                # img = un_normal_trans(images)
+                img = images.detach().clone()
+                # img = un_normal_trans(img)
+                img = unorm(img)
                 bboxes, clss, confs = decoder(pred, grid_num=S, device=device, thresh=0.15, nms_th=.45)
                 bboxes = bboxes.clamp(min=0., max=1.)
                 bboxes = bbox_un_norm(bboxes)
@@ -549,7 +577,9 @@ def draw_debug_rect(img, bboxes, clss, confs, color=(0, 255, 0), show_time=10000
             bbox[2] = int(bbox[2] * w)
             bbox[3] = int(bbox[3] * h)
         return bboxes
-
+    print(len(bboxes))
+    if len(bboxes) < 1:
+        return img
     if bboxes[0][2] < 1:
         bboxes = bbox_un_norm(img, bboxes)
     # print(bboxes)
@@ -608,10 +638,10 @@ def get_config_map(file_path):
     config_map['batch_size'] *= len(config_map['gpu_ids'])
     return config_map
 
-def init_model(config_map, backbone_type_list=['densenet', 'resnet']):
+def init_model(config_map, backbone_type_list=['densenet121', 'resnet50', 'resnet18']):
     assert config_map['backbone'] in backbone_type_list, 'backbone not supported!!!'
     if config_map['backbone'] == backbone_type_list[1]:
-        backbone_net = resnet50(S=config_map['S'], mask_level=config_map['mask_level'])
+        backbone_net = resnet50(S=config_map['S'])
         resnet = models.resnet50(pretrained=True)
         new_state_dict = resnet.state_dict()
         dd = backbone_net.state_dict()
@@ -623,6 +653,16 @@ def init_model(config_map, backbone_type_list=['densenet', 'resnet']):
     if config_map['backbone'] == backbone_type_list[0]:
         backbone_net = densenet121(S=config_map['S'])
         resnet = models.densenet121(pretrained=True)
+        new_state_dict = resnet.state_dict()
+        dd = backbone_net.state_dict()
+        for k in new_state_dict.keys():
+            if k in dd.keys() and not k.startswith('fc'):
+                dd[k] = new_state_dict[k]
+        backbone_net.load_state_dict(dd)
+    
+    if config_map['backbone'] == backbone_type_list[2]:
+        backbone_net = resnet18(S=config_map['S'])
+        resnet = models.resnet18(pretrained=True)
         new_state_dict = resnet.state_dict()
         dd = backbone_net.state_dict()
         for k in new_state_dict.keys():

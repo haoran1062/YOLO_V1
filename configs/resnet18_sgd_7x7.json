@@ -4,6 +4,7 @@
         0
     ],
     "base_save_path": "saved_models/resnet18_sgd_7x7",
+    "vis_log_path": "saved_models/resnet18_sgd_7x7/vis_log.log",
     "log_name": "trainLog",
     "batch_size": 96,
     "epoch_num": 200,
@@ -13,14 +14,16 @@
     "lbd_coord": 5,
     "lbd_no_obj": 0.5,
     "lr_adjust_map": {
-        "4": 0.001,
+        "6": 0.001,
         "85": 0.0001,
         "135": 0.00001
     },
     "train_txt_path": "datasets/train.txt",
     "test_txt_path": "datasets/2007_test.txt",
     "little_val_data_len": 750,
-    "run_full_test_mAP_thresh": 0.565,
-    "resume_from_path": null,
-    "resume_epoch": 0
+    "show_img_iter_during_train":5,
+    "show_img_iter_during_val":50,
+    "run_full_test_mAP_thresh": 0.5,
+    "resume_from_path": "/data/projects/YOLO_V1/saved_models/resnet18_sgd_7x7/resnet18_S7_last.pth",
+    "resume_epoch": 5
 }

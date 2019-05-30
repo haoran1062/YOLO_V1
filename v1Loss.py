@@ -7,7 +7,7 @@ import torch.nn.functional as F
 from utils.utils import *
 
 class YOLOLossV1(nn.Module):
-    def __init__(self, _batch_size, _S, _B, _clsN, _l_coord=5., _l_noobj=0.5, with_mask=False, _device='cuda:0', _logger=None, _vis=None):
+    def __init__(self, _batch_size, _S, _B, _clsN, _l_coord=5., _l_noobj=0.5, _device='cuda:0', _logger=None, _vis=None):
         super(YOLOLossV1, self).__init__()
         self.S = _S
         self.B = _B
@@ -17,7 +17,6 @@ class YOLOLossV1(nn.Module):
         self.lambda_noobj = _l_noobj
         self.batch_size = _batch_size
         self.logger = _logger
-        self.mask_loss=nn.BCELoss(size_average=True).to(self.device) #(size_average=False, reduce=False)
         self.vis = _vis
 
     def forward(self, pred_tensor, target_tensor, pred_mask=None, target_mask=None):
@@ -105,16 +104,11 @@ class YOLOLossV1(nn.Module):
         # print(hit_obj_location_loss)
 
         total_loss = self.lambda_coord * hit_obj_location_loss + hit_obj_conf_loss + self.lambda_noobj * not_hit_obj_conf_loss + cls_loss 
-        mask_loss = torch.FloatTensor([0.]).to(self.device)
-        if pred_mask is not None:
-            mask_loss = self.mask_loss(F.sigmoid(pred_mask), target_mask)
-            # mask_loss = F.binary_cross_entropy(pred_mask, target_mask)
-            # mask_loss = nn.BCELoss(pred_mask, target_mask)
-            total_loss += mask_loss.sum()
+        
         total_loss /= self.batch_size
 
         if self.logger:
-            self.logger.info('location loss : %.5f contain loss : %.5f not contain loss: %.5f classify loss : %.5f, mask loss : %5f'%( hit_obj_location_loss.item() / self.batch_size, hit_obj_conf_loss.item() / self.batch_size, not_hit_obj_conf_loss.item() / self.batch_size, cls_loss.item() / self.batch_size, mask_loss.item() / self.batch_size) )
+            self.logger.info('location loss : %.5f contain loss : %.5f not contain loss: %.5f classify loss : %.5f'%( hit_obj_location_loss.item() / self.batch_size, hit_obj_conf_loss.item() / self.batch_size, not_hit_obj_conf_loss.item() / self.batch_size, cls_loss.item() / self.batch_size) )
         else:
             print('location loss : %.5f'% (hit_obj_location_loss / self.batch_size), 'contain loss : %.5f'% (hit_obj_conf_loss / self.batch_size), 'not contain loss: %.5f'%(not_hit_obj_conf_loss / self.batch_size), 'classify loss : %.5f'%(cls_loss / self.batch_size) )
         # print('total loss: ', total_loss)
@@ -123,8 +117,7 @@ class YOLOLossV1(nn.Module):
             self.vis.plot('confidence loss', hit_obj_conf_loss.item() / self.batch_size)
             self.vis.plot('no object loss', not_hit_obj_conf_loss.item() / self.batch_size)
             self.vis.plot('classify loss', cls_loss.item() / self.batch_size)
-            if pred_mask is not None:
-                self.vis.plot('mask loss', mask_loss.item() / self.batch_size)
+            
         # exit()
         return total_loss
 

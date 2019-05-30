@@ -14,7 +14,7 @@ ia.seed(random.randint(1, 10000))
 
 class yoloDataset(data.Dataset):
     image_size = 448
-    def __init__(self,list_file,train,transform, device, little_train=False, with_file_path=False, with_mask=False, S=7, B = 2, C = 20, test_mode=False):
+    def __init__(self,list_file,train,transform, device, little_train=False, with_file_path=False, S=7, B = 2, C = 20, test_mode=False):
         print('data init')
         
         self.train = train
@@ -23,7 +23,6 @@ class yoloDataset(data.Dataset):
         self.boxes = []
         self.labels = []
         self.resize = 448
-        self.with_mask = with_mask
         self.S = S
         self.B = B
         self.C = C
@@ -68,17 +67,17 @@ class yoloDataset(data.Dataset):
                     ], random_order=True)
                 ),
 
-                # iaa.Fliplr(.5),
-                # iaa.Flipud(.125),
-                # # augment changing bboxes 
-                # self.bbox_augsometimes(
-                #     iaa.Affine(
-                #         # translate_px={"x": 40, "y": 60},
-                #         scale={"x": (0.8, 1.2), "y": (0.8, 1.2)},
-                #         translate_percent={"x": (-0.1, 0.1), "y": (-0.1, 0.1)},
-                #         rotate=(-5, 5),
-                #     )
-                # )
+                iaa.Fliplr(.5),
+                iaa.Flipud(.125),
+                # augment changing bboxes 
+                self.bbox_augsometimes(
+                    iaa.Affine(
+                        # translate_px={"x": 40, "y": 60},
+                        scale={"x": (0.8, 1.2), "y": (0.8, 1.2)},
+                        translate_percent={"x": (-0.1, 0.1), "y": (-0.1, 0.1)},
+                        rotate=(-5, 5),
+                    )
+                )
             ],
             random_order=True
         )
@@ -110,33 +109,6 @@ class yoloDataset(data.Dataset):
                 bboxes.append([x, y, w, h])
         return torch.Tensor(bboxes), torch.LongTensor(labels)
     
-    def get_bit_mask(self, mask_img, cls_n=20):
-        '''
-            mask_img : cv2 numpy mat BGR
-            return [NxHxW] numpy
-        '''
-        b = mask_img
-        
-        h, w = b.shape
-        bit_mask = np.zeros((cls_n, h, w), np.uint8)
-        for i in range(cls_n):
-            bit_mask[i, :, :] = np.where(b==i, 1, 0)
-
-        return bit_mask
-    
-    def load_mask_label(self, file_path, resize=224):
-        """
-            Load label image as 1 x height x width integer array of label indices.
-            The leading singleton dimension is required by the loss.
-        """
-        im = Image.open(file_path.replace('JPEGImages', 'SegmentationClass').replace('jpg', 'png'))
-        im = im.resize((resize, resize))
-        label = np.array(im, dtype=np.uint8)
-        label = np.where(label==255, 0, label)
-        # label = label[np.newaxis, ...]
-        return torch.from_numpy(self.get_bit_mask(label)).float() #.to(self.device)# .byte()
-    
-
 
     
     def convertXYWH2XYXY(self, bboxes, im_size=(image_size, image_size)):
@@ -194,7 +166,6 @@ class yoloDataset(data.Dataset):
             print(fname)
         img = cv2.imread(fname)
         boxes, labels = self.get_boxes_labels(fname)
-        mask_label = self.load_mask_label(fname)
         
 
 
@@ -203,6 +174,8 @@ class yoloDataset(data.Dataset):
             # add data augument
             # print('before: ')
             # print(boxes)
+            origin_bboxes = boxes.clone()
+            origin_img = img.copy()
             boxes = self.convert2augbbox(cv2.resize(img, (self.resize, self.resize)), self.convertXYWH2XYXY(boxes))
             seq_det = self.augmentation.to_deterministic()
             img = seq_det.augment_images([img])[0]
@@ -212,7 +185,13 @@ class yoloDataset(data.Dataset):
             
             boxes = self.convertAugbbox2XYWH(boxes)
             boxes = torch.Tensor(boxes)
-            labels = labels[:boxes.size()[0]]
+
+            if len(origin_bboxes) != len(boxes):
+                boxes = origin_bboxes
+                img = origin_img
+                # print('fuck')
+
+            # labels = labels[:boxes.size()[0]]
             # print('after: ')
             # print(boxes)
 
@@ -227,13 +206,9 @@ class yoloDataset(data.Dataset):
         # print(fname)
         # print(type(img))
         if self.with_file_path:
-            if self.with_mask:
-                return img, target, mask_label, fname
+            
             return img, target, fname
-        if self.with_mask:
-            # print('ok')
-            # print('mask label, ', mask_label.shape, mask_label.dtype)
-            return img, target, mask_label
+        
         return img, target
         # return img.to(self.device), target.to(self.device)
 
@@ -290,18 +265,18 @@ if __name__ == "__main__":
         transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225]),
     ])
     S = 7
-    train_dataset = yoloDataset(list_file='datasets/2012_seg.txt',train=False,transform = transform, test_mode=True, with_mask=True, S=S, device='cuda:0')
+    train_dataset = yoloDataset(list_file='datasets/train.txt',train=True,transform = transform, test_mode=False, S=S, device='cuda:0')
     train_loader = DataLoader(train_dataset,batch_size=1,shuffle=False,num_workers=0)
     train_iter = iter(train_loader)
     # print(next(train_iter))
-    for i in range(200):
-        img, target, mask_label = next(train_iter)
+    for i in range(2000):
+        img, target = next(train_iter)
         # mask_img = mask_img.squeeze(0).cpu().numpy()
         # print('mask shape is :', mask_img.shape)
         # print(img.shape, target.shape)
         boxes, clss, confs = decoder(target, grid_num=S, gt=True)
         # print(boxes, clss, confs)
-        print('~'*50 + '\n\n\n')
+        # print('~'*50 + '\n\n\n')
 
         mean = torch.tensor([0.485, 0.456, 0.406], dtype=torch.float32)
         std = torch.tensor([0.229, 0.224, 0.225], dtype=torch.float32)
@@ -312,9 +287,7 @@ if __name__ == "__main__":
         cv2.imshow('img', img)
         # print(mask_label[0, 10:100, 10:100])
         
-        mask_img = mask_label_2_img(mask_label)
-        cv2.imshow('mask', mask_img)
-        if cv2.waitKey(12000)&0xFF == ord('q'):
+        if cv2.waitKey(1)&0xFF == ord('q'):
             break
 
     # for i in range(7):

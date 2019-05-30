@@ -21,7 +21,7 @@ from utils.visual import Visual
 
 parser = argparse.ArgumentParser(
     description='YOLO V1 Training params')
-parser.add_argument('--config', default='configs/resnet_sgd_7x7.json')
+parser.add_argument('--config', default='configs/resnet18_sgd_7x7.json')
 args = parser.parse_args()
 
 config_map = get_config_map(args.config)
@@ -46,7 +46,7 @@ logger = create_logger(config_map['base_save_path'], config_map['log_name'])
 my_vis = Visual(config_map['base_save_path'], log_to_file=config_map['vis_log_path'])
 
 # backbone_net_p.load_state_dict(torch.load('densenet_sgd_S7_yolo.pth'))
-lossLayer = YOLOLossV1(config_map['batch_size'], config_map['S'], config_map['B'], config_map['clsN'], config_map['lbd_coord'], config_map['lbd_no_obj'], with_mask=config_map['with_mask'], _logger=logger, _vis=my_vis)
+lossLayer = YOLOLossV1(config_map['batch_size'], config_map['S'], config_map['B'], config_map['clsN'], config_map['lbd_coord'], config_map['lbd_no_obj'], _logger=logger, _vis=my_vis)
 
 backbone_net_p.train()
 
@@ -56,9 +56,9 @@ transform = transforms.Compose([
         transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225]),
     ])
 
-train_dataset = yoloDataset(list_file=config_map['train_txt_path'], train=True, transform = transform, device=device, little_train=False, with_mask=True, S=config_map['S'])
+train_dataset = yoloDataset(list_file=config_map['train_txt_path'], train=True, transform = transform, device=device, little_train=False, S=config_map['S'])
 train_loader = DataLoader(train_dataset,batch_size=config_map['batch_size'], shuffle=True, num_workers=4)
-test_dataset = yoloDataset(list_file=config_map['test_txt_path'], train=False,transform = transform, device=device, little_train=False, with_file_path=True, with_mask=False, S=config_map['S'])
+test_dataset = yoloDataset(list_file=config_map['test_txt_path'], train=False,transform = transform, device=device, little_train=False, with_file_path=True, S=config_map['S'])
 test_loader = DataLoader(test_dataset,batch_size=config_map['batch_size'],shuffle=False)#, num_workers=4)
 data_len = int(len(test_dataset) / config_map['batch_size'])
 logger.info('the dataset has %d images' % (len(train_dataset)))
@@ -86,7 +86,7 @@ for epoch in range(config_map['resume_epoch'], config_map['epoch_num']):
     total_loss = 0.
     avg_loss = 0.
     
-    for i,(images, target, mask_label) in enumerate(train_loader):
+    for i,(images, target) in enumerate(train_loader):
         # print('mask label : ', mask_label.shape, mask_label.dtype)
         it_st_time = time.clock()
         train_iter += 1
@@ -97,15 +97,16 @@ for epoch in range(config_map['resume_epoch'], config_map['epoch_num']):
         my_vis.plot('now learning rate', learning_rate)
         images = images.to(device)
         target = target.to(device)
-        mask_label = mask_label.to(device)
 
-        pred, p_mask = backbone_net_p(images)
-        loss = lossLayer(pred, target, p_mask, mask_label)
+        pred = backbone_net_p(images)
+        loss = lossLayer(pred, target)
         total_loss += loss.data.item()
 
         if my_vis and i % config_map['show_img_iter_during_train'] == 0:
             backbone_net_p.eval()
-            img = un_normal_trans(images[0])
+            img = images[0].detach().clone()
+            # img = un_normal_trans(img)
+            img = unorm(img)
             bboxes, clss, confs = decoder(pred[0], grid_num=config_map['S'], device=device, thresh=0.15, nms_th=.45)
             bboxes = bboxes.clamp(min=0., max=1.)
             bboxes = bbox_un_norm(bboxes)
@@ -113,8 +114,6 @@ for epoch in range(config_map['resume_epoch'], config_map['epoch_num']):
             my_vis.img('detect bboxes show', img)
             img = draw_classify_confidence_map(img, pred[0], config_map['S'], Color)
             my_vis.img('confidence map show', img)
-            my_vis.img('mask gt', mask_label_2_img(mask_label[0].byte().cpu().numpy()))
-            my_vis.img('pred mask', pred_mask_label_2_img(p_mask[0]))
             backbone_net_p.train()
 
         optimizer.zero_grad()

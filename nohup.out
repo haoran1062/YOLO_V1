@@ -1,0 +1,24 @@
+/home/haoran/anaconda3/lib/python3.7/site-packages/visdom/server.py:30: DeprecationWarning: zmq.eventloop.ioloop is deprecated in pyzmq 17. pyzmq now works with default tornado and asyncio eventloops.
+  ioloop.install()  # Needs to happen before any tornado imports!
+Traceback (most recent call last):
+  File "/home/haoran/anaconda3/lib/python3.7/runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "/home/haoran/anaconda3/lib/python3.7/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/home/haoran/anaconda3/lib/python3.7/site-packages/visdom/server.py", line 1308, in <module>
+    download_scripts_and_run()
+  File "/home/haoran/anaconda3/lib/python3.7/site-packages/visdom/server.py", line 1304, in download_scripts_and_run
+    main()
+  File "/home/haoran/anaconda3/lib/python3.7/site-packages/visdom/server.py", line 1299, in main
+    print_func=print_func, user_credential=user_credential)
+  File "/home/haoran/anaconda3/lib/python3.7/site-packages/visdom/server.py", line 1219, in start_server
+    app.listen(port, max_buffer_size=1024 ** 3)
+  File "/home/haoran/anaconda3/lib/python3.7/site-packages/tornado/web.py", line 2042, in listen
+    server.listen(port, address)
+  File "/home/haoran/anaconda3/lib/python3.7/site-packages/tornado/tcpserver.py", line 143, in listen
+    sockets = bind_sockets(port, address=address)
+  File "/home/haoran/anaconda3/lib/python3.7/site-packages/tornado/netutil.py", line 168, in bind_sockets
+    sock.bind(sockaddr)
+OSError: [Errno 98] Address already in use
+Checking for scripts.
+It's Alive!

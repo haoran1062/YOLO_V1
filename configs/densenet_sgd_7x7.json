@@ -1,9 +1,9 @@
 {
-    "backbone": "densenet",
+    "backbone": "densenet121",
     "gpu_ids": [
         0
     ],
-    "base_save_path": "saved_models/densenet_sgd_7x7",
+    "base_save_path": "saved_models/densenet121_sgd_7x7",
     "log_name": "trainLog",
     "batch_size": 16,
     "epoch_num": 200,

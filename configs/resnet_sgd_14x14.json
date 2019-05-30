@@ -1,9 +1,9 @@
 {
-    "backbone": "resnet",
+    "backbone": "resnet50",
     "gpu_ids": [
         0
     ],
-    "base_save_path": "saved_models/resnet_sgd_14x14",
+    "base_save_path": "saved_models/resnet50_sgd_14x14",
     "log_name": "trainLog",
     "batch_size": 16,
     "epoch_num": 200,

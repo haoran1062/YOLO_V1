@@ -1,5 +1,5 @@
 {
-    "backbone": "densenet",
+    "backbone": "densenet121",
     "gpu_ids": [
         0
     ],
