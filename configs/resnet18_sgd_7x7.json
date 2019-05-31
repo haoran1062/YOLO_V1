@@ -1,29 +1,33 @@
 {
     "backbone": "resnet18",
     "gpu_ids": [
-        0
+        0, 1, 2, 3
     ],
     "base_save_path": "saved_models/resnet18_sgd_7x7",
     "vis_log_path": "saved_models/resnet18_sgd_7x7/vis_log.log",
     "log_name": "trainLog",
-    "batch_size": 96,
-    "epoch_num": 200,
+    "batch_size": 256,
+    "worker_num":8,
+    "epoch_num": 1500,
     "B": 2,
     "S": 7,
     "clsN": 20,
     "lbd_coord": 5,
-    "lbd_no_obj": 0.5,
+    "lbd_no_obj": 0.125,
+    "stop_down_iter":10,
+    "add_lr":0.0001,
     "lr_adjust_map": {
-        "6": 0.001,
-        "85": 0.0001,
-        "135": 0.00001
+        "5": 0.001,
+        "50": 0.001,
+        "185": 0.0001,
+        "235": 0.00001
     },
     "train_txt_path": "datasets/train.txt",
     "test_txt_path": "datasets/2007_test.txt",
-    "little_val_data_len": 750,
-    "show_img_iter_during_train":5,
+    "little_val_data_len": 100,
+    "show_img_iter_during_train":2,
     "show_img_iter_during_val":50,
     "run_full_test_mAP_thresh": 0.5,
-    "resume_from_path": "/data/projects/YOLO_V1/saved_models/resnet18_sgd_7x7/resnet18_S7_last.pth",
-    "resume_epoch": 5
+    "resume_from_path": null,
+    "resume_epoch": 0
 }

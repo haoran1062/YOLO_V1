@@ -577,7 +577,7 @@ def draw_debug_rect(img, bboxes, clss, confs, color=(0, 255, 0), show_time=10000
             bbox[2] = int(bbox[2] * w)
             bbox[3] = int(bbox[3] * h)
         return bboxes
-    print(len(bboxes))
+    # print(len(bboxes))
     if len(bboxes) < 1:
         return img
     if bboxes[0][2] < 1:
@@ -617,13 +617,13 @@ def create_logger(base_path, log_name):
 
     return logger
 
-def warmming_up_policy(now_iter, now_lr, stop_down_iter=1000):
+def warmming_up_policy(now_iter, now_lr, stop_down_iter=1000, add_lr=0.000001):
     if now_iter <= stop_down_iter:
-        now_lr += 0.000001
+        now_lr += add_lr
     return now_lr
 
-def learning_rate_policy(now_iter, now_epoch, now_lr, lr_adjust_map, stop_down_iter=1000):
-    now_lr = warmming_up_policy(now_iter, now_lr, stop_down_iter)
+def learning_rate_policy(now_iter, now_epoch, now_lr, lr_adjust_map, stop_down_iter=1000, add_lr=0.000001):
+    now_lr = warmming_up_policy(now_iter, now_lr, stop_down_iter, add_lr)
     if now_iter >= stop_down_iter and now_epoch in lr_adjust_map.keys():
         now_lr = lr_adjust_map[now_epoch]
 

@@ -57,7 +57,7 @@ transform = transforms.Compose([
     ])
 
 train_dataset = yoloDataset(list_file=config_map['train_txt_path'], train=True, transform = transform, device=device, little_train=False, S=config_map['S'])
-train_loader = DataLoader(train_dataset,batch_size=config_map['batch_size'], shuffle=True, num_workers=4)
+train_loader = DataLoader(train_dataset,batch_size=config_map['batch_size'], shuffle=True, num_workers=config_map['worker_num'])
 test_dataset = yoloDataset(list_file=config_map['test_txt_path'], train=False,transform = transform, device=device, little_train=False, with_file_path=True, S=config_map['S'])
 test_loader = DataLoader(test_dataset,batch_size=config_map['batch_size'],shuffle=False)#, num_workers=4)
 data_len = int(len(test_dataset) / config_map['batch_size'])
@@ -90,7 +90,7 @@ for epoch in range(config_map['resume_epoch'], config_map['epoch_num']):
         # print('mask label : ', mask_label.shape, mask_label.dtype)
         it_st_time = time.clock()
         train_iter += 1
-        learning_rate = learning_rate_policy(train_iter, epoch, learning_rate, config_map['lr_adjust_map'])
+        learning_rate = learning_rate_policy(train_iter, epoch, learning_rate, config_map['lr_adjust_map'], config_map['stop_down_iter'], config_map['add_lr'])
         for param_group in optimizer.param_groups:
             param_group['lr'] = learning_rate
 
